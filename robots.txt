@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+Allow: /archives/
+Allow: /tags/
+Allow: /about/
+Allow: /categories/
+Allow: /Bug/
+Allow: /Security/
+Allow: /deployment/
+Allow: /Security/
+
+Disallow: /vendors/
+Disallow: /images/
+Disallow: /lib/
+Disallow: /js/
+Disallow: /css/
+Disallow: /fonts/
+Disallow: /vendors/
+Disallow: /fancybox/
+
+Sitemap: https://www.diyz.bid/sitemap.xml
+Sitemap: https://www.diyz.bid/baidusitemap.xml

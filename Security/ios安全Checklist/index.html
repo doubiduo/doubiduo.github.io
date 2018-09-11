@@ -1,0 +1,319 @@
+<!DOCTYPE html><html class="theme-next pisces use-motion" lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#222"><script src="/lib/pace/pace.min.js?v=1.0.2"></script><link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet"><script></script><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css"><link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.ico?v=6.3.0"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.ico?v=6.3.0"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.ico?v=6.3.0"><link rel="mask-icon" href="/images/logo.ico?v=6.3.0" color="#222"><script type="text/javascript" id="hexo.configurations">var NexT=window.NexT||{},CONFIG={root:"/",scheme:"Pisces",version:"6.3.0",sidebar:{position:"left",display:"post",offset:12,b2t:!1,scrollpercent:!1,onmobile:!1},fancybox:!1,fastclick:!1,lazyload:!1,tabs:!0,motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},algolia:{applicationID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}}}</script><meta name="description" content="本文中列出了ios应用中需要关注的安全项目清单。"><meta name="keywords" content="ios安全,ios,douiduo,diyz.bid"><meta property="og:type" content="article"><meta property="og:title" content="ios安全Checklist"><meta property="og:url" content="https://www.diyz.bid/Security/ios安全Checklist/index.html"><meta property="og:site_name" content="doubiduo"><meta property="og:description" content="本文中列出了ios应用中需要关注的安全项目清单。"><meta property="og:locale" content="zh-CN"><meta property="og:updated_time" content="2018-08-23T09:38:43.192Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="ios安全Checklist"><meta name="twitter:description" content="本文中列出了ios应用中需要关注的安全项目清单。"><link rel="alternate" href="/atom.xml" title="doubiduo" type="application/atom+xml"><link rel="canonical" href="https://www.diyz.bid/Security/ios安全Checklist/"><script type="text/javascript" id="page.configurations">CONFIG.page={sidebar:""}</script><title>ios安全Checklist | doubiduo</title><script async src="https://www.googletagmanager.com/gtag/js?id=UA-124427626-1"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-124427626-1")</script><script type="text/javascript">var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?9c8b377e488072512752a147d13a537c";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><noscript><style type="text/css">.sidebar-inner,.use-motion .brand,.use-motion .collection-title,.use-motion .comments,.use-motion .menu-item,.use-motion .motion-element,.use-motion .pagination,.use-motion .post-block,.use-motion .post-body,.use-motion .post-header{opacity:initial}.use-motion .logo,.use-motion .site-subtitle,.use-motion .site-title{opacity:initial;top:initial}.logo-line-after i{right:initial}</style></noscript><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-2020224399094607",enable_page_level_ads:!0})</script></head><body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN"><div class="container sidebar-position-left page-post-detail"><div class="headband"></div><header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-wrapper"><div class="site-meta"><div class="custom-logo-site-title"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">doubiduo</span><span class="logo-line-after"><i></i></span></a></div><h1 class="site-subtitle" itemprop="description">diyz.bid</h1></div><div class="site-nav-toggle"> <button aria-label="切换导航栏"><span class="btn-bar"></span><span class="btn-bar"></span><span class="btn-bar"></span></button></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i><br>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i><br>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i><br>归档</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="menu-item-icon fa fa-fw fa-link"></i><br>友情链接</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user-circle"></i><br>关于</a></li><li class="menu-item menu-item-search"><a href="javascript:;" class="popup-trigger"><i class="menu-item-icon fa fa-search fa-fw"></i><br>搜索</a></li></ul><div class="site-search"><div class="popup search-popup local-search-popup"><div class="local-search-header clearfix"><span class="search-icon"><i class="fa fa-search"></i></span><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span><div class="local-search-input-wrapper"> <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input"></div></div><div id="local-search-result"></div></div></div></nav></div></header><main id="main" class="main"><div class="main-inner"><div class="content-wrap"><div id="content" class="content"><div id="posts" class="posts-expand"><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="https://www.diyz.bid/Security/ios安全Checklist/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content=""><meta itemprop="description" content=""><meta itemprop="image" content="/images/diyz.jpg"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="doubiduo"></span><header class="post-header"><h2 class="post-title" itemprop="name headline">ios安全Checklist</h2><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i></span> <span class="post-meta-item-text">发表于</span> <time title="创建时间：2018-08-23 17:10:57 / 修改时间：17:38:43" itemprop="dateCreated datePublished" datetime="2018-08-23T17:10:57+08:00">2018-08-23</time></span> <span class="post-category"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-folder-o"></i></span> <span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Security/" itemprop="url" rel="index"><span itemprop="name">Security</span></a></span></span> <span class="post-symbolscount"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-file-word-o"></i></span> <span class="post-meta-item-text">本文字数：</span> <span title="本文字数">2.7k</span></span> <span id="/Security/ios安全Checklist/" class="leancloud_visitors" data-flag-title="ios安全Checklist"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-eye"></i></span> <span class="post-meta-item-text">阅读次数：</span><span class="leancloud-visitors-count"></span></span><div class="post-description">本文中列出了ios应用中需要关注的安全项目清单。</div></div></header><div class="post-body" itemprop="articleBody"><ul><li><p>项目</p><ul><li>评级 内部评级 扫描器可否检测</li><li>检测方法</li><li>危害</li><li>备注</li></ul></li><li><p>不安全的存储</p><ul><li>中 具体分析 调研</li><li>静态分析应用程序逻辑，以及在设备上安装程序检查其数据和权限，判断应用是否合理使用沙盒和 KeyChain 保护私有数据和身份凭据。</li><li>攻击者可通过企业证书诱骗安装恶意应用，对未妥善使用沙箱保护的数据进行获取，实现进一步控制用户账户等目的。</li></ul></li><li><p>不安全的服务端 SSL 部署</p><ul><li>高 具体分析 yes</li><li>分析通信 API 服务端，检查是否启用加密连接、是否使用过时的加密套件、是否存在已知的加密套件漏洞、密钥强度是否达到要求。</li><li>不安全的服务端 SSL 部署将导致加密强度达不到要求，或受到已知攻击方式的威胁，从而让攻击者破解密钥，实现中间人攻击。</li></ul></li><li><p>不正确的证书校验</p><ul><li>高 中 调研</li><li>静态分析程序是否正确地使用了 SSL 证书校验，是否验证了证书的域名、发行者、有效期。</li><li>客户端不正确的证书校验可导致被中间人攻击。</li></ul></li><li><p>未使用 SSL Pinning</p><ul><li>高 低 调研</li><li>静态分析程序是否采用了 SSL Pinning。</li><li>攻击者可以在网页中提供根证书下载，诱导受害者安装信任，从而让 App 即使使用了正确的证书校验 Api 流程后依然可以被攻击者完全解密流量，实现中间人攻击。</li><li>iOS 上的证书安装比 Android 简单很多</li></ul></li><li><p>不安全的 ATS 配置</p><ul><li>高 低 yes</li><li>静态分析程序是否允许任意内容使用非 SSL 载入。</li><li>开启 NSAllowsArbitraryLoads 允许任意内容通过明文传送，可能导致中间人攻击；此外 AppStore 将加强对此选项的限制，可能导致上架困难。</li></ul></li><li><p>密码学实现问题</p><ul><li>中 具体分析 调研</li><li>静态分析应用程序逻辑和动态跟踪结合，逆向密码学相关函数调用，检查是否存在错误的密码学实现，如硬编码的对称加密密钥或强度不足的单向散列函数。</li><li>错误的密码学功能实现将导致加密强度显著降低，结合其他问题进一步攻击应用程序。</li></ul></li><li><p>不安全的用户认证</p><ul><li>高 具体分析 no</li><li>静态分析应用程序逻辑和动态跟踪结合，逆向用户认证过程，检查是否存在逻辑和实现漏洞。</li><li>不安全的用户认证可能导致用户身份被冒用、撞库攻击等，危害帐号安全。</li></ul></li><li><p>客户端 SQL 注入</p><ul><li>具体分析 具体分析 调研</li><li>按照可显注入、报错注入、盲注的方式检测，通过添加 ’, ”, +, and, or, xor 等闭合符号，逻辑字符判断 SQL 注入漏洞是否存在。</li><li>攻击者利用本地 SQL 注入漏洞，可能导致获取数据库中的敏感信息，实现进一步控制用户账户的等目的。</li></ul></li><li><p>内网 IP 泄漏</p><ul><li>低 低 yes</li><li>静态分析应用程序的代码中是否包含了硬编码的服务端私有地址。</li><li>攻击者可使用得到的地址，结合其他服务端应用对内网发起 SSRF 等类型的攻击。</li></ul></li><li><p>客户端路径穿越</p><ul><li>高 具体分析 调研</li><li>静态分析应用程序逻辑，以及动态跟踪程序执行。</li><li>攻击者可使用路径穿越问题访问应用的私有数据。</li></ul></li><li><p>未启用地址随机化</p><ul><li>高 低 yes</li><li>静态分析应用可执行文件，检查是否启用 PIE 保护。</li><li>未开启 PIE 的应用将降低内存破坏类漏洞的利用难度。</li></ul></li><li><p>未启用栈 cookie</p><ul><li>高 低 yes</li><li>静态分析应用可执行文件，检查标志位是否启用 Stack Canary 保护。</li><li>未开启 Stack Canary 的应用将更容易受到栈溢出漏洞的攻击。</li></ul></li><li><p>未启用 ARC</p><ul><li>高 低 yes</li><li>静态分析应用可执行文件，检查是否启用 Automatic Reference Counting 管理对象。</li><li>ARC 是 Objective C 中对象内存管理的机制，开启后可以减少手动管理内存而导致的对象引用问题。</li></ul></li><li><p>URL Scheme 滥用</p><ul><li>具体分析 具体分析 no</li><li>静态分析 URL Scheme 处理历程和动态模糊测试，判断程序在处理 URL Scheme 时是否存在可以被攻击的流程。</li><li>攻击者可以使用网页等方式唤起应用，执行特定的流程触发漏洞。</li></ul></li><li><p>第三方代码问题</p><ul><li>具体分析 具体分析 调研</li><li>检测第三方 SDK 和程序引用及其版本，检查是否存在已知安全漏洞、后门甚至恶意代码（如 XCodeGhost）。</li><li>程序通过 SDK 等方式引入的第三方代码，如包含后门、漏洞等，将直接影响到应用本身的安全，且难以自行修复。</li><li>基于 cocoapods 的第三方代码检测？</li></ul></li><li><p>敏感内容输出到日志</p><ul><li>具体分析 低 调研</li><li>使用静态分析和动态运行相结合，检查应用是否将敏感信息输出到日志中。</li><li>攻击者可读取系统日志跨应用获取信息。 hook 很容易实现，问题是如何判断信息敏感？</li></ul></li><li><p>未启用键盘记录保护</p><ul><li>中 低 调研</li><li>静态分析应用可执行文件，结合动态跟踪，根据应用安全性要求判断是否需要对特定输入控件添加自定义软键盘。</li><li>系统键盘可能导致第三方应用读取键盘缓存获取用户名，或使用屏幕录制截取用户输入。</li><li>基于 hook 实现？</li></ul></li><li><p>敏感应用未进行越狱检测</p><ul><li>低 低 调研</li><li>静态分析应用逻辑结合越狱设备实机安装，判断应用是否根据自身需求对越狱环境进行检测，以及告知用户潜在的风险。</li><li>在越狱设备上将极大增加 App 的攻击面，恶意软件可以使用非公开 API、Hook 等技术绕过应用沙盒，获取用户 token、登录凭据等敏感信息。</li><li>静态查询是否包含符号、特殊字符串</li></ul></li><li><p>访问控制不当</p><ul><li>低 具体分析 yes</li><li>静态分析应用可执行文件，结合动态跟踪，分析应用访问控制模型是否符合安全性要求。</li><li>错误的访问控制策略可能导致用户敏感信息遭到泄露。</li></ul></li><li><p>逻辑缺陷</p><ul><li>具体分析 具体分析 no</li><li>静态分析应用可执行文件，结合动态跟踪，分析应用是否存在可以被攻击利用的逻辑错误。</li><li>逻辑错误将导致应用出现非设计预期的行为。</li></ul></li><li><p>未对系统截图做保护</p><ul><li>低 低 no</li><li>检查应用进入后台是否会保存屏幕截图。 当程序进入后台的截屏包含敏感信息可能导致隐私泄露。</li></ul></li><li><p>敏感数据明文传输</p><ul><li>高 中 no</li><li>检查应用与服务器通信数据包中敏感信息是否加密。</li><li>当用户遭受中间人攻击时，如果敏感信息明文传输将导致信息泄露。</li></ul></li><li><p>敏感数据允许使用剪贴板</p><ul><li>中 低 no</li><li>检查应用敏感数据是否可复制。</li><li>iOS系统剪贴板可以被任意应用访问，如果允许用户复制敏感数据则存在信息泄露风险。</li></ul></li><li><p>错误页面泄露敏感信息</p><ul><li>具体分析 低 no</li><li>检查应用异常状态下，错误信息是否包含敏感数据。</li><li>错误页面中不必要的输出可能导致信息泄露，或者为攻击者提供额外信息。</li></ul></li></ul></div><div></div><div><div><div style="text-align:center;color:#555;font-size:14px">-------------End-------------</div></div></div><div><div style="padding:10px 0;margin:20px auto;width:90%;text-align:center"><div>Thank you very much for your donation.</div> <button id="rewardButton" disable="enable" onclick='var qr=document.getElementById("QR");"none"===qr.style.display?qr.style.display="block":qr.style.display="none"'> <span>打赏</span></button><div id="QR" style="display:none"><div id="wechat" style="display:inline-block"> <img id="wechat_qr" src="/images/wechatpay.png" alt=" 微信支付"><p>微信支付</p></div><div id="alipay" style="display:inline-block"> <img id="alipay_qr" src="/images/alipay.png" alt=" 支付宝"><p>支付宝</p></div><div id="bitcoin" style="display:inline-block"> <img id="bitcoin_qr" src="/images/bitcoin.png" alt=" 比特币"><p>比特币</p></div></div></div></div><footer class="post-footer"><div class="post-tags"><a href="/tags/安全文档/" rel="tag"><i class="fa fa-tag"></i> 安全文档</a><a href="/tags/SDL/" rel="tag"><i class="fa fa-tag"></i> SDL</a><a href="/tags/Checklist/" rel="tag"><i class="fa fa-tag"></i> Checklist</a><a href="/tags/ios/" rel="tag"><i class="fa fa-tag"></i> ios</a></div><div class="post-nav"><div class="post-nav-next post-nav-item"><a href="/Security/Android安全Checklist/" rel="next" title="Android安全Checklist"><i class="fa fa-chevron-left"></i> Android安全Checklist</a></div><span class="post-nav-divider"></span><div class="post-nav-prev post-nav-item"> <a href="/Security/安全设计Checklist/" rel="prev" title="安全设计Checklist">安全设计Checklist<i class="fa fa-chevron-right"></i></a></div></div></footer></div></article></div></div><div class="comments" id="comments"><div id="lv-container" data-id="city" data-uid="MTAyMC8zODM5Mi8xNDkyMA=="></div></div></div><div class="sidebar-toggle"><div class="sidebar-toggle-line-wrap"><span class="sidebar-toggle-line sidebar-toggle-line-first"></span><span class="sidebar-toggle-line sidebar-toggle-line-middle"></span><span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id="sidebar" class="sidebar"><div class="sidebar-inner"><section class="site-overview-wrap sidebar-panel sidebar-panel-active"><div class="site-overview"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"> <img class="site-author-image" itemprop="image" src="/images/diyz.jpg" alt=""><p class="site-author-name" itemprop="name"></p><p class="site-description motion-element" itemprop="description"></p></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"> <a href="/archives/"><span class="site-state-item-count">19</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"> <a href="/categories/index.html"><span class="site-state-item-count">5</span> <span class="site-state-item-name">分类</span></a></div><div class="site-state-item site-state-tags"> <a href="/tags/index.html"><span class="site-state-item-count">16</span> <span class="site-state-item-name">标签</span></a></div></nav><div class="links-of-author motion-element"><span class="links-of-author-item"><a rel="external nofollow" href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=1321425651" target="_blank" title="QQ" rel="external nofollow"><i class="fa fa-fw fa-qq"></i> QQ</a></span><span class="links-of-author-item"><a rel="external nofollow" href="mailto:1321425651@qq.com" target="_blank" title="E-Mail" rel="external nofollow"><i class="fa fa-fw fa-envelope"></i> E-Mail</a></span><span class="links-of-author-item"><a rel="external nofollow" href="https://github.com/doubiduo" target="_blank" title="GitHub" rel="external nofollow"><i class="fa fa-fw fa-github"></i> GitHub</a></span><span class="links-of-author-item"><a rel="external nofollow" href="https://steamcommunity.com/id/doubiduo" target="_blank" title="Steam" rel="external nofollow"><i class="fa fa-fw fa-steam"></i> Steam</a></span><span class="links-of-author-item"><a rel="external nofollow" href="https://www.diyz.bid/atom.xml" target="_blank" title="RSS" rel="external nofollow"><i class="fa fa-fw fa-rss"></i> RSS</a></span></div></div></section></div></aside></div></main><footer id="footer" class="footer"><div class="footer-inner"><div class="copyright">&copy; <span itemprop="copyrightYear">2018</span><span class="with-love" id="animate"><i class="fa fa-user"></i></span> <span class="author" itemprop="copyrightHolder">doubiduo</span></div><div class="powered-by">由 <a rel="external nofollow" class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动</div><div class="theme-info"><div class="powered-by"></div> <span class="post-count">全站共98.3k字</span></div></div></footer><div class="back-to-top"><i class="fa fa-arrow-up"></i></div></div><script type="text/javascript">"[object Function]"!==Object.prototype.toString.call(window.Promise)&&(window.Promise=null)</script><script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script><script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script><script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script><script type="text/javascript">!function(e,t){var n,c=e.getElementsByTagName(t)[0];"function"!=typeof LivereTower&&((n=e.createElement(t)).src="https://cdn-city.livere.com/js/embed.dist.js",n.async=!0,c.parentNode.insertBefore(n,c))}(document,"script")</script><script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script><script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script><script>AV.initialize("auf5TIy4OQOv6c52DIqTOgHd-gzGzoHsz","tBf3kX7KmYaId0Nh4PlLx3XQ")</script><script>function showTime(e){var t=new AV.Query(e),c=[],u=$(".leancloud_visitors");u.each(function(){c.push($(this).attr("id").trim())}),t.containedIn("url",c),t.find().done(function(e){var t=".leancloud-visitors-count";if(0!==e.length){for(var n=0;n<e.length;n++){var o=e[n],i=o.get("url"),s=o.get("time"),r=document.getElementById(i);$(r).find(t).text(s)}for(n=0;n<c.length;n++){i=c[n],r=document.getElementById(i);var l=$(r).find(t);""==l.text()&&l.text(0)}}else u.find(t).text(0)}).fail(function(e,t){console.log("Error: "+t.code+" "+t.message)})}function addCount(i){var e=$(".leancloud_visitors"),s=e.attr("id").trim(),r=e.attr("data-flag-title").trim(),t=new AV.Query(i);t.equalTo("url",s),t.find({success:function(e){if(0<e.length){var t=e[0];t.fetchWhenSave(!0),t.increment("time"),t.save(null,{success:function(e){$(document.getElementById(s)).find(".leancloud-visitors-count").text(e.get("time"))},error:function(e,t){console.log("Failed to save Visitor num, with error message: "+t.message)}})}else{var n=new i,o=new AV.ACL;o.setPublicReadAccess(!0),o.setPublicWriteAccess(!0),n.setACL(o),n.set("title",r),n.set("url",s),n.set("time",1),n.save(null,{success:function(e){$(document.getElementById(s)).find(".leancloud-visitors-count").text(e.get("time"))},error:function(e,t){console.log("Failed to create")}})}},error:function(e){console.log("Error:"+e.code+" "+e.message)}})}$(function(){var e=AV.Object.extend("Counter");1==$(".leancloud_visitors").length?addCount(e):1<$(".post-title-link").length&&showTime(e)})</script><script>!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script></body></html>
