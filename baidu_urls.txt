@@ -1,6 +1,6 @@
 https://www.diyz.bid/notes/cissp学习笔记（4）——法律、法规和合规性/
-https://www.diyz.bid/notes/cissp学习笔记（2）——人员安全和风险管理概念/
 https://www.diyz.bid/notes/cissp学习笔记（3）——业务连续性计划/
+https://www.diyz.bid/notes/cissp学习笔记（2）——人员安全和风险管理概念/
 https://www.diyz.bid/notes/cissp学习笔记（1）——通过原则和策略的安全治理/
 https://www.diyz.bid/Security/Microsoft可执行文件是怎么成为Microsoft可执行文件的/
 https://www.diyz.bid/Security/2018安全意识TOP-10/
