@@ -1,0 +1,319 @@
+<!DOCTYPE html><html class="theme-next pisces use-motion" lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#222"><script src="/lib/pace/pace.min.js?v=1.0.2"></script><link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet"><script></script><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css"><link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.ico?v=6.3.0"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.ico?v=6.3.0"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.ico?v=6.3.0"><link rel="mask-icon" href="/images/logo.ico?v=6.3.0" color="#222"><script type="text/javascript" id="hexo.configurations">var NexT=window.NexT||{},CONFIG={root:"/",scheme:"Pisces",version:"6.3.0",sidebar:{position:"left",display:"post",offset:12,b2t:!1,scrollpercent:!1,onmobile:!1},fancybox:!1,fastclick:!1,lazyload:!1,tabs:!0,motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},algolia:{applicationID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}}}</script><meta name="description" content="本文为cissp中保护资产的安全章节的学习笔记"><meta name="keywords" content="学习笔记,cissp,douiduo,diyz.bid"><meta property="og:type" content="article"><meta property="og:title" content="cissp学习笔记（5）——保护资产的安全"><meta property="og:url" content="https://www.diyz.bid/notes/cissp学习笔记（5）——保护资产的安全/index.html"><meta property="og:site_name" content="doubiduo"><meta property="og:description" content="本文为cissp中保护资产的安全章节的学习笔记"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://www.diyz.bid/notes/cissp学习笔记（5）——保护资产的安全/数据分类.png"><meta property="og:updated_time" content="2018-09-13T03:30:36.895Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="cissp学习笔记（5）——保护资产的安全"><meta name="twitter:description" content="本文为cissp中保护资产的安全章节的学习笔记"><meta name="twitter:image" content="https://www.diyz.bid/notes/cissp学习笔记（5）——保护资产的安全/数据分类.png"><link rel="alternate" href="/atom.xml" title="doubiduo" type="application/atom+xml"><link rel="canonical" href="https://www.diyz.bid/notes/cissp学习笔记（5）——保护资产的安全/"><script type="text/javascript" id="page.configurations">CONFIG.page={sidebar:""}</script><title>cissp学习笔记（5）——保护资产的安全 | doubiduo</title><script async src="https://www.googletagmanager.com/gtag/js?id=UA-124427626-1"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-124427626-1")</script><script type="text/javascript">var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?9c8b377e488072512752a147d13a537c";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><noscript><style type="text/css">.sidebar-inner,.use-motion .brand,.use-motion .collection-title,.use-motion .comments,.use-motion .menu-item,.use-motion .motion-element,.use-motion .pagination,.use-motion .post-block,.use-motion .post-body,.use-motion .post-header{opacity:initial}.use-motion .logo,.use-motion .site-subtitle,.use-motion .site-title{opacity:initial;top:initial}.logo-line-after i{right:initial}</style></noscript><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-2020224399094607",enable_page_level_ads:!0})</script></head><body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN"><div class="container sidebar-position-left page-post-detail"><div class="headband"></div><header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-wrapper"><div class="site-meta"><div class="custom-logo-site-title"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">doubiduo</span><span class="logo-line-after"><i></i></span></a></div><h1 class="site-subtitle" itemprop="description">diyz.bid</h1></div><div class="site-nav-toggle"> <button aria-label="切换导航栏"><span class="btn-bar"></span><span class="btn-bar"></span><span class="btn-bar"></span></button></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i><br>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i><br>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i><br>归档</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="menu-item-icon fa fa-fw fa-link"></i><br>友情链接</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user-circle"></i><br>关于</a></li><li class="menu-item menu-item-search"><a href="javascript:;" class="popup-trigger"><i class="menu-item-icon fa fa-search fa-fw"></i><br>搜索</a></li></ul><div class="site-search"><div class="popup search-popup local-search-popup"><div class="local-search-header clearfix"><span class="search-icon"><i class="fa fa-search"></i></span><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span><div class="local-search-input-wrapper"> <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input"></div></div><div id="local-search-result"></div></div></div></nav></div></header><main id="main" class="main"><div class="main-inner"><div class="content-wrap"><div id="content" class="content"><div id="posts" class="posts-expand"><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="https://www.diyz.bid/notes/cissp学习笔记（5）——保护资产的安全/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content=""><meta itemprop="description" content=""><meta itemprop="image" content="/images/diyz.jpg"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="doubiduo"></span><header class="post-header"><h2 class="post-title" itemprop="name headline">cissp学习笔记（5）——保护资产的安全</h2><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i></span> <span class="post-meta-item-text">发表于</span> <time title="创建时间：2018-09-12 14:22:48" itemprop="dateCreated datePublished" datetime="2018-09-12T14:22:48+08:00">2018-09-12</time> <span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-calendar-check-o"></i></span> <span class="post-meta-item-text">更新于</span> <time title="修改时间：2018-09-13 11:30:36" itemprop="dateModified" datetime="2018-09-13T11:30:36+08:00">2018-09-13</time></span> <span class="post-category"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-folder-o"></i></span> <span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/notes/" itemprop="url" rel="index"><span itemprop="name">notes</span></a></span></span> <span class="post-symbolscount"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-file-word-o"></i></span> <span class="post-meta-item-text">本文字数：</span> <span title="本文字数">6.1k</span></span> <span id="/notes/cissp学习笔记（5）——保护资产的安全/" class="leancloud_visitors" data-flag-title="cissp学习笔记（5）——保护资产的安全"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-eye"></i></span> <span class="post-meta-item-text">阅读次数：</span><span class="leancloud-visitors-count"></span></span><div class="post-description">本文为cissp中保护资产的安全章节的学习笔记</div></div></header><div class="post-body" itemprop="articleBody"><p>在本章的考试大纲内容有:</p><ul><li>A. 人对信息及支持资产进行分类(如敏感性、关键性)</li><li>B. 确定及维护所有权(如数据所有者、系统所有者、业务/任务所有者)</li><li>C. 保护隐私<ul><li>C.l 数据所有者</li><li>C.2 数据处理者</li><li>C.3 数据剩磁</li><li>C.4 收集限制</li></ul></li><li>D. 确保适当地保留资产(如介质、硬件、人员)</li><li>E. 确定数据安全控制(如静态数据、传输过程中的数据)<ul><li>E.l 基准线</li><li>E.2 审视和定制</li><li>E.3 标准选择</li><li>E.4 密码学</li></ul></li><li>F. 建立处理需求(敏感信息的标记、贴签、存储、破坏)</li></ul><h3 id="5-1-对资产进行分类和标记"><a href="#5-1-对资产进行分类和标记" class="headerlink" title="5.1 对资产进行分类和标记"></a>5.1 对资产进行分类和标记</h3><h4 id="5-1-1-定义敏感数据"><a href="#5-1-1-定义敏感数据" class="headerlink" title="5.1.1 定义敏感数据"></a>5.1.1 定义敏感数据</h4><p>　　敏感数据指所有不公开或未分类的信息， 可能包括组织需要保护的机密、专有信息， 或因数据对组织的价值或组织为遵守现行法律、法规而保护的任何其他类型的数据。</p><ul><li><strong>个人身份信息</strong> 个人身份信息(PII)是指任何可以识别个人的信息。</li><li><strong>受保护的健康信息</strong> 受保护的健康信息(PHI)是任何与个人健康有关的信息。</li><li><strong>专有数据</strong> 专有数据指的是任何帮助组织保持竞争优势的数据。可以是开发的软件代码、产品的技术计划、内部流程、知识产权或商业秘密。</li></ul><h4 id="5-1-2-定义分类"><a href="#5-1-2-定义分类" class="headerlink" title="5.1.2 定义分类"></a>5.1.2 定义分类</h4><p>　　组织通常会在安全策略或在单独的数据策略中包括数据分类。数据分类识别的是数据对于组织的价值， 并对数据的机密性和完整性保护至关重要。策略确定了组织内使用的分类标签， 还确定了数据所有者如何确定合适的分类以及人员应如何根据分类保护数据。<br><img src="/notes/cissp学习笔记（5）——保护资产的安全/数据分类.png"></p><h4 id="5-1-3-定义数据安全要求"><a href="#5-1-3-定义数据安全要求" class="headerlink" title="5.1.3 定义数据安全要求"></a>5.1.3 定义数据安全要求</h4><p>　　组织至少应该对比较敏感的邮件进行标记和加密。加密是将明文转换为密文， 从而增加阅读的难度。采用强大的加密方法， 例如， 拥有256位加密密钥的高级加密标准(AES 256)， 使未被授权者能够阅读加密文章的可能性几乎为零。</p><h4 id="5-1-4-理解数据状态"><a href="#5-1-4-理解数据状态" class="headerlink" title="5.1.4 理解数据状态"></a>5.1.4 理解数据状态</h4><p>　　在数据静止、传输以及使用过程中， 保护数据的安全性是非常重要的。保护数据机密性的最好方法是使用强大的加密协议。此外，强大的身份验证和授权控制能有效阻止未经授权的访问。</p><h4 id="5-1-5-管理敏感数据"><a href="#5-1-5-管理敏感数据" class="headerlink" title="5.1.5 管理敏感数据"></a>5.1.5 管理敏感数据</h4><p>　　管理敏感数据的一个主要目标是防止数据泄露。数据泄露会使任何一个未被授权的实体查看或访问敏感数据。</p><h5 id="1-标记敏感数据"><a href="#1-标记敏感数据" class="headerlink" title="1. 标记敏感数据"></a>1. 标记敏感数据</h5><p>　　对敏感数据进行标记(通常称为贴签)能确保用户可以轻松识别任何数据的分类级别。标记或标签提供的最重要信息就是关于数据的分类。标记包括物理的和电子的标记和标签。物理标签能指出存储在介质或处理系统上的数据的安全性分类。</p><h5 id="2-管理敏感数据"><a href="#2-管理敏感数据" class="headerlink" title="2. 管理敏感数据"></a>2. 管理敏感数据</h5><p>　　管理敏感数据是指在介质的整个生命周期内确保传送过程的安全。人们依据数据的价值和分类对其进行不同的管理，高级机密信息需要更强大的保护。</p><h5 id="3-存储敏感数据"><a href="#3-存储敏感数据" class="headerlink" title="3. 存储敏感数据"></a>3. 存储敏感数据</h5><p>　　敏感数据应存储在受保护且没有任何损失的介质中。最有效的保护办法就是加密。此外， 也应该采取环境控制来保护介质的数据安全。这些做法包括温度和湿度控制等。这里有一点终端用户经常忘记: 任何敏感数据的价值都大于存储介质的价值。</p><h5 id="4-销毁敏感数据"><a href="#4-销毁敏感数据" class="headerlink" title="4. 销毁敏感数据"></a>4. 销毁敏感数据</h5><p>　　适当的破坏可以确保敏感数据不会落入投机者的手中， 从而防止未经授权的数据泄露。</p><ul><li><strong>擦除</strong> 擦除介质上的数据就是对文件、文件的选择或整个介质执行删除操作。</li><li><strong>消除</strong> 消除或重写是使介质可以重新使用的一个准备过程， 这个过程可以确保消除的数据不会通过传统的工具恢复。</li><li><strong>清除</strong> 清除是比消除更强烈的一种形式， 是指在安全性较差的环境中使介质达到可再次使用的准备过程， 确保原始数据使用任何己知方法都不会恢复。</li><li><strong>解除分类</strong> 解除分类是指在非机密情况下对介质或系统进行清除， 以使其能够再次使用的准备过程。</li><li><strong>净化</strong> 净化是指从系统或介质中删除数据， 确保数据不会以任何形式恢复。</li><li><strong>消磁</strong> 消磁工具会建立一个强大的磁场区域， 从而以消磁的方法擦除介质上的数据。</li><li><strong>销毁</strong> 销毁是介质生命周期的最后阶段， 也是清除介质数据的最安全方法。</li></ul><h5 id="5-保留资产"><a href="#5-保留资产" class="headerlink" title="5. 保留资产"></a>5. 保留资产</h5><p>　　保留要求适用于数据或记录、含有敏感数据的介质和系统， 以及接触敏感数据的人员。记录保留和介质保留是资产保留的最重要元素。记录保留指的是， 在需要信息时保留和维护重要的信息， 在不需要时破坏信息。</p><h4 id="5-1-6-应用密码学保护机密文件"><a href="#5-1-6-应用密码学保护机密文件" class="headerlink" title="5.1.6 应用密码学保护机密文件"></a>5.1.6 应用密码学保护机密文件</h4><h5 id="1-应用对称加密保护数据"><a href="#1-应用对称加密保护数据" class="headerlink" title="1. 应用对称加密保护数据"></a>1. 应用对称加密保护数据</h5><p>　　对称加密在加密和解密数据一时应用同样的密钥。</p><ul><li><strong>高级加密标准算法</strong> 高级加密标准算法(AES)是众多算法中最受欢迎的对称加密算法。2001年，美国国家标准技术研究所将它选为标准算法， 用以替代旧的数据加密标准算法(DES)。高级加密标准支持的密钥长度为128位、192位和256位。</li><li><strong>三重数据加密标准算法</strong> 开发者开发了三重数据加密标准算法(3DES)， 用以替代数据加密标准算法(DES)。初始实现使用56位密钥， 但是新的算法实现了使用112位或168位密钥。</li><li><strong>Blowfish</strong> Blowfish可用的密钥长度为32位至448位， 是一个强大的加密协议。Linux 系统使用bcrypt来加密密码， 而bcrypt 这款跨平台文件加密工具就是基于Blowfish。bcrypt添加了额外的128位密钥作为salt值来阻止彩虹表攻击(rainbow table attack) 。</li></ul><h5 id="2-应用传输加密保护数据"><a href="#2-应用传输加密保护数据" class="headerlink" title="2. 应用传输加密保护数据"></a>2. 应用传输加密保护数据</h5><p>　　传输加密算法在传播之前加密数据， 对传输过程中的数据进行保护。通过网络发送未加密数据的最主要风险就是嗅探攻击。攻击者可以使用嗅探器或协议分析器在网络上捕捉流量。嗅探器允许攻击者读取所有以明文发送的数据。</p><h3 id="5-2-定义数据角色"><a href="#5-2-定义数据角色" class="headerlink" title="5.2 定义数据角色"></a>5.2 定义数据角色</h3><h4 id="5-2-1-数据所有者"><a href="#5-2-1-数据所有者" class="headerlink" title="5.2.1 数据所有者"></a>5.2.1 数据所有者</h4><p>　　数据所有者是数据的最终责任人。NIST SP 800-18 概括了信息所有者的以下责任， 也可以理解为同样是数据所有者的责任:</p><ul><li>制定规则， 以便用于主体的数据或信息的适当使用及保护(行为规则)。</li><li>为信息系统所有者提供输入， 要考虑到信息所在地的信息系统的安全要求和安全控制。</li><li>决定谁有权访问信息系统， 拥有何种特权或准入权。</li><li>协助对信息所在地的普通安全控制进行定义和评估。</li></ul><h4 id="5-2-2-系统所有者"><a href="#5-2-2-系统所有者" class="headerlink" title="5.2.2 系统所有者"></a>5.2.2 系统所有者</h4><p>　　系统所有者是拥有含机密数据的系统的人。NIST SP 800-18 概括了系统所有者的以下责任:</p><ul><li>开发和信息所有者、系统管理者、功能终端使用者相一致的系统安全计划。</li><li>维持系统安全计划井确保系统依照己经同意的安全要求进行部署和运行。</li><li>确保系统使用者和支持人员受到适当的安全培训， 如行为规则说明(或是AUP) 。</li><li>当发生重大变化时， 更新系统安全计划。</li><li>协助定义、执行和评估通用安全控制。</li></ul><h4 id="5-2-3-业务-任务所有者"><a href="#5-2-3-业务-任务所有者" class="headerlink" title="5.2.3 业务/任务所有者"></a>5.2.3 业务/任务所有者</h4><p>　　NIST SP 800-18 指的是业务/任务所有者作为项目经理或信息系统所有者。同样， 业务/任务所有者的责任可以和系统所有者的责任有重叠或相同。业务所有者拥有的程序可能是由其他实体管理的系统。</p><h4 id="5-2-4-数据处理者"><a href="#5-2-4-数据处理者" class="headerlink" title="5.2.4 数据处理者"></a>5.2.4 数据处理者</h4><p>　　欧盟数据保护法将数据处理者定义为”一个自然人或法人， 他拥有个人资料，仅代表数据控制者的利益”。在该条文中， 数据控制者是一个控制数据过程的人或实体。</p><h4 id="5-2-5-管理员"><a href="#5-2-5-管理员" class="headerlink" title="5.2.5 管理员"></a>5.2.5 管理员</h4><p>　　数据管理员负责将数据以合适的方式授予人员。他们不-定必须拥有全部管理者权限和特权，但是他们可以分配权限。管理员分配权限时需要基于最低权限准则和须知， 只有在工作有需要时才会授予使用者。管理员通常会使用基于角色的访问控制模型来分配权限。</p><h4 id="5-2-6-保管者"><a href="#5-2-6-保管者" class="headerlink" title="5.2.6 保管者"></a>5.2.6 保管者</h4><p>　　数据所有者经常将每天的任务委任给保管者。通过以适当方式保存和保护数据， 保管者协助保护数据的安全性和完整性。在实际中， 信息技术部门的人员或者系统安全管理员通常会成为保管者。他们可能是负责分配权限的相同管理员。</p><h4 id="5-2-7-用户"><a href="#5-2-7-用户" class="headerlink" title="5.2.7 用户"></a>5.2.7 用户</h4><p>　　用户就是任何通过计算系统获取数据并完成工作任务的人。用户只能获取他们需要用来完成工作任务的数据。</p><h3 id="5-3-保护隐私"><a href="#5-3-保护隐私" class="headerlink" title="5.3 保护隐私"></a>5.3 保护隐私</h3><p>　　组织有义务保护他们收集和保存的数据。很多法律要求组织披露他们收集到的数据、收集数据的原因以及准备怎样使用这些信息。此外，这些法律禁止组织以正当使用信息之外的方法使用这些信息。在保护隐私时， 组织通常会使用一些不同的安全控制。选择适当的安全控制是一项令人生畏的任务， 尤其是对于那些新成立的组织而言。然而， 使用安全基准线以及定义相关标准让这项任务变得更简单。</p><h4 id="5-3-1-使用安全基线"><a href="#5-3-1-使用安全基线" class="headerlink" title="5.3.1 使用安全基线"></a>5.3.1 使用安全基线</h4><p>　　基线提供了一个起点， 确保最低安全标准。各组织使用的一条普通的基线就是镜像。将系统设置成安全状态之后， 审计程序要周期性地检查系统， 以确保他们维持在安全状态。NIST SP 800-53 讨论了作为安全控制列表的安全控制基准线。它强调， 单一的安全控制不能适用于所有情况， 但是任何组织都可以选择一组基准线安全控制， 并且根据需求做出调整。</p><h4 id="5-3-2-审视和定制"><a href="#5-3-2-审视和定制" class="headerlink" title="5.3.2 审视和定制"></a>5.3.2 审视和定制</h4><p>　　审视是指评估基线安全控制， 然后只选择那些适用于想保护的盯系统的控制。定制是指修改基线内的安全控制列表， 使其与组织的使命相适应。</p><h4 id="5-3-3-选择标准"><a href="#5-3-3-选择标准" class="headerlink" title="5.3.3 选择标准"></a>5.3.3 选择标准</h4><p>　　在选择基线内的安全控制时， 组织需要确保控制符合某些外部安全标准。外部元素通常定义了对组织的强制性要求。</p><h3 id="5-4-考试要点"><a href="#5-4-考试要点" class="headerlink" title="5.4 考试要点"></a>5.4 考试要点</h3><ul><li><strong>理解数据分类的重要性</strong> 数据所有者负责定义数据分类， 确保系统和数据被正确标记。此外，数据所有者定义保护不同分类的数据的需求， 比如对静态数据和传输中的敏感数据进行加密。数据分类通常在安全策略或数据策略中定义。</li><li><strong>知道PII和PHI</strong> 个人身份信息(PII)是任何可以识别个人的信息。受保护的健康信息(PHI)是指任何与特定个人的健康有关的信息。许多法律、法规都规定保护PII和PHI。</li><li><strong>知道如何处理敏感信息</strong> 敏感信息是指所有类型的机密信息， 正确地管理它们可以帮助防止由于未经授权的披露而失去保密。适当的管理包括标志、处理、存储和破坏敏感信息。组织经常漏掉标记的两个区域是充分保护承载敏感信息的备份介质以及在介质和设备生命周期结束时对其进行净化。</li><li><strong>理解记录保留</strong> 记录保留策略确保在需要数据时， 将数据保存在可用状态， 在不需要数据时将其破坏。许多法律、法规都规定数据要在特定的时间内进行保存， 但是没有正式的规定， 因此组织会在策略中指定保留时间。审计跟踪数据需要保持足够长的时间来重建过去的事件， 但是组织必须确定他们想要调查多久之前的数据。许多组织当前的趋势是通过对电子邮件实施短期保留策略来减少法律责任。</li><li><strong>知道不同角色之间的区别</strong> 数据所有者负责分类、标记和保护数据。系统所有者负责处理数据的系统。业务和任务所有者拥有流程， 并确保系统对组织的价值。数据处理者通常是为组织处理数据的第三方实体。管理员基于数据所有者提供的指导方针授权访问数据。用户在执行工作任务的过程中访问数据。保管者负责日常存储和保护数据。</li><li><strong>了解7 条安全港原则</strong> 欧盟数据保护法规定保护隐私数据。第三方同意遵守7 条安全港原则，以确保它们遵守欧盟数据保护法。7 条原则是通知、选择、向前传输、安全性、数据完整性、访问和执行。</li><li><strong>了解安全控制基线</strong> 安全控制基线提供一份组织可以用作基线的控制清单， 并不是所有的基线适用于所有的组织。然而， 组织可以应用审视和定制技术来选择满足自身需求的基线。</li></ul><h3 id="5-5-复习题"><a href="#5-5-复习题" class="headerlink" title="5.5 复习题"></a>5.5 复习题</h3><ol><li><p>下面哪一项指的是分类过程的主要目的?<br>A. 定义保护敏感数据的要求<br>B. 定义备份数据的要求<br>C. 定义存储数据的要求<br>D. 定义传输数据的要求</p></li><li><p>在确定数据分类时， 以下哪一项是最重要的考虑因素?<br>A. 处理系统<br>B. 价值<br>C. 存储介质<br>D 可访问性</p></li><li><p>以下哪个答案不属于敏感数据?<br>A. 个人身份信息(PII)<br>B. 受保护的健康信息(PHI)<br>C. 专有数据<br>D 发布在网站上的数据</p></li><li><p>标记介质的最重要方面是什么?<br>A. 日期标签<br>B. 内容描述<br>C. 电子标签<br>D. 分类</p></li><li><p>在将分类介质再次用到不太安全的环境中之前， 管理员通常会怎样做?<br>A. 擦除<br>B. 消除<br>C. 消除<br>D. 重写</p></li><li><p>以下哪个描述正确表述了净化方法的问题?<br>A. 没有移除数据的方法， 保证了未授权人员不能检索数据。<br>B. 即使已被完全焚烧的介质也会提供可推断出的数据。<br>C. 人员可能会不适当地执行净化步骤。<br>D. 存储的数据被物理销毁介质。</p></li><li><p>以下哪个选项是摧毁固态硬盘上数据的最可靠方法?<br>A. 擦除<br>B. 去磁<br>C. 删除<br>D. 清除</p></li><li><p>以下哪个选项是删除DVD上数据的最安全方法?<br>A. 格式化<br>B. 删除<br>C. 销毁<br>D. 去磁</p></li><li><p>以下哪一项不会擦除数据?<br>A. 消除<br>B. 清除<br>C. 重写<br>D. 剩磁</p></li><li><p>以下哪一项基于Blowfish并能保护免受彩虹表袭击?<br>A. 3DES<br>B. AES<br>C. bcrypt<br>D. SCP</p></li><li><p>管理员会用以下哪一项来安全连接远程服务器以进行管理?<br>A. Telnet<br>B. 安全文件传输协议(SFTP)<br>C. 安全拷贝(SCP)<br>D. 安全外壳(SSH)</p></li><li><p>以下哪一项是保管者通常会执行的任务?<br>A. 访问数据<br>B. 分类数据<br>C. 分配数据权限<br>D. 备份数据</p></li><li><p>以下哪个数据角色最可能有权授予用户对数据的访问权?<br>A. 管理员<br>B. 保管者<br>C. 所有者<br>D. 用户</p></li><li><p>以下哪一项是对数据所有者确立的”行为规则”的最好定义?<br>A. 确保用户只被授予对他们所需东西的访问权。<br>B. 决定对系统有访问权的人。<br>C. 识别对数据的恰当使用和保护。<br>D. 对系统实施安全控制。</p></li><li><p>在欧盟数据保护法的背景下， 以下哪一个是数据处理者?<br>A. 代表数据控制者处理个人数据的实体<br>B. 控制数据处理的实体<br>C. 处理数据的计算系统<br>D. 处理数据的网络</p></li><li><p>通知、选择、向前传输及访问原则最适用的是?<br>A. 保密<br>B. 识别<br>C. 保留<br>D. 分类</p></li><li><p>组织正在实施安全控制的预选基线， 但发现不是所有的控制都适用。他们应该做些什么呢?<br>A. 不管怎样， 实施所有控制<br>B. 确定另一条基线<br>C. 重新创建一条基线<br>D. 根据他们的需求定制基线</p></li></ol><p>在回答问题18至20时请参考下面的场景:一个组织有一个数据中心， 24小时全天处理高级敏感信息。数据中心包括电子邮件服务器， 管理员会清理超过6个月的电子邮件， 以遵守组织的安全策略。对数据中心的访问是受控制的， 所有处理敏感信息的系统都进行了标记。管理员定期备份在数据中心处理的数据。他们在现场保留一份备份， 并把没有标记的备份发送到公司的一个仓库。仓库工人按日期整理介质， 他们有过去20年的备份。员工白天在仓库工作， 晚上和周末在离开前会将仓库锁闭。最近， 仓库发生了盗窃， 丢失了所有的离线备份磁带。之后， 他们数据的副本， 包括几年前的敏感电子邮件， 开始出现在互联网网站上， 因此组织的内部敏感数据被公开。</p><ol start="18"><li><p>在下面的选项中， 哪一项可以在不牺牲安全性的情况下阻止此丢失事件的发生?<br>A. 标记场地外保存的介质<br>B. 不要把数据存储在场地外<br>C. 将场地外的备份全部摧毁<br>D. 使用安全的场地外存储设备</p></li><li><p>以下哪个管理员行为可以阻止此事件的发生?<br>A. 在把磁带送到仓库之前对它们进行标记<br>B. 在磁带上备份数据之前清理磁带<br>C. 在磁带上备份数据之前对磁带进行去磁<br>D. 将磁带加入资产管理数据库</p></li><li><p>在以下选项中， 关于备份介质不遵守哪一项策略?<br>A. 介质销毁<br>B. 记录保留<br>C. 配置管理<br>D. 版本控制</p></li></ol></div><div></div><div><div><div style="text-align:center;color:#555;font-size:14px">-------------End-------------</div></div></div><div><div style="padding:10px 0;margin:20px auto;width:90%;text-align:center"><div>Thank you very much for your donation.</div> <button id="rewardButton" disable="enable" onclick='var qr=document.getElementById("QR");"none"===qr.style.display?qr.style.display="block":qr.style.display="none"'> <span>打赏</span></button><div id="QR" style="display:none"><div id="wechat" style="display:inline-block"> <img id="wechat_qr" src="/images/wechatpay.png" alt=" 微信支付"><p>微信支付</p></div><div id="alipay" style="display:inline-block"> <img id="alipay_qr" src="/images/alipay.png" alt=" 支付宝"><p>支付宝</p></div><div id="bitcoin" style="display:inline-block"> <img id="bitcoin_qr" src="/images/bitcoin.png" alt=" 比特币"><p>比特币</p></div></div></div></div><footer class="post-footer"><div class="post-tags"><a href="/tags/cissp/" rel="tag"><i class="fa fa-tag"></i> cissp</a><a href="/tags/学习笔记/" rel="tag"><i class="fa fa-tag"></i> 学习笔记</a></div><div class="post-nav"><div class="post-nav-next post-nav-item"><a href="/notes/cissp学习笔记（4）——法律、法规和合规性/" rel="next" title="cissp学习笔记（4）——法律、法规和合规性"><i class="fa fa-chevron-left"></i> cissp学习笔记（4）——法律、法规和合规性</a></div><span class="post-nav-divider"></span><div class="post-nav-prev post-nav-item"></div></div></footer></div></article></div></div><div class="comments" id="comments"><div id="lv-container" data-id="city" data-uid="MTAyMC8zODM5Mi8xNDkyMA=="></div></div></div><div class="sidebar-toggle"><div class="sidebar-toggle-line-wrap"><span class="sidebar-toggle-line sidebar-toggle-line-first"></span><span class="sidebar-toggle-line sidebar-toggle-line-middle"></span><span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id="sidebar" class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap"> 文章目录</li><li class="sidebar-nav-overview" data-target="site-overview-wrap"> 站点概览</li></ul><section class="site-overview-wrap sidebar-panel"><div class="site-overview"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"> <img class="site-author-image" itemprop="image" src="/images/diyz.jpg" alt=""><p class="site-author-name" itemprop="name"></p><p class="site-description motion-element" itemprop="description"></p></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"> <a href="/archives/"><span class="site-state-item-count">20</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"> <a href="/categories/index.html"><span class="site-state-item-count">5</span> <span class="site-state-item-name">分类</span></a></div><div class="site-state-item site-state-tags"> <a href="/tags/index.html"><span class="site-state-item-count">16</span> <span class="site-state-item-name">标签</span></a></div></nav><div class="links-of-author motion-element"><span class="links-of-author-item"><a rel="external nofollow" href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=1321425651" target="_blank" title="QQ" rel="external nofollow"><i class="fa fa-fw fa-qq"></i> QQ</a></span><span class="links-of-author-item"><a rel="external nofollow" href="mailto:1321425651@qq.com" target="_blank" title="E-Mail" rel="external nofollow"><i class="fa fa-fw fa-envelope"></i> E-Mail</a></span><span class="links-of-author-item"><a rel="external nofollow" href="https://github.com/doubiduo" target="_blank" title="GitHub" rel="external nofollow"><i class="fa fa-fw fa-github"></i> GitHub</a></span><span class="links-of-author-item"><a rel="external nofollow" href="https://steamcommunity.com/id/doubiduo" target="_blank" title="Steam" rel="external nofollow"><i class="fa fa-fw fa-steam"></i> Steam</a></span><span class="links-of-author-item"><a rel="external nofollow" href="https://www.diyz.bid/atom.xml" target="_blank" title="RSS" rel="external nofollow"><i class="fa fa-fw fa-rss"></i> RSS</a></span></div></div></section><section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active"><div class="post-toc"><div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-对资产进行分类和标记"><span class="nav-text">5.1 对资产进行分类和标记</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-1-定义敏感数据"><span class="nav-text">5.1.1 定义敏感数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-2-定义分类"><span class="nav-text">5.1.2 定义分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-3-定义数据安全要求"><span class="nav-text">5.1.3 定义数据安全要求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-4-理解数据状态"><span class="nav-text">5.1.4 理解数据状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-5-管理敏感数据"><span class="nav-text">5.1.5 管理敏感数据</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-标记敏感数据"><span class="nav-text">1. 标记敏感数据</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-管理敏感数据"><span class="nav-text">2. 管理敏感数据</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-存储敏感数据"><span class="nav-text">3. 存储敏感数据</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-销毁敏感数据"><span class="nav-text">4. 销毁敏感数据</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-保留资产"><span class="nav-text">5. 保留资产</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-6-应用密码学保护机密文件"><span class="nav-text">5.1.6 应用密码学保护机密文件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-应用对称加密保护数据"><span class="nav-text">1. 应用对称加密保护数据</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-应用传输加密保护数据"><span class="nav-text">2. 应用传输加密保护数据</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-定义数据角色"><span class="nav-text">5.2 定义数据角色</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-1-数据所有者"><span class="nav-text">5.2.1 数据所有者</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-2-系统所有者"><span class="nav-text">5.2.2 系统所有者</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-3-业务-任务所有者"><span class="nav-text">5.2.3 业务/任务所有者</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-4-数据处理者"><span class="nav-text">5.2.4 数据处理者</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-5-管理员"><span class="nav-text">5.2.5 管理员</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-6-保管者"><span class="nav-text">5.2.6 保管者</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-7-用户"><span class="nav-text">5.2.7 用户</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-保护隐私"><span class="nav-text">5.3 保护隐私</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-1-使用安全基线"><span class="nav-text">5.3.1 使用安全基线</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-2-审视和定制"><span class="nav-text">5.3.2 审视和定制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-3-选择标准"><span class="nav-text">5.3.3 选择标准</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-考试要点"><span class="nav-text">5.4 考试要点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-5-复习题"><span class="nav-text">5.5 复习题</span></a></li></ol></div></div></section></div></aside></div></main><footer id="footer" class="footer"><div class="footer-inner"><div class="copyright">&copy; <span itemprop="copyrightYear">2018</span><span class="with-love" id="animate"><i class="fa fa-user"></i></span> <span class="author" itemprop="copyrightHolder">doubiduo</span></div><div class="powered-by">由 <a rel="external nofollow" class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动</div><div class="theme-info"><div class="powered-by"></div> <span class="post-count">全站共103.4k字</span></div></div></footer><div class="back-to-top"><i class="fa fa-arrow-up"></i></div></div><script type="text/javascript">"[object Function]"!==Object.prototype.toString.call(window.Promise)&&(window.Promise=null)</script><script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script><script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script><script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script><script type="text/javascript">!function(e,t){var n,c=e.getElementsByTagName(t)[0];"function"!=typeof LivereTower&&((n=e.createElement(t)).src="https://cdn-city.livere.com/js/embed.dist.js",n.async=!0,c.parentNode.insertBefore(n,c))}(document,"script")</script><script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script><script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script><script>AV.initialize("auf5TIy4OQOv6c52DIqTOgHd-gzGzoHsz","tBf3kX7KmYaId0Nh4PlLx3XQ")</script><script>function showTime(e){var t=new AV.Query(e),c=[],u=$(".leancloud_visitors");u.each(function(){c.push($(this).attr("id").trim())}),t.containedIn("url",c),t.find().done(function(e){var t=".leancloud-visitors-count";if(0!==e.length){for(var n=0;n<e.length;n++){var o=e[n],i=o.get("url"),s=o.get("time"),r=document.getElementById(i);$(r).find(t).text(s)}for(n=0;n<c.length;n++){i=c[n],r=document.getElementById(i);var l=$(r).find(t);""==l.text()&&l.text(0)}}else u.find(t).text(0)}).fail(function(e,t){console.log("Error: "+t.code+" "+t.message)})}function addCount(i){var e=$(".leancloud_visitors"),s=e.attr("id").trim(),r=e.attr("data-flag-title").trim(),t=new AV.Query(i);t.equalTo("url",s),t.find({success:function(e){if(0<e.length){var t=e[0];t.fetchWhenSave(!0),t.increment("time"),t.save(null,{success:function(e){$(document.getElementById(s)).find(".leancloud-visitors-count").text(e.get("time"))},error:function(e,t){console.log("Failed to save Visitor num, with error message: "+t.message)}})}else{var n=new i,o=new AV.ACL;o.setPublicReadAccess(!0),o.setPublicWriteAccess(!0),n.setACL(o),n.set("title",r),n.set("url",s),n.set("time",1),n.save(null,{success:function(e){$(document.getElementById(s)).find(".leancloud-visitors-count").text(e.get("time"))},error:function(e,t){console.log("Failed to create")}})}},error:function(e){console.log("Error:"+e.code+" "+e.message)}})}$(function(){var e=AV.Object.extend("Counter");1==$(".leancloud_visitors").length?addCount(e):1<$(".post-title-link").length&&showTime(e)})</script><script>!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script></body></html>
