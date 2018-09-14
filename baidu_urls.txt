@@ -1,3 +1,4 @@
+https://www.diyz.bid/notes/cissp学习笔记（7）——PKI和密码学应用/
 https://www.diyz.bid/notes/cissp学习笔记（6）——密码学与对称加密算法/
 https://www.diyz.bid/notes/cissp学习笔记（5）——保护资产的安全/
 https://www.diyz.bid/notes/cissp学习笔记（4）——法律、法规和合规性/
