@@ -6,10 +6,36 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.diyz.bid/"/>
-  <updated>2018-09-25T09:14:53.239Z</updated>
+  <updated>2018-09-29T08:17:31.144Z</updated>
   <id>https://www.diyz.bid/</id>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>安全培训大纲</title>
+    <link href="https://www.diyz.bid/Security/%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E5%A4%A7%E7%BA%B2/"/>
+    <id>https://www.diyz.bid/Security/安全培训大纲/</id>
+    <published>2018-09-29T08:14:58.000Z</published>
+    <updated>2018-09-29T08:17:31.144Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="安全培训大纲"><a href="#安全培训大纲" class="headerlink" title="安全培训大纲"></a>安全培训大纲</h3><ul><li><p>邮件安全</p><ul><li>钓鱼邮件</li><li>邮件伪造</li><li>第三方转存</li><li>检查发件人</li><li>开启二次验证</li><li>邮件转发</li><li>第三方代收</li><li>邮件附件敏感信息加密</li></ul></li><li><p>病毒防范</p><ul><li>什么是木马病毒</li><li>我安装哪些杀毒软件？</li><li>定期更新病毒库</li></ul></li><li><p>浏览器安全</p><ul><li>不浏览恶意网站</li><li>不从恶意网站下载软件</li><li>下载软件从官网下载</li></ul></li><li><p>信息泄露</p><ul><li>敏感数据上传到云笔记、GitHub</li><li>共享账号</li><li>使用公司邮箱注册外部账号或者私人账号</li><li>社交网络发布公司技术解决方案&amp;保密产品信息</li><li>公司账号和私人账号要隔离</li><li>打印后及时取走</li></ul></li><li><p>个人电脑安全</p><ul><li>锁屏幕</li><li>不轻易插入陌生U盘</li><li>及时的系统更新</li><li>不从外部下载破解软件(有需要请找IT同学)</li><li>不将公司数据带离工作场所</li><li>电脑要加开机密码，防止电脑丢失后造成数据泄露</li><li>企业微信、微信、QQ、QQ群文件发送文件要打包加密</li><li>工作文档加密盘（利用如TrueCrypt的之类的加密软件）</li></ul></li><li><p>密码泄露</p><ul><li>根据调查显示目前全世界泄露账号密码以及个人隐私有800亿条</li><li>密码使用超过12位以上使用特殊字符、大小写字母和数字</li><li>密码不要与公司内部密码有关联</li><li>密码三个月要更换一次</li></ul></li><li><p>WiFi安全</p><ul><li>不连接不可信WiFi</li><li>连接不可信WiFi后需要连接VPN</li><li>不要在工作区私自桥接，共享办公网WIFI</li><li>不要使用WIFI万能钥匙等共享密码的APP</li></ul></li><li><p>VPN以及OA安全</p><ul><li>VPN账号和OA账号仅自己持有</li><li>任何人不会和你以任何理由要VPN以及OA账号</li><li>VPN的动态验证短信不转发给其他人</li></ul></li><li><p>客服注意事项</p><ul><li>我在和谁聊天</li><li>确定对方身份的流程</li><li>我可以提供哪些信息</li><li>敏感操作回拨验证人员身份</li></ul></li><li><p>物理安全</p><ul><li>门禁</li><li>碎纸机（防止泄露商业信息）</li><li>视频监控</li><li>禁止人员尾随进入工作区</li></ul></li></ul><h3 id="WEB安全开发"><a href="#WEB安全开发" class="headerlink" title="WEB安全开发"></a>WEB安全开发</h3><ul><li>XSS跨站漏洞</li><li>SQL注入</li><li>跨站请求伪造漏洞</li><li>支付逻辑漏洞</li><li>越权漏洞</li><li>平行权限</li><li>验证码逻辑漏洞</li><li>API未限速漏洞</li><li>GitHub敏感信息泄露</li><li>法律风险意识</li></ul><h3 id="APP安全开发"><a href="#APP安全开发" class="headerlink" title="APP安全开发"></a>APP安全开发</h3><ul><li>数据安全<ul><li>存储</li><li>传输</li><li>使用</li><li>验证</li></ul></li><li>代码安全<ul><li>逆向</li><li>调试</li><li>重新打包</li></ul></li><li>环境特性<ul><li>系统</li><li>组件</li><li>权限</li><li>端口</li></ul></li><li>业务安全<ul><li>逻辑漏洞</li><li>策略</li><li>合规</li></ul></li></ul><h3 id="安全运维"><a href="#安全运维" class="headerlink" title="安全运维"></a>安全运维</h3><ul><li><p>服务器安全</p><ul><li>MFA登录</li><li>使用key登录</li><li>禁止弱密码登录</li><li>禁用无用账号</li><li>账号锁定策略（防止暴力破解，ssh:fail2ban）</li><li>检查特殊账号（空口令）</li><li>禁止root远程登录</li><li>关闭非必须服务器服务</li><li>安装IDS/IPS系统</li><li>进行日志收集</li></ul></li><li><p>更新</p><ul><li>系统版本要尽量贴近官方版本</li><li>软件版本（例如：php）要及时升级</li></ul></li><li><p>日志</p><ul><li>收集全面</li><li>实时传输</li><li>重点日志例如 ssh 内核日志 业务日志</li><li>业务日志要脱敏</li></ul></li><li><p>软件安装</p><ul><li>只允许可信软件源</li><li>需要新软件需要经过安全评估</li><li>业务代码尽量不使用root权限运行</li></ul></li><li><p>网络安全</p><ul><li>ACL限制不需要互相访问的业务通讯</li><li>安全组不要附加</li><li>snmp修改团体名称</li></ul></li><li><p>数据安全</p><ul><li>杜绝弱口令</li><li>禁止匿名用户</li><li>数据库加密（按照最小化权限原则）</li><li><strong>Redis必须加密</strong></li><li>大数据服务必须有鉴权</li><li>MongoDB必须加密码</li></ul></li><li><p>流程安全控制</p><ul><li>运维准入</li><li>域名开通流程</li><li>VPN申请流程</li><li>跳板机申请流程</li></ul></li></ul><ul><li>物理安全<ul><li>机房服务器不允许使用USB接口</li><li>VGA显示器应该处于退出状态</li></ul></li></ul><h3 id="产品经理安全培训"><a href="#产品经理安全培训" class="headerlink" title="产品经理安全培训"></a>产品经理安全培训</h3><ul><li>敏感信息泄露</li><li>调试开关</li><li>防重签名</li><li>http-dns</li><li>数据包劫持</li><li>登录机制安全性</li><li>防暴力破解</li><li>时间窗口合理性</li><li>不要成为短信轰炸机</li><li>任意用户密码重置</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      本文列出了安全培训所涉及的各个方面。
+    
+    </summary>
+    
+      <category term="Security" scheme="https://www.diyz.bid/categories/Security/"/>
+    
+    
+      <category term="安全文档" scheme="https://www.diyz.bid/tags/%E5%AE%89%E5%85%A8%E6%96%87%E6%A1%A3/"/>
+    
+      <category term="SDL" scheme="https://www.diyz.bid/tags/SDL/"/>
+    
+      <category term="安全培训" scheme="https://www.diyz.bid/tags/%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD/"/>
+    
+  </entry>
   
   <entry>
     <title>cissp学习笔记（10）——物理安全需求</title>
@@ -474,30 +500,6 @@
       <category term="安全文档" scheme="https://www.diyz.bid/tags/%E5%AE%89%E5%85%A8%E6%96%87%E6%A1%A3/"/>
     
       <category term="SDL" scheme="https://www.diyz.bid/tags/SDL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ELK实现微信告警</title>
-    <link href="https://www.diyz.bid/deployment/ELK%E5%AE%9E%E7%8E%B0%E5%BE%AE%E4%BF%A1%E5%91%8A%E8%AD%A6/"/>
-    <id>https://www.diyz.bid/deployment/ELK实现微信告警/</id>
-    <published>2018-08-22T03:28:28.000Z</published>
-    <updated>2018-08-23T13:36:22.487Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="安装elastalert"><a href="#安装elastalert" class="headerlink" title="安装elastalert"></a>安装elastalert</h3><p><code>git clone https://github.com/Yelp/elastalert.git</code><br><code>cd elastalert</code><br><code>python setup.py install</code><br><code>pip install -r requirements.txt</code><br><code>cp config.yaml.example config.yaml</code></p><h3 id="配置elastalert"><a href="#配置elastalert" class="headerlink" title="配置elastalert"></a>配置elastalert</h3><p>在es上创建索引<br><code>elastalert-create-index</code><br>修改配置文件<br><code>vi config.yaml</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">rules_folder: example_rules</span><br><span class="line">run_every:</span><br><span class="line">  seconds: 3</span><br><span class="line">buffer_time:</span><br><span class="line">  minutes: 15</span><br><span class="line">es_host: 192.168.3.110</span><br><span class="line">es_port: 9200</span><br><span class="line">es_username: elastic</span><br><span class="line">es_password: shuqinkeji</span><br><span class="line">writeback_index: elastalert_status</span><br><span class="line">alert_time_limit:</span><br><span class="line">  days: 1</span><br></pre></td></tr></table></figure></p><p><code>mkdir elastalert_modules/</code><br>微信告警插件：<a href="https://github.com/anjia0532/elastalert-wechat-plugin" target="_blank" rel="noopener">下载</a>wechat_qiye_alert.py脚本到elastalert_modules目录下<br><code>touch elastalert_modules/__init__.py</code><br><code>cd example_rules/</code><br><code>vi example_frequency.yaml</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">es_host: 192.168.1.41</span><br><span class="line">es_port: 9200</span><br><span class="line">use_ssl: false</span><br><span class="line">es_username: elastic</span><br><span class="line">es_password: shuqinkeji</span><br><span class="line">name: Example frequency rule</span><br><span class="line">type: frequency</span><br><span class="line">index: nginx*</span><br><span class="line">num_events: 5</span><br><span class="line">timeframe:</span><br><span class="line">  hours: 1 </span><br><span class="line">filter:</span><br><span class="line"> - query_string: </span><br><span class="line">     # SQL、XSS、扫描</span><br><span class="line">        query: &quot;request: select.+(from|limit) OR request: union(.*?)select OR request: into.+(dump|out)file OR</span><br><span class="line">        request: (base64_decode|sleep|benchmark|and.+1=1|and.+1=2|or%20|exec|information_schema|where%20|union%20|%2ctable_name%20|cmdshell|table_schema) OR</span><br><span class="line">        request: (iframe|script|body|img|layer|div|meta|style|base|object|input|onmouseover|onerror|onload|alert) OR</span><br><span class="line">        request: .+etc.+passwd OR http_user_agent：(HTTrack|harvest|audit|dirbuster|pangolin|nmap|sqln|-scan|hydra|Parser|libwww|BBBike|sqlmap|w3af|owasp|Nikto|fimap|havij|PycURL|zmeu|BabyKrokodil|netsparker|httperf|bench) OR</span><br><span class="line">        status: (400|404|500|501)</span><br><span class="line">        NOT (request:_health.html OR remote_addr:222.222.222.222  )</span><br><span class="line">        &quot;</span><br><span class="line">include: [&quot;data.slbip&quot;,&quot;data.method&quot;,&quot;data.url&quot;,&quot;data.status&quot;,&quot;data.serverip&quot;,&quot;data.referer&quot;]</span><br><span class="line">alert:</span><br><span class="line">- &quot;elastalert_modules.wechat_qiye_alert.WeChatAlerter&quot;</span><br><span class="line">corp_id: ww6bb8958dca9fe27b</span><br><span class="line">secret: c0RvZ906WXuuaJE_Jxd3eUq2bQJWwfoAZPJX8MjNzPg</span><br><span class="line">agent_id: 1000002</span><br><span class="line">party_id: 1</span><br><span class="line">user_id: &quot;@all&quot;</span><br></pre></td></tr></table></figure></p><p>更多配置详见 <a href="https://elastalert.readthedocs.io/en/latest/#" target="_blank" rel="noopener">官方文档</a></p>]]></content>
-    
-    <summary type="html">
-    
-      Elastalert为ELK提供了告警功能，使得我们能够更快的定位问题所在。
-    
-    </summary>
-    
-      <category term="deployment" scheme="https://www.diyz.bid/categories/deployment/"/>
-    
-    
-      <category term="企业安全" scheme="https://www.diyz.bid/tags/%E4%BC%81%E4%B8%9A%E5%AE%89%E5%85%A8/"/>
-    
-      <category term="ELK" scheme="https://www.diyz.bid/tags/ELK/"/>
     
   </entry>
   

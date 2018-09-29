@@ -1,3 +1,4 @@
+https://www.diyz.bid/Security/安全培训大纲/
 https://www.diyz.bid/notes/cissp学习笔记（10）——物理安全需求/
 https://www.diyz.bid/notes/cissp学习笔记（9）——安全脆弱性、威胁和对策/
 https://www.diyz.bid/notes/cissp学习笔记（8）——安全模型的原则、设计和功能/
