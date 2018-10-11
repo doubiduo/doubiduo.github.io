@@ -4,30 +4,8 @@
 
     
   <url>
-    <loc>https://www.diyz.bid/notes/da9cf15a/</loc>
-    <lastmod>2018-10-09T09:48:03.272Z</lastmod>
-    <data>
-        <display>
-        <title>cissp学习笔记（11）——网络安全架构与保护网络组件</title>
-        <pubTime>2018-10-09T05:51:50.000Z</pubTime>
-        
-        <tag>cissp</tag>
-         
-        <tag>学习笔记</tag>
-         
-         
-           
-             
-              <breadCrumb title="notes" url="https://www.diyz.bid/categories/notes/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.diyz.bid/Security/b116bbda/</loc>
-    <lastmod>2018-09-30T02:29:41.565Z</lastmod>
+    <loc>https://www.diyz.bid/Security/%E5%85%B3%E4%BA%8EJava%E6%B2%99%E7%AE%B1%E9%80%83%E9%80%B8%E7%9A%84%E8%BF%9920%E5%B9%B4/</loc>
+    <lastmod>2018-10-11T10:12:52.901Z</lastmod>
     <data>
         <display>
         <title>关于Java沙箱逃逸的这20年</title>
@@ -46,54 +24,8 @@
 
     
   <url>
-    <loc>https://www.diyz.bid/Security/9b202010/</loc>
-    <lastmod>2018-09-29T08:17:31.144Z</lastmod>
-    <data>
-        <display>
-        <title>安全培训大纲</title>
-        <pubTime>2018-09-29T08:14:58.000Z</pubTime>
-        
-        <tag>安全文档</tag>
-         
-        <tag>SDL</tag>
-         
-        <tag>安全培训</tag>
-         
-         
-           
-             
-              <breadCrumb title="Security" url="https://www.diyz.bid/categories/Security/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.diyz.bid/notes/9cdca54f/</loc>
-    <lastmod>2018-09-25T09:14:53.239Z</lastmod>
-    <data>
-        <display>
-        <title>cissp学习笔记（10）——物理安全需求</title>
-        <pubTime>2018-09-25T06:11:39.000Z</pubTime>
-        
-        <tag>cissp</tag>
-         
-        <tag>学习笔记</tag>
-         
-         
-           
-             
-              <breadCrumb title="notes" url="https://www.diyz.bid/categories/notes/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.diyz.bid/notes/ff93e853/</loc>
-    <lastmod>2018-09-25T09:14:25.233Z</lastmod>
+    <loc>https://www.diyz.bid/notes/cissp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%889%EF%BC%89%E2%80%94%E2%80%94%E5%AE%89%E5%85%A8%E8%84%86%E5%BC%B1%E6%80%A7%E3%80%81%E5%A8%81%E8%83%81%E5%92%8C%E5%AF%B9%E7%AD%96/</loc>
+    <lastmod>2018-10-11T10:12:52.899Z</lastmod>
     <data>
         <display>
         <title>cissp学习笔记（9）——安全脆弱性、威胁和对策</title>
@@ -114,12 +46,12 @@
 
     
   <url>
-    <loc>https://www.diyz.bid/notes/d9ee937b/</loc>
-    <lastmod>2018-09-25T09:14:07.544Z</lastmod>
+    <loc>https://www.diyz.bid/notes/cissp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%8811%EF%BC%89%E2%80%94%E2%80%94%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%9E%B6%E6%9E%84%E4%B8%8E%E4%BF%9D%E6%8A%A4%E7%BD%91%E7%BB%9C%E7%BB%84%E4%BB%B6/</loc>
+    <lastmod>2018-10-11T10:12:52.898Z</lastmod>
     <data>
         <display>
-        <title>cissp学习笔记（8）——安全模型的原则、设计和功能</title>
-        <pubTime>2018-09-18T07:05:40.000Z</pubTime>
+        <title>cissp学习笔记（11）——网络安全架构与保护网络组件</title>
+        <pubTime>2018-10-09T05:51:50.000Z</pubTime>
         
         <tag>cissp</tag>
          
@@ -136,299 +68,12 @@
 
     
   <url>
-    <loc>https://www.diyz.bid/notes/280b6c5f/</loc>
-    <lastmod>2018-09-25T09:13:43.999Z</lastmod>
+    <loc>https://www.diyz.bid/Bug/SQL%E6%B3%A8%E5%85%A5/</loc>
+    <lastmod>2018-10-11T10:12:52.896Z</lastmod>
     <data>
         <display>
-        <title>cissp学习笔记（7）——PKI和密码学应用</title>
-        <pubTime>2018-09-14T02:10:34.000Z</pubTime>
-        
-        <tag>cissp</tag>
-         
-        <tag>学习笔记</tag>
-         
-         
-           
-             
-              <breadCrumb title="notes" url="https://www.diyz.bid/categories/notes/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.diyz.bid/notes/a7f49ef7/</loc>
-    <lastmod>2018-09-25T09:13:06.920Z</lastmod>
-    <data>
-        <display>
-        <title>cissp学习笔记（6）——密码学与对称加密算法</title>
-        <pubTime>2018-09-13T08:41:19.000Z</pubTime>
-        
-        <tag>cissp</tag>
-         
-        <tag>学习笔记</tag>
-         
-         
-           
-             
-              <breadCrumb title="notes" url="https://www.diyz.bid/categories/notes/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.diyz.bid/notes/be65010e/</loc>
-    <lastmod>2018-09-25T09:12:45.112Z</lastmod>
-    <data>
-        <display>
-        <title>cissp学习笔记（5）——保护资产的安全</title>
-        <pubTime>2018-09-12T06:22:48.000Z</pubTime>
-        
-        <tag>cissp</tag>
-         
-        <tag>学习笔记</tag>
-         
-         
-           
-             
-              <breadCrumb title="notes" url="https://www.diyz.bid/categories/notes/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.diyz.bid/notes/247c8405/</loc>
-    <lastmod>2018-09-25T09:12:17.727Z</lastmod>
-    <data>
-        <display>
-        <title>cissp学习笔记（4）——法律、法规和合规性</title>
-        <pubTime>2018-09-11T05:42:00.000Z</pubTime>
-        
-        <tag>cissp</tag>
-         
-        <tag>学习笔记</tag>
-         
-         
-           
-             
-              <breadCrumb title="notes" url="https://www.diyz.bid/categories/notes/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.diyz.bid/notes/f022f08b/</loc>
-    <lastmod>2018-09-25T09:11:55.833Z</lastmod>
-    <data>
-        <display>
-        <title>cissp学习笔记（3）——业务连续性计划</title>
-        <pubTime>2018-09-10T01:42:00.000Z</pubTime>
-        
-        <tag>cissp</tag>
-         
-        <tag>学习笔记</tag>
-         
-         
-           
-             
-              <breadCrumb title="notes" url="https://www.diyz.bid/categories/notes/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.diyz.bid/notes/2bccd2f4/</loc>
-    <lastmod>2018-09-25T09:11:34.336Z</lastmod>
-    <data>
-        <display>
-        <title>cissp学习笔记（2）——人员安全和风险管理概念</title>
-        <pubTime>2018-09-07T01:42:00.000Z</pubTime>
-        
-        <tag>cissp</tag>
-         
-        <tag>学习笔记</tag>
-         
-         
-           
-             
-              <breadCrumb title="notes" url="https://www.diyz.bid/categories/notes/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.diyz.bid/notes/7ba2dd24/</loc>
-    <lastmod>2018-09-25T09:11:07.479Z</lastmod>
-    <data>
-        <display>
-        <title>cissp学习笔记（1）——通过原则和策略的安全治理</title>
-        <pubTime>2018-09-06T06:29:47.000Z</pubTime>
-        
-        <tag>cissp</tag>
-         
-        <tag>学习笔记</tag>
-         
-         
-           
-             
-              <breadCrumb title="notes" url="https://www.diyz.bid/categories/notes/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.diyz.bid/Security/f0c11fd4/</loc>
-    <lastmod>2018-09-06T09:56:23.997Z</lastmod>
-    <data>
-        <display>
-        <title>API安全开发Checklist</title>
-        <pubTime>2018-08-23T07:15:26.000Z</pubTime>
-        
-        <tag>安全文档</tag>
-         
-        <tag>SDL</tag>
-         
-        <tag>Checklist</tag>
-         
-         
-           
-             
-              <breadCrumb title="Security" url="https://www.diyz.bid/categories/Security/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.diyz.bid/Security/81a3d5c2/</loc>
-    <lastmod>2018-09-06T03:05:16.538Z</lastmod>
-    <data>
-        <display>
-        <title>Microsoft可执行文件是怎么成为Microsoft可执行文件的</title>
-        <pubTime>2018-09-06T01:53:48.000Z</pubTime>
-        
-        <tag>可执行文件</tag>
-         
-         
-           
-             
-              <breadCrumb title="Security" url="https://www.diyz.bid/categories/Security/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.diyz.bid/Security/68524e9a/</loc>
-    <lastmod>2018-09-03T09:42:26.277Z</lastmod>
-    <data>
-        <display>
-        <title>2018安全意识TOP-10</title>
-        <pubTime>2018-09-03T08:53:45.000Z</pubTime>
-        
-        <tag>安全文档</tag>
-         
-        <tag>SDL</tag>
-         
-        <tag>培训</tag>
-         
-         
-           
-             
-              <breadCrumb title="Security" url="https://www.diyz.bid/categories/Security/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.diyz.bid/Tools/50f1370f/</loc>
-    <lastmod>2018-08-27T07:36:18.000Z</lastmod>
-    <data>
-        <display>
-        <title>2018BlackHat工具</title>
-        <pubTime>2018-08-27T02:59:11.000Z</pubTime>
-        
-        <tag>工具</tag>
-         
-         
-           
-             
-              <breadCrumb title="Tools" url="https://www.diyz.bid/categories/Tools/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-    
-  <url>
-    <loc>https://www.diyz.bid/deployment/c440052a/</loc>
-    <lastmod>2018-08-23T13:36:30.064Z</lastmod>
-    <data>
-        <display>
-        <title>ELK6.2.4部署</title>
-        <pubTime>2018-07-12T05:23:29.000Z</pubTime>
-        
-        <tag>企业安全</tag>
-         
-        <tag>ELK</tag>
-         
-         
-           
-             
-              <breadCrumb title="deployment" url="https://www.diyz.bid/categories/deployment/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.diyz.bid/deployment/ebd1064b/</loc>
-    <lastmod>2018-08-23T13:36:22.487Z</lastmod>
-    <data>
-        <display>
-        <title>ELK实现微信告警</title>
-        <pubTime>2018-08-22T03:28:28.000Z</pubTime>
-        
-        <tag>企业安全</tag>
-         
-        <tag>ELK</tag>
-         
-         
-           
-             
-              <breadCrumb title="deployment" url="https://www.diyz.bid/categories/deployment/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.diyz.bid/Bug/b98e9277/</loc>
-    <lastmod>2018-08-23T13:36:13.376Z</lastmod>
-    <data>
-        <display>
-        <title>XSS wiki</title>
-        <pubTime>2018-07-31T01:37:34.000Z</pubTime>
+        <title>SQL注入wiki</title>
+        <pubTime>2018-07-26T01:51:01.000Z</pubTime>
         
         <tag>漏洞</tag>
          
@@ -445,16 +90,16 @@
 
     
   <url>
-    <loc>https://www.diyz.bid/Security/66afd6f6/</loc>
-    <lastmod>2018-08-23T13:36:04.281Z</lastmod>
+    <loc>https://www.diyz.bid/Security/%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E5%AE%89%E5%85%A8%E6%8C%87%E5%8D%97/</loc>
+    <lastmod>2018-10-11T10:12:52.894Z</lastmod>
     <data>
         <display>
-        <title>交易系统常见问题及方案概述</title>
-        <pubTime>2018-07-13T08:48:42.000Z</pubTime>
+        <title>应用开发安全指南</title>
+        <pubTime>2018-08-22T08:02:36.000Z</pubTime>
         
         <tag>安全文档</tag>
          
-        <tag>安全方案</tag>
+        <tag>SDL</tag>
          
          
            
@@ -467,30 +112,8 @@
 
     
   <url>
-    <loc>https://www.diyz.bid/Security/1781ffec/</loc>
-    <lastmod>2018-08-23T13:35:53.183Z</lastmod>
-    <data>
-        <display>
-        <title>开源产品自建企业安全-脑图</title>
-        <pubTime>2018-07-13T07:38:08.000Z</pubTime>
-        
-        <tag>企业安全</tag>
-         
-        <tag>脑图</tag>
-         
-         
-           
-             
-              <breadCrumb title="Security" url="https://www.diyz.bid/categories/Security/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.diyz.bid/Security/e263c905/</loc>
-    <lastmod>2018-08-23T09:49:25.919Z</lastmod>
+    <loc>https://www.diyz.bid/Security/%E5%AE%89%E5%85%A8%E8%AE%BE%E8%AE%A1Checklist/</loc>
+    <lastmod>2018-10-11T10:12:52.892Z</lastmod>
     <data>
         <display>
         <title>安全设计Checklist</title>
@@ -513,16 +136,18 @@
 
     
   <url>
-    <loc>https://www.diyz.bid/Security/f04fdc72/</loc>
-    <lastmod>2018-08-23T09:39:08.847Z</lastmod>
+    <loc>https://www.diyz.bid/Security/%E5%AE%89%E5%85%A8%E5%9F%B9%E8%AE%AD%E5%A4%A7%E7%BA%B2/</loc>
+    <lastmod>2018-10-11T10:12:52.891Z</lastmod>
     <data>
         <display>
-        <title>应用开发安全指南</title>
-        <pubTime>2018-08-22T08:02:36.000Z</pubTime>
+        <title>安全培训大纲</title>
+        <pubTime>2018-09-29T08:14:58.000Z</pubTime>
         
         <tag>安全文档</tag>
          
         <tag>SDL</tag>
+         
+        <tag>安全培训</tag>
          
          
            
@@ -535,8 +160,8 @@
 
     
   <url>
-    <loc>https://www.diyz.bid/Security/f2c9c674/</loc>
-    <lastmod>2018-08-23T09:38:43.192Z</lastmod>
+    <loc>https://www.diyz.bid/Security/ios%E5%AE%89%E5%85%A8Checklist/</loc>
+    <lastmod>2018-10-11T10:12:52.889Z</lastmod>
     <data>
         <display>
         <title>ios安全Checklist</title>
@@ -561,16 +186,16 @@
 
     
   <url>
-    <loc>https://www.diyz.bid/Security/d02842c4/</loc>
-    <lastmod>2018-08-23T09:38:27.734Z</lastmod>
+    <loc>https://www.diyz.bid/Security/%E5%BC%80%E6%BA%90%E4%BA%A7%E5%93%81%E8%87%AA%E5%BB%BA%E4%BC%81%E4%B8%9A%E5%AE%89%E5%85%A8-%E8%84%91%E5%9B%BE/</loc>
+    <lastmod>2018-10-11T10:12:52.888Z</lastmod>
     <data>
         <display>
-        <title>APP安全测试</title>
-        <pubTime>2018-08-23T07:24:09.000Z</pubTime>
+        <title>开源产品自建企业安全-脑图</title>
+        <pubTime>2018-07-13T07:38:08.000Z</pubTime>
         
-        <tag>安全文档</tag>
+        <tag>企业安全</tag>
          
-        <tag>SDL</tag>
+        <tag>脑图</tag>
          
          
            
@@ -583,8 +208,334 @@
 
     
   <url>
-    <loc>https://www.diyz.bid/Security/8f7eeaa2/</loc>
-    <lastmod>2018-08-23T09:38:08.714Z</lastmod>
+    <loc>https://www.diyz.bid/notes/cissp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%888%EF%BC%89%E2%80%94%E2%80%94%E5%AE%89%E5%85%A8%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%8E%9F%E5%88%99%E3%80%81%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%8A%9F%E8%83%BD/</loc>
+    <lastmod>2018-10-11T10:12:52.886Z</lastmod>
+    <data>
+        <display>
+        <title>cissp学习笔记（8）——安全模型的原则、设计和功能</title>
+        <pubTime>2018-09-18T07:05:40.000Z</pubTime>
+        
+        <tag>cissp</tag>
+         
+        <tag>学习笔记</tag>
+         
+         
+           
+             
+              <breadCrumb title="notes" url="https://www.diyz.bid/categories/notes/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.diyz.bid/Security/%E4%BA%A4%E6%98%93%E7%B3%BB%E7%BB%9F%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%8F%8A%E6%96%B9%E6%A1%88%E6%A6%82%E8%BF%B0/</loc>
+    <lastmod>2018-10-11T10:12:52.885Z</lastmod>
+    <data>
+        <display>
+        <title>交易系统常见问题及方案概述</title>
+        <pubTime>2018-07-13T08:48:42.000Z</pubTime>
+        
+        <tag>安全文档</tag>
+         
+        <tag>安全方案</tag>
+         
+         
+           
+             
+              <breadCrumb title="Security" url="https://www.diyz.bid/categories/Security/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.diyz.bid/notes/cissp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%887%EF%BC%89%E2%80%94%E2%80%94PKI%E5%92%8C%E5%AF%86%E7%A0%81%E5%AD%A6%E5%BA%94%E7%94%A8/</loc>
+    <lastmod>2018-10-11T10:12:52.884Z</lastmod>
+    <data>
+        <display>
+        <title>cissp学习笔记（7）——PKI和密码学应用</title>
+        <pubTime>2018-09-14T02:10:34.000Z</pubTime>
+        
+        <tag>cissp</tag>
+         
+        <tag>学习笔记</tag>
+         
+         
+           
+             
+              <breadCrumb title="notes" url="https://www.diyz.bid/categories/notes/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.diyz.bid/notes/cissp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%886%EF%BC%89%E2%80%94%E2%80%94%E5%AF%86%E7%A0%81%E5%AD%A6%E4%B8%8E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2018-10-11T10:12:52.882Z</lastmod>
+    <data>
+        <display>
+        <title>cissp学习笔记（6）——密码学与对称加密算法</title>
+        <pubTime>2018-09-13T08:41:19.000Z</pubTime>
+        
+        <tag>cissp</tag>
+         
+        <tag>学习笔记</tag>
+         
+         
+           
+             
+              <breadCrumb title="notes" url="https://www.diyz.bid/categories/notes/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.diyz.bid/notes/cissp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%885%EF%BC%89%E2%80%94%E2%80%94%E4%BF%9D%E6%8A%A4%E8%B5%84%E4%BA%A7%E7%9A%84%E5%AE%89%E5%85%A8/</loc>
+    <lastmod>2018-10-11T10:12:52.880Z</lastmod>
+    <data>
+        <display>
+        <title>cissp学习笔记（5）——保护资产的安全</title>
+        <pubTime>2018-09-12T06:22:48.000Z</pubTime>
+        
+        <tag>cissp</tag>
+         
+        <tag>学习笔记</tag>
+         
+         
+           
+             
+              <breadCrumb title="notes" url="https://www.diyz.bid/categories/notes/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.diyz.bid/notes/cissp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%884%EF%BC%89%E2%80%94%E2%80%94%E6%B3%95%E5%BE%8B%E3%80%81%E6%B3%95%E8%A7%84%E5%92%8C%E5%90%88%E8%A7%84%E6%80%A7/</loc>
+    <lastmod>2018-10-11T10:12:52.879Z</lastmod>
+    <data>
+        <display>
+        <title>cissp学习笔记（4）——法律、法规和合规性</title>
+        <pubTime>2018-09-11T05:42:00.000Z</pubTime>
+        
+        <tag>cissp</tag>
+         
+        <tag>学习笔记</tag>
+         
+         
+           
+             
+              <breadCrumb title="notes" url="https://www.diyz.bid/categories/notes/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.diyz.bid/notes/cissp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%883%EF%BC%89%E2%80%94%E2%80%94%E4%B8%9A%E5%8A%A1%E8%BF%9E%E7%BB%AD%E6%80%A7%E8%AE%A1%E5%88%92/</loc>
+    <lastmod>2018-10-11T10:12:52.877Z</lastmod>
+    <data>
+        <display>
+        <title>cissp学习笔记（3）——业务连续性计划</title>
+        <pubTime>2018-09-10T01:42:00.000Z</pubTime>
+        
+        <tag>cissp</tag>
+         
+        <tag>学习笔记</tag>
+         
+         
+           
+             
+              <breadCrumb title="notes" url="https://www.diyz.bid/categories/notes/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.diyz.bid/notes/cissp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%8810%EF%BC%89%E2%80%94%E2%80%94%E7%89%A9%E7%90%86%E5%AE%89%E5%85%A8%E9%9C%80%E6%B1%82/</loc>
+    <lastmod>2018-10-11T10:12:52.875Z</lastmod>
+    <data>
+        <display>
+        <title>cissp学习笔记（10）——物理安全需求</title>
+        <pubTime>2018-09-25T06:11:39.000Z</pubTime>
+        
+        <tag>cissp</tag>
+         
+        <tag>学习笔记</tag>
+         
+         
+           
+             
+              <breadCrumb title="notes" url="https://www.diyz.bid/categories/notes/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.diyz.bid/notes/cissp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%882%EF%BC%89%E2%80%94%E2%80%94%E4%BA%BA%E5%91%98%E5%AE%89%E5%85%A8%E5%92%8C%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86%E6%A6%82%E5%BF%B5/</loc>
+    <lastmod>2018-10-11T10:12:52.874Z</lastmod>
+    <data>
+        <display>
+        <title>cissp学习笔记（2）——人员安全和风险管理概念</title>
+        <pubTime>2018-09-07T01:42:00.000Z</pubTime>
+        
+        <tag>cissp</tag>
+         
+        <tag>学习笔记</tag>
+         
+         
+           
+             
+              <breadCrumb title="notes" url="https://www.diyz.bid/categories/notes/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.diyz.bid/notes/cissp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89%E2%80%94%E2%80%94%E9%80%9A%E8%BF%87%E5%8E%9F%E5%88%99%E5%92%8C%E7%AD%96%E7%95%A5%E7%9A%84%E5%AE%89%E5%85%A8%E6%B2%BB%E7%90%86/</loc>
+    <lastmod>2018-10-11T10:12:52.873Z</lastmod>
+    <data>
+        <display>
+        <title>cissp学习笔记（1）——通过原则和策略的安全治理</title>
+        <pubTime>2018-09-06T06:29:47.000Z</pubTime>
+        
+        <tag>cissp</tag>
+         
+        <tag>学习笔记</tag>
+         
+         
+           
+             
+              <breadCrumb title="notes" url="https://www.diyz.bid/categories/notes/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.diyz.bid/Bug/XSS/</loc>
+    <lastmod>2018-10-11T10:12:52.871Z</lastmod>
+    <data>
+        <display>
+        <title>XSS wiki</title>
+        <pubTime>2018-07-31T01:37:34.000Z</pubTime>
+        
+        <tag>漏洞</tag>
+         
+        <tag>wiki</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bug" url="https://www.diyz.bid/categories/Bug/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.diyz.bid/deployment/ELK6-2-4%E9%83%A8%E7%BD%B2/</loc>
+    <lastmod>2018-10-11T10:12:52.870Z</lastmod>
+    <data>
+        <display>
+        <title>ELK6.2.4部署</title>
+        <pubTime>2018-07-12T05:23:29.000Z</pubTime>
+        
+        <tag>企业安全</tag>
+         
+        <tag>ELK</tag>
+         
+         
+           
+             
+              <breadCrumb title="deployment" url="https://www.diyz.bid/categories/deployment/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.diyz.bid/Security/Microsoft%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6%E6%98%AF%E6%80%8E%E4%B9%88%E6%88%90%E4%B8%BAMicrosoft%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6%E7%9A%84/</loc>
+    <lastmod>2018-10-11T10:12:52.868Z</lastmod>
+    <data>
+        <display>
+        <title>Microsoft可执行文件是怎么成为Microsoft可执行文件的</title>
+        <pubTime>2018-09-06T01:53:48.000Z</pubTime>
+        
+        <tag>可执行文件</tag>
+         
+         
+           
+             
+              <breadCrumb title="Security" url="https://www.diyz.bid/categories/Security/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.diyz.bid/Tools/2018BlackHat%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2018-10-11T10:12:52.867Z</lastmod>
+    <data>
+        <display>
+        <title>2018BlackHat工具</title>
+        <pubTime>2018-08-27T02:59:11.000Z</pubTime>
+        
+        <tag>工具</tag>
+         
+         
+           
+             
+              <breadCrumb title="Tools" url="https://www.diyz.bid/categories/Tools/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.diyz.bid/deployment/ELK%E5%AE%9E%E7%8E%B0%E5%BE%AE%E4%BF%A1%E5%91%8A%E8%AD%A6/</loc>
+    <lastmod>2018-10-11T10:12:52.866Z</lastmod>
+    <data>
+        <display>
+        <title>ELK实现微信告警</title>
+        <pubTime>2018-08-22T03:28:28.000Z</pubTime>
+        
+        <tag>企业安全</tag>
+         
+        <tag>ELK</tag>
+         
+         
+           
+             
+              <breadCrumb title="deployment" url="https://www.diyz.bid/categories/deployment/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.diyz.bid/Security/Android%E5%AE%89%E5%85%A8Checklist/</loc>
+    <lastmod>2018-10-11T10:12:52.865Z</lastmod>
     <data>
         <display>
         <title>Android安全Checklist</title>
@@ -609,26 +560,75 @@
 
     
   <url>
-    <loc>https://www.diyz.bid/Bug/56aee206/</loc>
-    <lastmod>2018-08-23T09:23:56.407Z</lastmod>
+    <loc>https://www.diyz.bid/Security/APP%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95/</loc>
+    <lastmod>2018-10-11T10:12:52.864Z</lastmod>
     <data>
         <display>
-        <title>SQL注入wiki</title>
-        <pubTime>2018-07-26T01:51:01.000Z</pubTime>
+        <title>APP安全测试</title>
+        <pubTime>2018-08-23T07:24:09.000Z</pubTime>
         
-        <tag>漏洞</tag>
+        <tag>安全文档</tag>
          
-        <tag>wiki</tag>
+        <tag>SDL</tag>
          
          
            
              
-              <breadCrumb title="Bug" url="https://www.diyz.bid/categories/Bug/"/>
+              <breadCrumb title="Security" url="https://www.diyz.bid/categories/Security/"/>
           
         </display>
     </data>
     </url>
 
+    
+  <url>
+    <loc>https://www.diyz.bid/Security/API%E5%AE%89%E5%85%A8%E5%BC%80%E5%8F%91Checklist/</loc>
+    <lastmod>2018-10-11T10:12:52.862Z</lastmod>
+    <data>
+        <display>
+        <title>API安全开发Checklist</title>
+        <pubTime>2018-08-23T07:15:26.000Z</pubTime>
+        
+        <tag>安全文档</tag>
+         
+        <tag>SDL</tag>
+         
+        <tag>Checklist</tag>
+         
+         
+           
+             
+              <breadCrumb title="Security" url="https://www.diyz.bid/categories/Security/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.diyz.bid/Security/2018%E5%AE%89%E5%85%A8%E6%84%8F%E8%AF%86TOP-10/</loc>
+    <lastmod>2018-10-11T10:12:52.861Z</lastmod>
+    <data>
+        <display>
+        <title>2018安全意识TOP-10</title>
+        <pubTime>2018-09-03T08:53:45.000Z</pubTime>
+        
+        <tag>安全文档</tag>
+         
+        <tag>SDL</tag>
+         
+        <tag>培训</tag>
+         
+         
+           
+             
+              <breadCrumb title="Security" url="https://www.diyz.bid/categories/Security/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
     
     
