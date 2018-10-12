@@ -1,4 +1,1196 @@
-<!DOCTYPE html><html class="theme-next pisces use-motion" lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#222"><script src="/lib/pace/pace.min.js?v=1.0.2"></script><link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet"><script></script><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css"><link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.ico?v=6.3.0"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.ico?v=6.3.0"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.ico?v=6.3.0"><link rel="mask-icon" href="/images/logo.ico?v=6.3.0" color="#222"><script type="text/javascript" id="hexo.configurations">var NexT=window.NexT||{},CONFIG={root:"/",scheme:"Pisces",version:"6.3.0",sidebar:{position:"left",display:"post",offset:12,b2t:!1,scrollpercent:!1,onmobile:!1},fancybox:!1,fastclick:!1,lazyload:!1,tabs:!0,motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},algolia:{applicationID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}}}</script><meta name="description" content="ELK是开源软件Elasticsearch、Logstash、Kibana的缩写。它使数据的收集、分析和展示变得更加快捷、轻松。"><meta name="keywords" content="ELK6.2.4部署,ELK,douiduo,diyz.bid"><meta property="og:type" content="article"><meta property="og:title" content="ELK6.2.4部署"><meta property="og:url" content="https://www.diyz.bid/deployment/ELK6-2-4部署/index.html"><meta property="og:site_name" content="doubiduo"><meta property="og:description" content="ELK是开源软件Elasticsearch、Logstash、Kibana的缩写。它使数据的收集、分析和展示变得更加快捷、轻松。"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://www.diyz.bid/deployment/ELK6-2-4部署/elasticsearch9200.png"><meta property="og:image" content="https://www.diyz.bid/deployment/ELK6-2-4部署/nodejs版本.png"><meta property="og:image" content="https://www.diyz.bid/deployment/ELK6-2-4部署/elasticsearch-head.png"><meta property="og:image" content="https://www.diyz.bid/deployment/ELK6-2-4部署/elasticsearch-head9100.png"><meta property="og:image" content="https://www.diyz.bid/deployment/ELK6-2-4部署/kibana配置.png"><meta property="og:image" content="https://www.diyz.bid/deployment/ELK6-2-4部署/kibana5601.png"><meta property="og:updated_time" content="2018-10-11T10:12:52.870Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="ELK6.2.4部署"><meta name="twitter:description" content="ELK是开源软件Elasticsearch、Logstash、Kibana的缩写。它使数据的收集、分析和展示变得更加快捷、轻松。"><meta name="twitter:image" content="https://www.diyz.bid/deployment/ELK6-2-4部署/elasticsearch9200.png"><link rel="alternate" href="/atom.xml" title="doubiduo" type="application/atom+xml"><link rel="canonical" href="https://www.diyz.bid/deployment/ELK6-2-4部署/"><script type="text/javascript" id="page.configurations">CONFIG.page={sidebar:""}</script><title>ELK6.2.4部署 | doubiduo</title><script async src="https://www.googletagmanager.com/gtag/js?id=UA-124427626-1"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-124427626-1")</script><script type="text/javascript">var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?9c8b377e488072512752a147d13a537c";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><noscript><style type="text/css">.sidebar-inner,.use-motion .brand,.use-motion .collection-title,.use-motion .comments,.use-motion .menu-item,.use-motion .motion-element,.use-motion .pagination,.use-motion .post-block,.use-motion .post-body,.use-motion .post-header{opacity:initial}.use-motion .logo,.use-motion .site-subtitle,.use-motion .site-title{opacity:initial;top:initial}.logo-line-after i{right:initial}</style></noscript><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-2020224399094607",enable_page_level_ads:!0})</script></head><body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN"><div class="container sidebar-position-left page-post-detail"><div class="headband"></div><header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-wrapper"><div class="site-meta"><div class="custom-logo-site-title"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">doubiduo</span><span class="logo-line-after"><i></i></span></a></div><h1 class="site-subtitle" itemprop="description">diyz.bid</h1></div><div class="site-nav-toggle"> <button aria-label="切换导航栏"><span class="btn-bar"></span><span class="btn-bar"></span><span class="btn-bar"></span></button></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i><br>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i><br>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i><br>归档</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="menu-item-icon fa fa-fw fa-link"></i><br>友链</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user-circle"></i><br>关于</a></li><li class="menu-item menu-item-search"><a href="javascript:;" class="popup-trigger"><i class="menu-item-icon fa fa-search fa-fw"></i><br>搜索</a></li></ul><div class="site-search"><div class="popup search-popup local-search-popup"><div class="local-search-header clearfix"><span class="search-icon"><i class="fa fa-search"></i></span><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span><div class="local-search-input-wrapper"> <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input"></div></div><div id="local-search-result"></div></div></div></nav></div></header><main id="main" class="main"><div class="main-inner"><div class="content-wrap"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2020224399094607" data-ad-slot="5456418301" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({})</script><div id="content" class="content"><div id="posts" class="posts-expand"><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="https://www.diyz.bid/deployment/ELK6-2-4部署/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content=""><meta itemprop="description" content=""><meta itemprop="image" content="/images/diyz.jpg"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="doubiduo"></span><header class="post-header"><h2 class="post-title" itemprop="name headline">ELK6.2.4部署</h2><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i></span> <span class="post-meta-item-text">发表于</span> <time title="创建时间：2018-07-12 13:23:29" itemprop="dateCreated datePublished" datetime="2018-07-12T13:23:29+08:00">2018-07-12</time> <span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-calendar-check-o"></i></span> <span class="post-meta-item-text">更新于</span> <time title="修改时间：2018-10-11 18:12:52" itemprop="dateModified" datetime="2018-10-11T18:12:52+08:00">2018-10-11</time></span> <span class="post-category"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-folder-o"></i></span> <span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/deployment/" itemprop="url" rel="index"><span itemprop="name">deployment</span></a></span></span> <span class="post-symbolscount"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-file-word-o"></i></span> <span class="post-meta-item-text">本文字数：</span> <span title="本文字数">13k</span></span> <span id="/deployment/ELK6-2-4部署/" class="leancloud_visitors" data-flag-title="ELK6.2.4部署"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-eye"></i></span> <span class="post-meta-item-text">阅读次数：</span><span class="leancloud-visitors-count"></span></span><div class="post-description">ELK是开源软件Elasticsearch、Logstash、Kibana的缩写。它使数据的收集、分析和展示变得更加快捷、轻松。</div></div></header><div class="post-body" itemprop="articleBody"><h2 id="一、ELK介绍"><a href="#一、ELK介绍" class="headerlink" title="一、ELK介绍"></a>一、ELK介绍</h2><h3 id="1-什么是ELK"><a href="#1-什么是ELK" class="headerlink" title="1.什么是ELK"></a>1.什么是ELK</h3><p>ELK是指elastic公司三款开源产品的简称（此外，还可能经常用到Filebeat和X-Pack），他们分别是：</p><table><thead><tr><th style="text-align:center">简称</th><th style="text-align:center">全称</th><th style="text-align:center">描述</th></tr></thead><tbody><tr><td style="text-align:center">E:</td><td style="text-align:center">Elasticsearch</td><td style="text-align:center">开源全文搜索和分析引擎</td></tr><tr><td style="text-align:center">L:</td><td style="text-align:center">Logstash</td><td style="text-align:center">开源数据收集引擎</td></tr><tr><td style="text-align:center">K:</td><td style="text-align:center">Kibana</td><td style="text-align:center">开源数据分析和可视化平台</td></tr><tr><td style="text-align:center"></td><td style="text-align:center">Filebeat</td><td style="text-align:center">轻量级数据转发引擎</td></tr><tr><td style="text-align:center"></td><td style="text-align:center">X-Pack</td><td style="text-align:center">Elastic Stack扩展包</td></tr></tbody></table><h3 id="2-为什么需要ELK"><a href="#2-为什么需要ELK" class="headerlink" title="2.为什么需要ELK"></a>2.为什么需要ELK</h3><p>随着公司业务的不断扩展，各个系统日志产生量越来越大，这时候就需要日志统一管理的解决方案，便于之后的日志审计等工作。而ELK具有强大的日志收集、查询和分析等功能，同时还提供了友好的展示界面，便于用户操作，这贴合日志统一管理的需求。</p><h3 id="3-ELK工作原理"><a href="#3-ELK工作原理" class="headerlink" title="3.ELK工作原理"></a>3.ELK工作原理</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">graph LR;</span><br><span class="line">服务器1--&gt;|Filebeat|Logstash1;</span><br><span class="line">服务器2--&gt;|Filebeat|Logstash1;</span><br><span class="line">服务器3--&gt;|Filebeat|Logstash1;</span><br><span class="line">Logstash1--&gt;Kafka集群;</span><br><span class="line">Kafka集群--&gt;Logstash2;</span><br><span class="line">Logstash2--&gt;Elasticsearch集群;</span><br><span class="line">Elasticsearch集群--&gt;Kibana;</span><br></pre></td></tr></table></figure><a id="more"></a><h2 id="二、环境配置"><a href="#二、环境配置" class="headerlink" title="二、环境配置"></a>二、环境配置</h2><h3 id="1-服务器清单"><a href="#1-服务器清单" class="headerlink" title="1.服务器清单"></a>1.服务器清单</h3><table><thead><tr><th style="text-align:center">ip</th><th style="text-align:center">描述</th><th style="text-align:center">安装软件</th></tr></thead><tbody><tr><td style="text-align:center">192.168.1.11</td><td style="text-align:center">web服务器</td><td style="text-align:center">Filebeat</td></tr><tr><td style="text-align:center">192.168.1.12</td><td style="text-align:center">web服务器</td><td style="text-align:center">Filebeat</td></tr><tr><td style="text-align:center">192.168.1.13</td><td style="text-align:center">数据库服务器</td><td style="text-align:center">Filebeat</td></tr><tr><td style="text-align:center">192.168.1.21</td><td style="text-align:center">Kafka集群</td><td style="text-align:center">Kafka + logstash</td></tr><tr><td style="text-align:center">192.168.1.22</td><td style="text-align:center">Kafka集群</td><td style="text-align:center">Kafka + logstash</td></tr><tr><td style="text-align:center">192.168.1.23</td><td style="text-align:center">Kafka集群</td><td style="text-align:center">Kafka + logstash</td></tr><tr><td style="text-align:center">192.168.1.31</td><td style="text-align:center">logstash</td><td style="text-align:center">X-Pack + logstash</td></tr><tr><td style="text-align:center">192.168.1.41</td><td style="text-align:center">Elasticsearch集群</td><td style="text-align:center">Elasticsearch + X-Pack + Kibana</td></tr><tr><td style="text-align:center">192.168.1.42</td><td style="text-align:center">Elasticsearch集群</td><td style="text-align:center">Elasticsearch + X-Pack + Kibana</td></tr><tr><td style="text-align:center">192.168.1.43</td><td style="text-align:center">Elasticsearch集群</td><td style="text-align:center">Elasticsearch + X-Pack + Kibana</td></tr></tbody></table><h3 id="2-安装JDK"><a href="#2-安装JDK" class="headerlink" title="2.安装JDK"></a>2.安装JDK</h3><p>ELK6.X.X要求JDK版本大于1.8 ，<a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="noopener">官网</a>下载后上传至服务器安装<br><code>yum localinstall -y jdk-XXX</code><br>安装完成后测试安装是否成功<br><code>java -version</code></p><h3 id="3-关闭防火墙"><a href="#3-关闭防火墙" class="headerlink" title="3.关闭防火墙"></a>3.关闭防火墙</h3><p><code>systemctl stop firewalld.service #停止firewall</code></p><p><code>systemctl disable firewalld.service #禁止firewall开机启动</code></p><p>生产环境中请根据实际需求配置防火墙。</p><h3 id="4-安装screen"><a href="#4-安装screen" class="headerlink" title="4.安装screen"></a>4.安装screen</h3><p><code>yum install -y screen</code></p><h3 id="5-下载Elasticserch、Logstash、Kibana、Kafka"><a href="#5-下载Elasticserch、Logstash、Kibana、Kafka" class="headerlink" title="5.下载Elasticserch、Logstash、Kibana、Kafka"></a>5.下载Elasticserch、Logstash、Kibana、Kafka</h3><p><a href="https://www.elastic.co/downloads" target="_blank" rel="noopener">官网</a>下载后上传至服务器</p><h2 id="三、Filebeat配置"><a href="#三、Filebeat配置" class="headerlink" title="三、Filebeat配置"></a>三、Filebeat配置</h2><h3 id="1-安装Filebeat"><a href="#1-安装Filebeat" class="headerlink" title="1.安装Filebeat"></a>1.安装Filebeat</h3><p><code>curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-6.3.0-x86_64.rpm</code><br><code>rpm -ivh filebeat-6.3.0-x86_64.rpm</code></p><h3 id="2-监控nginx日志"><a href="#2-监控nginx日志" class="headerlink" title="2.监控nginx日志"></a>2.监控nginx日志</h3><p>将nginx日志格式修改为json<br></p><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">log_format</span> access_json <span class="string">'&#123;"<span class="variable">@timestamp</span>":"<span class="variable">$time_iso8601</span>",'</span></span><br><span class="line">                           <span class="string">'"host":"<span class="variable">$server_addr</span>",'</span></span><br><span class="line">                           <span class="string">'"clientip":"<span class="variable">$remote_addr</span>",'</span></span><br><span class="line">                           <span class="string">'"size":<span class="variable">$body_bytes_sent</span>,'</span></span><br><span class="line">                           <span class="string">'"responsetime":<span class="variable">$request_time</span>,'</span></span><br><span class="line">                           <span class="string">'"upstreamtime":"<span class="variable">$upstream_response_time</span>",'</span></span><br><span class="line">                           <span class="string">'"upstreamhost":"<span class="variable">$upstream_addr</span>",'</span></span><br><span class="line">                           <span class="string">'"http_host":"<span class="variable">$host</span>",'</span></span><br><span class="line">                           <span class="string">'"url":"<span class="variable">$uri</span>",'</span></span><br><span class="line">                           <span class="string">'"domain":"<span class="variable">$host</span>",'</span></span><br><span class="line">                           <span class="string">'"xff":"<span class="variable">$http_x_forwarded_for</span>",'</span></span><br><span class="line">                           <span class="string">'"referer":"<span class="variable">$http_referer</span>",'</span></span><br><span class="line">                           <span class="string">'"status":"<span class="variable">$status</span>"&#125;'</span>;</span><br><span class="line">    <span class="attribute">access_log</span>  /var/log/nginx/access.log  access_json;</span><br></pre></td></tr></table></figure><p></p><p>修改Filebeat配置文件<br><code>vi /etc/filebeat/filebeat.yml</code><br></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">filebeat.prospectors:</span><br><span class="line">- input_type: log</span><br><span class="line">  paths:</span><br><span class="line">    - /home/wwwlogs/access.log</span><br><span class="line">  document_type: &quot;nginx_access&quot;</span><br><span class="line">  fields:</span><br><span class="line">    logsource: nginx</span><br><span class="line">    logtype: nginx_access</span><br><span class="line">output.logstash:</span><br><span class="line">  hosts: [&quot;192.168.1.21:5044&quot;]  #不同日志根据实际情况传送至不同Kafka服务器</span><br></pre></td></tr></table></figure><p></p><h3 id="3-监控mysql慢查询日志"><a href="#3-监控mysql慢查询日志" class="headerlink" title="3.监控mysql慢查询日志"></a>3.监控mysql慢查询日志</h3><p>修改filebeat日志<br><code>vi /etc/filebeat/filebeat.yml</code><br></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">- input_type: log</span><br><span class="line">  paths:</span><br><span class="line">    - /usr/local/mysql/var/mysql/slow_log.CSV</span><br><span class="line">  document_type: &quot;mysql_slow&quot;</span><br><span class="line">  fields:</span><br><span class="line">    logsource: mysql</span><br><span class="line">    logtype: mysql_slow</span><br><span class="line"></span><br><span class="line">if [fields][logtype] == &quot;mysql_slow&quot; &#123;</span><br><span class="line">    csv &#123;</span><br><span class="line">      columns =&gt; [ &quot;timestamp&quot;, &quot;user_host&quot;, &quot;query_time&quot;, &quot;lock_time&quot;,</span><br><span class="line">                   &quot;rows_sent&quot;, &quot;rows_examined&quot;, &quot;db&quot;, &quot;last_insert_id&quot;,</span><br><span class="line">                   &quot;insert_id&quot;, &quot;server_id&quot;, &quot;sql_text&quot;, &quot;thread_id&quot;, &quot;rows_affected&quot; ]</span><br><span class="line">    &#125;</span><br><span class="line">    mutate &#123;</span><br><span class="line">      convert =&gt; &#123; &quot;rows_sent&quot; =&gt; &quot;integer&quot; &#125;</span><br><span class="line">      convert =&gt; &#123; &quot;rows_examined&quot; =&gt; &quot;integer&quot; &#125;</span><br><span class="line">      convert =&gt; &#123; &quot;last_insert_id&quot; =&gt; &quot;integer&quot; &#125;</span><br><span class="line">      convert =&gt; &#123; &quot;insert_id&quot; =&gt; &quot;integer&quot; &#125;</span><br><span class="line">      convert =&gt; &#123; &quot;server_id&quot; =&gt; &quot;integer&quot; &#125;</span><br><span class="line">      convert =&gt; &#123; &quot;thread_id&quot; =&gt; &quot;integer&quot; &#125;</span><br><span class="line">      convert =&gt; &#123; &quot;rows_affected&quot; =&gt; &quot;integer&quot; &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    date &#123;</span><br><span class="line">      match =&gt; [ &quot;timestamp&quot;, &quot;yyyy-MM-dd HH:mm:ss.SSSSSS&quot; ]</span><br><span class="line">      remove_field =&gt; [ &quot;timestamp&quot; ]</span><br><span class="line">    &#125;</span><br><span class="line">    mutate &#123;</span><br><span class="line"> gsub =&gt; [</span><br><span class="line">        &quot;query_time&quot;, &quot;(.*\.)(\d)(\d)\d+&quot;, &quot;\1\2\3&quot;,</span><br><span class="line">        &quot;lock_time&quot;, &quot;(.*\.)(\d)(\d)\d+&quot;, &quot;\1\2\3&quot;</span><br><span class="line">        ]</span><br><span class="line">        &#125;</span><br><span class="line">     ruby &#123; code =&gt; &quot;event.set(&apos;query_time&apos; , event.get(&apos;query_time&apos;) ? event.get(&apos;query_time&apos;).split(&apos;:&apos;).inject(0)&#123;|a, m| a = a * 60 + m.to_f&#125; : 0)&quot;&#125;</span><br><span class="line">     ruby &#123; code =&gt; &quot;event.set(&apos;lock_time&apos; , event.get(&apos;lock_time&apos;) ? event.get(&apos;lock_time&apos;).split(&apos;:&apos;).inject(0)&#123;|a, m| a = a * 60 + m.to_f&#125; : 0)&quot; &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  output.logstash:</span><br><span class="line">  hosts: [&quot;192.168.1.23:5044&quot;]  #不同日志根据实际情况传送至不同Kafka服务器</span><br></pre></td></tr></table></figure><p></p><h2 id="二、Kafka集群上的Logstash配置"><a href="#二、Kafka集群上的Logstash配置" class="headerlink" title="二、Kafka集群上的Logstash配置"></a>二、Kafka集群上的Logstash配置</h2><h3 id="1-接收nginx日志"><a href="#1-接收nginx日志" class="headerlink" title="1.接收nginx日志"></a>1.接收nginx日志</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">input &#123;</span><br><span class="line">    beats &#123;</span><br><span class="line">    	port =&gt; 5044</span><br><span class="line">        codec =&gt; plain&#123; charset =&gt; &quot;GBK&quot; &#125; #设置编码</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">filter &#123;</span><br><span class="line">  if [fields][logtype] == &quot;nginx_access&quot;&#123;</span><br><span class="line">    mutate &#123;</span><br><span class="line">      gsub =&gt; [&quot;message&quot;, &quot;\\x0D&quot;, &quot;&quot;]  #替换字符</span><br><span class="line">      gsub =&gt; [&quot;message&quot;, &quot;\\x0A&quot;, &quot;&quot;]</span><br><span class="line">      gsub =&gt; [&quot;message&quot;, &quot;\\x22&quot;, &quot;&quot;]</span><br><span class="line">    &#125;</span><br><span class="line">    json &#123;</span><br><span class="line">      source =&gt; &quot;message&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">output &#123;</span><br><span class="line">  if [fields][dep] == &quot;nginx_access&quot;&#123;</span><br><span class="line">    kafka &#123;</span><br><span class="line">      id =&gt;&quot;my_kafka_id&quot;</span><br><span class="line">      codec =&gt; json</span><br><span class="line">      topic_id =&gt;&quot;test&quot;</span><br><span class="line">      bootstrap_servers =&gt; &quot;192.168.1.21:9092&quot;</span><br><span class="line">      batch_size =&gt; 5</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="2-接收mysql慢查询日志"><a href="#2-接收mysql慢查询日志" class="headerlink" title="2.接收mysql慢查询日志"></a>2.接收mysql慢查询日志</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">input &#123;</span><br><span class="line">    beats &#123;</span><br><span class="line">    	port =&gt; 5044</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">output &#123;</span><br><span class="line">if [fields][logtype] == &quot;mysql_slow&quot;&#123;</span><br><span class="line">    kafka &#123;</span><br><span class="line">      id =&gt;&quot;my_kafka_id&quot;</span><br><span class="line">      codec =&gt; json</span><br><span class="line">      topic_id =&gt;&quot;test&quot;</span><br><span class="line">      bootstrap_servers =&gt; &quot;192.168.1.23:9092&quot;</span><br><span class="line">      batch_size =&gt; 5</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="四-Kafka配置"><a href="#四-Kafka配置" class="headerlink" title="四.Kafka配置"></a>四.Kafka配置</h3><p>创建数据和日志目录<br><code>mkdir /kafka/zookeeper/data</code><br><code>mkdir /kafka/zookeeper/logs</code><br>创建myid 文件(每台服务器写入不同值)<br><code>echo 1 &gt; /kafka/zookeeper/data/myid</code><br>配置zookeeper<br></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">maxClientCnxns=0</span><br><span class="line">dataDir=/kafka/zookeeper/data</span><br><span class="line">dataLogDir=/kafka/zookeeper/logs</span><br><span class="line">clientPort=2181</span><br><span class="line">#最大客户端连接数</span><br><span class="line">maxClientCnxns=20</span><br><span class="line">#心跳间隔</span><br><span class="line">tickTime=2000</span><br><span class="line">当初始化连接时间超过该值，则表示连接失败。</span><br><span class="line">initLimit=10</span><br><span class="line">#此配置项表示Leader与Follower之间发送消息时，请求和应答时间长度。</span><br><span class="line">syncLimit=5</span><br><span class="line">#第一个端口是连接到leader的端口，第二个是用来选举leader 用的端口</span><br><span class="line">server.1=192.168.1.21:2888:3888</span><br><span class="line">server.2=192.168.1.22:2888:3888</span><br><span class="line">server.3=192.168.1.23:2888:3888</span><br></pre></td></tr></table></figure><p></p><p>配置kafka<br></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">broker.id=0 ##集群每个服务器不同</span><br><span class="line">#消费者的访问端口，logstash或者elasticsearch</span><br><span class="line">listeners=PLAINTEXT://192.168.1.21:9092</span><br><span class="line">#接收和发送线程数</span><br><span class="line">num.network.threads=3</span><br><span class="line">#处理请求线程数</span><br><span class="line">num.io.threads=8</span><br><span class="line">#发送缓冲区</span><br><span class="line">socket.send.buffer.bytes=102400</span><br><span class="line">#接收缓冲区</span><br><span class="line">socket.receive.buffer.bytes=102400</span><br><span class="line">#套接字服务器接受请求上限(防止OOM)。</span><br><span class="line">socket.request.max.bytes=104857600</span><br><span class="line">#以逗号分隔的目录列表，其中存储日志文件。</span><br><span class="line">log.dirs=/home/kafka/logs</span><br><span class="line">num.partitions=1</span><br><span class="line">num.recovery.threads.per.data.dir=1</span><br><span class="line">offsets.topic.replication.factor=1</span><br><span class="line">transaction.state.log.replication.factor=1</span><br><span class="line">transaction.state.log.min.isr=1</span><br><span class="line">zookeeper.connect=192.168.1.21:2181,192.168.1.22:2181,192.168.1.23:2181</span><br><span class="line">zookeeper.connection.timeout.ms=6000</span><br><span class="line">group.initial.rebalance.delay.ms=0</span><br></pre></td></tr></table></figure><p></p><p>启动集群<br><code>nohup /kafka/bin/zookeeper-server-start.sh zookeeper.properties &gt;&gt;/dev/null 2&gt;&amp;1 &amp;</code><br><code>nohup /kafka/bin/kafka-server-start.sh /kafka/config/server.properties &gt;&gt;/dev/null 2&gt;&amp;1 &amp;</code><br>测试集群<br><code>/kafka/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test</code><br><code>/kafka/bin/kafka-topics.sh --zookeeper 192.168.1.21:2181 --list</code></p><h2 id="五、Elasticsearch配置"><a href="#五、Elasticsearch配置" class="headerlink" title="五、Elasticsearch配置"></a>五、Elasticsearch配置</h2><p>由于elasticsearch无法在root权限下运行，在此创建账号elk<br><code>useradd eeelk</code><br>解压elasticsearch文件<br><code>tar -zxvf elasticserch-6.2.4.tar.gz</code><br>修改配置文件（三台服务器均需修改，node.name不同即可）<br><code>vi elasticsearch-6.2.4/config/elasticsearch.yml</code><br></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cluster.name: myescluster         #自定义修改一个集群名称</span><br><span class="line">node.name: node1                 #节点名称</span><br><span class="line">network.host: 192.168.1.41      #节点IP（或者解析的主机名）</span><br><span class="line">http.port: 9200</span><br><span class="line">http.cors.enabled: true</span><br><span class="line">http.cors.allow-origin: &quot;*&quot;</span><br><span class="line">http.cors.allow-headers: Authorization,X-Requested-With,Content-Length,Content-Type</span><br><span class="line">bootstrap.memory_lock: false          #设置elasticsearch的进程锁住内存</span><br><span class="line">discovery.zen.ping.unicast.hosts: [&quot;192.168.1.41&quot;, &quot;192.168.1.42&quot;,&quot;192.168.1.43&quot;]  #集群个节点IP地址</span><br><span class="line">discovery.zen.minimum_master_nodes: 2      #为了避免脑裂，集群节点数最少为 半数+1</span><br></pre></td></tr></table></figure><p></p><p>向limits.conf添加以下内容（设置允许打开文件最大值）<br><code>vi /etc/security/limits.conf</code><br></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">* soft nofile 655360</span><br><span class="line">* hard nofile 655360</span><br><span class="line">root soft nofile 100001</span><br><span class="line">root hard nofile 100002</span><br></pre></td></tr></table></figure><p></p><p>向sysctl.conf中添加以下内容（设置最大线程数）<br><code>vi /etc/sysctl.conf</code><br></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vm.max_map_count=655360</span><br></pre></td></tr></table></figure><p></p><p>使配置生效<br><code>sysctl -p</code><br>赋予elk用户文件夹权限<br><code>chown -R elk.elk /home/elk/elasticsearch-6.2.4/</code><br>运行elk<br><code>su eeelk</code></p><p><code>./elasticsearch-6.2.4/bin/elasticsearch -d</code><br>打开浏览器访问<a href="http://ip:9200" target="_blank" rel="noopener">http://ip:9200</a><br><img src="/deployment/ELK6-2-4部署/elasticsearch9200.png"></p><h2 id="六、elasticsearch-head安装"><a href="#六、elasticsearch-head安装" class="headerlink" title="六、elasticsearch-head安装"></a>六、elasticsearch-head安装</h2><p><a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">官网</a>查询对应版本下载连接<br><img src="/deployment/ELK6-2-4部署/nodejs版本.png"><br>安装nodejs<br><code>wget https://nodejs.org/dist/v8.11.3/node-v8.11.3-linux-x64.tar.xz</code></p><p><code>xz -d node-v8.11.2-linux-x64.tar.xz</code></p><p><code>tar xvf node-v8.11.2-linux-x64.tar</code></p><p>将nodejs加入环境变量<br><code>vi /etc/profile</code><br></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export NODE_HOME=/home/eeelk/node-v8.11.3-linux-x64</span><br><span class="line">export PATH=$NODE_HOME/bin:$PATH</span><br></pre></td></tr></table></figure><p></p><p>使环境变量生效<br><code>source /etc/profile</code><br>安装elasticsearch-head<br><code>wget https://github.com/mobz/elasticsearch-head/archive/master.zip</code><br><code>unzip master.zip</code><br><code>cd elasticsearch-head-master</code><br><code>npm install</code><br>如果安装时报错提示phantomjs-prebuilt安装失败则执行<br><code>npm install phantomjs-prebuilt@2.1.16 --ignore-scripts</code><br>修改elasticsearch-head配置<br><code>vi Gruntfile.js</code><br><img src="/deployment/ELK6-2-4部署/elasticsearch-head.png"><br>启动elasticsearch-head<br><code>npm run start</code><br>打开浏览器访问<a href="http://ip:9100" target="_blank" rel="noopener">http://ip:9100</a><br><img src="/deployment/ELK6-2-4部署/elasticsearch-head9100.png"></p><h2 id="七、kibana配置"><a href="#七、kibana配置" class="headerlink" title="七、kibana配置"></a>七、kibana配置</h2><p>修改配置文件<br><code>vi kibana-6.2.4/config/kibana.yml</code><br><img src="/deployment/ELK6-2-4部署/kibana配置.png"><br>启动kibana<br><code>./kibana-6.2.4/bin/kibana</code><br>访问<a href="http://ip:5601" target="_blank" rel="noopener">http://ip:5601</a><br><img src="/deployment/ELK6-2-4部署/kibana5601.png"></p><h2 id="八、X-Pack安装"><a href="#八、X-Pack安装" class="headerlink" title="八、X-Pack安装"></a>八、X-Pack安装</h2><h3 id="1-在elasticsearh上安装x-pack"><a href="#1-在elasticsearh上安装x-pack" class="headerlink" title="1.在elasticsearh上安装x-pack"></a>1.在elasticsearh上安装x-pack</h3><p><code>/elasticsearch-6.2.4/bin/elasticsearch-plugin install x-pack</code><br>安装完成后重启elasticsearch服务后，初始化密码<br><code>./elasticsearch-6.2.4/bin/x-pack/setup-passwords interactive</code></p><h3 id="2-在logstash上安装x-Pack"><a href="#2-在logstash上安装x-Pack" class="headerlink" title="2.在logstash上安装x-Pack"></a>2.在logstash上安装x-Pack</h3><p><code>.logstash-6.2.4/bin/logstash-plugin install x-pack</code><br>在logstash.yml中设置账号密码<br></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xpack.monitoring.elasticsearch.username: logstash_system</span><br><span class="line">xpack.monitoring.elasticsearch.password: 初始化elk中x-pack生成的密码</span><br></pre></td></tr></table></figure><p></p><p>在logstash的config文件中添加elasticsearh账号密码<br></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">output &#123;</span><br><span class="line">    elasticsearch &#123;</span><br><span class="line">       hosts =&gt; [&quot;192.168.1.41:9200&quot;,&quot;192.168.1.42:9200&quot;,&quot;192.168.1.43:9200&quot;]</span><br><span class="line">       user =&gt; &quot;elastic&quot;</span><br><span class="line">       password =&gt; &quot;123456&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p></p><h3 id="3-在kibana上安装x-pack"><a href="#3-在kibana上安装x-pack" class="headerlink" title="3.在kibana上安装x-pack"></a>3.在kibana上安装x-pack</h3><p><code>/kibana-6.2.4/bin/kibana-plugin install x-pack</code><br>在kibana配置中设置账号密码<br><code>vi kibana-6.2.4/config/kibana.yml</code><br></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">elasticsearch.username: &quot;elasti&quot;</span><br><span class="line">elasticsearch.password: &quot;123456&quot;</span><br></pre></td></tr></table></figure><p></p><p>在elasticsearch配置中启用x-pack验证<br><code>vi elasticsearch-6.2.4/config/kibana.yml</code><br></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xpack.security.enabled: true</span><br></pre></td></tr></table></figure><p></p><p>重启elasticsearch、kibana、logstash服务</p><h2 id="九、Logstash配置"><a href="#九、Logstash配置" class="headerlink" title="九、Logstash配置"></a>九、Logstash配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">input&#123;</span><br><span class="line">      kafka&#123;</span><br><span class="line">        codec =&gt; json</span><br><span class="line">        bootstrap_servers =&gt; &quot;192.168.1.21:9092,192.168.1.22:9092,192.168.1.23:9092&quot;</span><br><span class="line">        auto_offset_reset =&gt; &quot;latest&quot; #从最新的偏移量开始消费</span><br><span class="line">        consumer_threads =&gt; 5</span><br><span class="line">        decorate_events =&gt; true #此属性会将当前topic、offset、group、partition等信息也带到message中</span><br><span class="line">        topics =&gt; &quot;test&quot; #数组类型，可配置多个topic</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br><span class="line">filter &#123;</span><br><span class="line">   geoip &#123;</span><br><span class="line">      source =&gt; &quot;slbip&quot; # 与日志中访问地址的key要对应</span><br><span class="line">      target =&gt; &quot;geoip&quot;</span><br><span class="line">      database =&gt; &quot;GeoLite2-City_20180605/GeoLite2-City.mmdb&quot;</span><br><span class="line">      add_field =&gt; [ &quot;[geoip][coordinates]&quot;,&quot;%&#123;[geoip][longitude]&#125;&quot; ]</span><br><span class="line">      add_field =&gt; [ &quot;[geoip][coordinates]&quot;,&quot;%&#123;[geoip][latitude]&#125;&quot; ]</span><br><span class="line">  &#125;</span><br><span class="line">  mutate &#123;</span><br><span class="line">      convert =&gt; [ &quot;[geoip][coordinates]&quot;,&quot;float&quot; ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">output&#123;</span><br><span class="line">  elasticsearch &#123;</span><br><span class="line">    hosts =&gt; [&quot;192.168.1.41:9200&quot;,&quot;192.168.1.42:9200&quot;,&quot;192.168.1.43:9200&quot;]</span><br><span class="line">    index =&gt; &quot;logstash-%&#123;[fields][dep]&#125;-%&#123;[fields][project]&#125;-%&#123;[fields][logsource]&#125;-%&#123;+YYYY.MM.dd&#125;&quot;</span><br><span class="line">    user =&gt; &quot;elastic&quot;</span><br><span class="line">    password =&gt; &quot;123456&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="十、filebeat-amp-logstash通过ssl交互"><a href="#十、filebeat-amp-logstash通过ssl交互" class="headerlink" title="十、filebeat&amp;logstash通过ssl交互"></a>十、filebeat&amp;logstash通过ssl交互</h2><h3 id="安装openssl"><a href="#安装openssl" class="headerlink" title="安装openssl"></a>安装openssl</h3><p><code>wget https://www.openssl.org/source/openssl-1.1.1-pre8.tar.gz</code><br><code>tar -zxvf openssl-1.1.1-pre8.tar.gz</code><br><code>cd openssl-1.1.1-pre8</code><br><code>./config --prefix=/usr/local/openssl</code><br><code>./config -t</code><br><code>make</code><br><code>make install</code></p><h3 id="创建证书"><a href="#创建证书" class="headerlink" title="创建证书"></a>创建证书</h3><p>创建证书目录<br><code>mkdir -p /etc/pki/tls/certs</code><br><code>mkdir -p /etc/pki/tls/private</code><br>生成证书<br><code>vi /etc/ssl/openssl.cnf</code><br></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#在[ v3_ca ]下面填写</span><br><span class="line">subjectAltName = IP:192.168.1.21</span><br></pre></td></tr></table></figure><p></p><p><code>cd /etc/pki/tls/</code><br><code>openssl req -config /usr/local/openssl/ssl/openssl.cnf -x509 -days 3650 -batch -node</code><br><code>openssl req -subj &#39;/CN=192.168.1.21/&#39; -x509 -days $((100 * 365)) -batch -nodes -newkey rsa:2048 -keyout pki/tls/private/logstash.key -out pki/tls/certs/logstash.crt</code><br>在filebeat机器上生成证书文件</p><h3 id="配置证书"><a href="#配置证书" class="headerlink" title="配置证书"></a>配置证书</h3><p>将filebeat.crt logstash.crt 传到对方服务器<br>修改logstash配置<br><code>vi /home/elk/logstash-6.2.4/config/logs.conf</code><br></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">input &#123;</span><br><span class="line"> beats &#123;</span><br><span class="line">   host =&gt; &quot;192.168.1.21&quot;</span><br><span class="line">   port =&gt; 5044</span><br><span class="line">   ssl =&gt; true</span><br><span class="line">   ssl_certificate_authorities =&gt; [&quot;/etc/pki/tls/certs/filebeat.crt&quot;]</span><br><span class="line">   ssl_certificate =&gt; &quot;/etc/pki/tls/certs/logstash.crt&quot;</span><br><span class="line">   ssl_key =&gt; &quot;/etc/pki/tls/private/logstash.key&quot;</span><br><span class="line">   ssl_verify_mode =&gt; &quot;force_peer&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p></p><p>修改filebeat配置<br><code>vi /etc/filebeat/filebeat.yml</code><br></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">output.logstash:</span><br><span class="line">  hosts: [&quot;192.168.1.21:5044&quot;]</span><br><span class="line">  ssl.certificate_authorities: [&quot;/etc/pki/tls/certs/logstash.crt&quot;]</span><br><span class="line">  ssl.certificate: &quot;/etc/pki/tls/certs/filebeat.crt&quot;</span><br><span class="line">  ssl.key: &quot;/etc/pki/tls/private/filebeat.key&quot;</span><br></pre></td></tr></table></figure><p></p><p>重启logstash和filebeat服务</p></div><div></div><div><div><div style="text-align:center;color:#555;font-size:14px">-------------End-------------</div></div></div><div><div style="padding:10px 0;margin:20px auto;width:90%;text-align:center"><div>Thank you very much for your donation.</div> <button id="rewardButton" disable="enable" onclick='var qr=document.getElementById("QR");"none"===qr.style.display?qr.style.display="block":qr.style.display="none"'> <span>打赏</span></button><div id="QR" style="display:none"><div id="wechat" style="display:inline-block"> <img id="wechat_qr" src="/images/wechatpay.png" alt=" 微信支付"><p>微信支付</p></div><div id="alipay" style="display:inline-block"> <img id="alipay_qr" src="/images/alipay.png" alt=" 支付宝"><p>支付宝</p></div><div id="bitcoin" style="display:inline-block"> <img id="bitcoin_qr" src="/images/bitcoin.png" alt=" 比特币"><p>比特币</p></div></div></div></div><footer class="post-footer"><div class="post-tags"><a href="/tags/企业安全/" rel="tag"><i class="fa fa-tag"></i> 企业安全</a><a href="/tags/ELK/" rel="tag"><i class="fa fa-tag"></i> ELK</a></div><div class="post-nav"><div class="post-nav-next post-nav-item"></div><span class="post-nav-divider"></span><div class="post-nav-prev post-nav-item"> <a href="/Security/开源产品自建企业安全-脑图/" rel="prev" title="开源产品自建企业安全-脑图">开源产品自建企业安全-脑图<i class="fa fa-chevron-right"></i></a></div></div></footer></div></article></div></div><div class="comments" id="comments"><div id="lv-container" data-id="city" data-uid="MTAyMC8zODM5Mi8xNDkyMA=="></div></div></div><div class="sidebar-toggle"><div class="sidebar-toggle-line-wrap"><span class="sidebar-toggle-line sidebar-toggle-line-first"></span><span class="sidebar-toggle-line sidebar-toggle-line-middle"></span><span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id="sidebar" class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap"> 文章目录</li><li class="sidebar-nav-overview" data-target="site-overview-wrap"> 站点概览</li></ul><section class="site-overview-wrap sidebar-panel"><div class="site-overview"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"> <img class="site-author-image" itemprop="image" src="/images/diyz.jpg" alt=""><p class="site-author-name" itemprop="name"></p><p class="site-description motion-element" itemprop="description"></p></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"> <a href="/archives/"><span class="site-state-item-count">28</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"> <a href="/categories/index.html"><span class="site-state-item-count">5</span> <span class="site-state-item-name">分类</span></a></div><div class="site-state-item site-state-tags"> <a href="/tags/index.html"><span class="site-state-item-count">18</span> <span class="site-state-item-name">标签</span></a></div></nav><div class="links-of-author motion-element"><span class="links-of-author-item"><a rel="external nofollow" href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=1321425651" target="_blank" title="QQ" rel="external nofollow"><i class="fa fa-fw fa-qq"></i> QQ</a></span><span class="links-of-author-item"><a rel="external nofollow" href="mailto:1321425651@qq.com" target="_blank" title="E-Mail" rel="external nofollow"><i class="fa fa-fw fa-envelope"></i> E-Mail</a></span><span class="links-of-author-item"><a rel="external nofollow" href="https://github.com/doubiduo" target="_blank" title="GitHub" rel="external nofollow"><i class="fa fa-fw fa-github"></i> GitHub</a></span><span class="links-of-author-item"><a rel="external nofollow" href="https://steamcommunity.com/id/doubiduo" target="_blank" title="Steam" rel="external nofollow"><i class="fa fa-fw fa-steam"></i> Steam</a></span><span class="links-of-author-item"><a rel="external nofollow" href="https://www.diyz.bid/atom.xml" target="_blank" title="RSS" rel="external nofollow"><i class="fa fa-fw fa-rss"></i> RSS</a></span></div></div></section><section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active"><div class="post-toc"><div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、ELK介绍"><span class="nav-text">一、ELK介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-什么是ELK"><span class="nav-text">1.什么是ELK</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-为什么需要ELK"><span class="nav-text">2.为什么需要ELK</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-ELK工作原理"><span class="nav-text">3.ELK工作原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、环境配置"><span class="nav-text">二、环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-服务器清单"><span class="nav-text">1.服务器清单</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-安装JDK"><span class="nav-text">2.安装JDK</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-关闭防火墙"><span class="nav-text">3.关闭防火墙</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-安装screen"><span class="nav-text">4.安装screen</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-下载Elasticserch、Logstash、Kibana、Kafka"><span class="nav-text">5.下载Elasticserch、Logstash、Kibana、Kafka</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、Filebeat配置"><span class="nav-text">三、Filebeat配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-安装Filebeat"><span class="nav-text">1.安装Filebeat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-监控nginx日志"><span class="nav-text">2.监控nginx日志</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-监控mysql慢查询日志"><span class="nav-text">3.监控mysql慢查询日志</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、Kafka集群上的Logstash配置"><span class="nav-text">二、Kafka集群上的Logstash配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-接收nginx日志"><span class="nav-text">1.接收nginx日志</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-接收mysql慢查询日志"><span class="nav-text">2.接收mysql慢查询日志</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四-Kafka配置"><span class="nav-text">四.Kafka配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、Elasticsearch配置"><span class="nav-text">五、Elasticsearch配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、elasticsearch-head安装"><span class="nav-text">六、elasticsearch-head安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七、kibana配置"><span class="nav-text">七、kibana配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八、X-Pack安装"><span class="nav-text">八、X-Pack安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-在elasticsearh上安装x-pack"><span class="nav-text">1.在elasticsearh上安装x-pack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-在logstash上安装x-Pack"><span class="nav-text">2.在logstash上安装x-Pack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-在kibana上安装x-pack"><span class="nav-text">3.在kibana上安装x-pack</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#九、Logstash配置"><span class="nav-text">九、Logstash配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十、filebeat-amp-logstash通过ssl交互"><span class="nav-text">十、filebeat&amp;logstash通过ssl交互</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装openssl"><span class="nav-text">安装openssl</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建证书"><span class="nav-text">创建证书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置证书"><span class="nav-text">配置证书</span></a></li></ol></li></ol></div></div></section><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2020224399094607" data-ad-slot="5456418301" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({})</script></div></aside></div></main><footer id="footer" class="footer"><div class="footer-inner"><div class="copyright">&copy; <span itemprop="copyrightYear">2018</span><span class="with-love" id="animate"><i class="fa fa-user"></i></span> <span class="author" itemprop="copyrightHolder">doubiduo</span></div><div class="powered-by">由 <a rel="external nofollow" class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动</div><div class="theme-info"><div class="powered-by"></div> <span class="post-count">全站共214.4k字</span></div></div></footer><div class="back-to-top"><i class="fa fa-arrow-up"></i></div></div><script type="text/javascript">"[object Function]"!==Object.prototype.toString.call(window.Promise)&&(window.Promise=null)</script><script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script><script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script><script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script><script type="text/javascript">!function(e,t){var n,c=e.getElementsByTagName(t)[0];"function"!=typeof LivereTower&&((n=e.createElement(t)).src="https://cdn-city.livere.com/js/embed.dist.js",n.async=!0,c.parentNode.insertBefore(n,c))}(document,"script")</script><script type="text/javascript">
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+  <script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.ico?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.ico?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.ico?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.ico?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="ELK是开源软件Elasticsearch、Logstash、Kibana的缩写。它使数据的收集、分析和展示变得更加快捷、轻松。">
+<meta name="keywords" content="ELK6.2.4部署,ELK,douiduo,diyz.bid">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ELK6.2.4部署">
+<meta property="og:url" content="https://www.diyz.bid/deployment/ELK6-2-4部署/index.html">
+<meta property="og:site_name" content="doubiduo">
+<meta property="og:description" content="ELK是开源软件Elasticsearch、Logstash、Kibana的缩写。它使数据的收集、分析和展示变得更加快捷、轻松。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://www.diyz.bid/deployment/ELK6-2-4部署/elasticsearch9200.png">
+<meta property="og:image" content="https://www.diyz.bid/deployment/ELK6-2-4部署/nodejs版本.png">
+<meta property="og:image" content="https://www.diyz.bid/deployment/ELK6-2-4部署/elasticsearch-head.png">
+<meta property="og:image" content="https://www.diyz.bid/deployment/ELK6-2-4部署/elasticsearch-head9100.png">
+<meta property="og:image" content="https://www.diyz.bid/deployment/ELK6-2-4部署/kibana配置.png">
+<meta property="og:image" content="https://www.diyz.bid/deployment/ELK6-2-4部署/kibana5601.png">
+<meta property="og:updated_time" content="2018-10-11T10:12:52.870Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ELK6.2.4部署">
+<meta name="twitter:description" content="ELK是开源软件Elasticsearch、Logstash、Kibana的缩写。它使数据的收集、分析和展示变得更加快捷、轻松。">
+<meta name="twitter:image" content="https://www.diyz.bid/deployment/ELK6-2-4部署/elasticsearch9200.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="doubiduo" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="https://www.diyz.bid/deployment/ELK6-2-4部署/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>ELK6.2.4部署 | doubiduo</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-124427626-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-124427626-1');
+</script>
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9c8b377e488072512752a147d13a537c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-2020224399094607",
+    enable_page_level_ads: true
+  });
+</script>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">doubiduo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">diyz.bid</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-links">
+    <a href="/links/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-link"></i> <br />友链</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user-circle"></i> <br />关于</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+		    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- taggg -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2020224399094607"
+     data-ad-slot="5456418301"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.diyz.bid/deployment/ELK6-2-4部署/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/diyz.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doubiduo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">ELK6.2.4部署
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-12 13:23:29" itemprop="dateCreated datePublished" datetime="2018-07-12T13:23:29+08:00">2018-07-12</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-11 18:12:52" itemprop="dateModified" datetime="2018-10-11T18:12:52+08:00">2018-10-11</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/deployment/" itemprop="url" rel="index"><span itemprop="name">deployment</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+		  
+            <span class="post-symbolscount">
+              
+
+              
+				<span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">13k</span>
+              
+
+              
+
+              
+            </span>
+          
+		  
+          
+          
+             <span id="/deployment/ELK6-2-4部署/" class="leancloud_visitors" data-flag-title="ELK6.2.4部署">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+              <div class="post-description">ELK是开源软件Elasticsearch、Logstash、Kibana的缩写。它使数据的收集、分析和展示变得更加快捷、轻松。</div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="一、ELK介绍"><a href="#一、ELK介绍" class="headerlink" title="一、ELK介绍"></a>一、ELK介绍</h2><h3 id="1-什么是ELK"><a href="#1-什么是ELK" class="headerlink" title="1.什么是ELK"></a>1.什么是ELK</h3><p>ELK是指elastic公司三款开源产品的简称（此外，还可能经常用到Filebeat和X-Pack），他们分别是：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">简称</th>
+<th style="text-align:center">全称</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">E:</td>
+<td style="text-align:center">Elasticsearch</td>
+<td style="text-align:center">开源全文搜索和分析引擎</td>
+</tr>
+<tr>
+<td style="text-align:center">L:</td>
+<td style="text-align:center">Logstash</td>
+<td style="text-align:center">开源数据收集引擎</td>
+</tr>
+<tr>
+<td style="text-align:center">K:</td>
+<td style="text-align:center">Kibana</td>
+<td style="text-align:center">开源数据分析和可视化平台</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">Filebeat</td>
+<td style="text-align:center">轻量级数据转发引擎</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">X-Pack</td>
+<td style="text-align:center">Elastic Stack扩展包</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-为什么需要ELK"><a href="#2-为什么需要ELK" class="headerlink" title="2.为什么需要ELK"></a>2.为什么需要ELK</h3><p>随着公司业务的不断扩展，各个系统日志产生量越来越大，这时候就需要日志统一管理的解决方案，便于之后的日志审计等工作。而ELK具有强大的日志收集、查询和分析等功能，同时还提供了友好的展示界面，便于用户操作，这贴合日志统一管理的需求。</p>
+<h3 id="3-ELK工作原理"><a href="#3-ELK工作原理" class="headerlink" title="3.ELK工作原理"></a>3.ELK工作原理</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">graph LR;</span><br><span class="line">服务器1--&gt;|Filebeat|Logstash1;</span><br><span class="line">服务器2--&gt;|Filebeat|Logstash1;</span><br><span class="line">服务器3--&gt;|Filebeat|Logstash1;</span><br><span class="line">Logstash1--&gt;Kafka集群;</span><br><span class="line">Kafka集群--&gt;Logstash2;</span><br><span class="line">Logstash2--&gt;Elasticsearch集群;</span><br><span class="line">Elasticsearch集群--&gt;Kibana;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="二、环境配置"><a href="#二、环境配置" class="headerlink" title="二、环境配置"></a>二、环境配置</h2><h3 id="1-服务器清单"><a href="#1-服务器清单" class="headerlink" title="1.服务器清单"></a>1.服务器清单</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">ip</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">安装软件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">192.168.1.11</td>
+<td style="text-align:center">web服务器</td>
+<td style="text-align:center">Filebeat</td>
+</tr>
+<tr>
+<td style="text-align:center">192.168.1.12</td>
+<td style="text-align:center">web服务器</td>
+<td style="text-align:center">Filebeat</td>
+</tr>
+<tr>
+<td style="text-align:center">192.168.1.13</td>
+<td style="text-align:center">数据库服务器</td>
+<td style="text-align:center">Filebeat</td>
+</tr>
+<tr>
+<td style="text-align:center">192.168.1.21</td>
+<td style="text-align:center">Kafka集群</td>
+<td style="text-align:center">Kafka + logstash</td>
+</tr>
+<tr>
+<td style="text-align:center">192.168.1.22</td>
+<td style="text-align:center">Kafka集群</td>
+<td style="text-align:center">Kafka + logstash</td>
+</tr>
+<tr>
+<td style="text-align:center">192.168.1.23</td>
+<td style="text-align:center">Kafka集群</td>
+<td style="text-align:center">Kafka + logstash</td>
+</tr>
+<tr>
+<td style="text-align:center">192.168.1.31</td>
+<td style="text-align:center">logstash</td>
+<td style="text-align:center">X-Pack + logstash</td>
+</tr>
+<tr>
+<td style="text-align:center">192.168.1.41</td>
+<td style="text-align:center">Elasticsearch集群</td>
+<td style="text-align:center">Elasticsearch + X-Pack + Kibana</td>
+</tr>
+<tr>
+<td style="text-align:center">192.168.1.42</td>
+<td style="text-align:center">Elasticsearch集群</td>
+<td style="text-align:center">Elasticsearch + X-Pack + Kibana</td>
+</tr>
+<tr>
+<td style="text-align:center">192.168.1.43</td>
+<td style="text-align:center">Elasticsearch集群</td>
+<td style="text-align:center">Elasticsearch + X-Pack + Kibana</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-安装JDK"><a href="#2-安装JDK" class="headerlink" title="2.安装JDK"></a>2.安装JDK</h3><p>ELK6.X.X要求JDK版本大于1.8 ，<a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="noopener">官网</a>下载后上传至服务器安装<br><code>yum localinstall -y jdk-XXX</code><br>安装完成后测试安装是否成功<br><code>java -version</code></p>
+<h3 id="3-关闭防火墙"><a href="#3-关闭防火墙" class="headerlink" title="3.关闭防火墙"></a>3.关闭防火墙</h3><p><code>systemctl stop firewalld.service #停止firewall</code></p>
+<p><code>systemctl disable firewalld.service #禁止firewall开机启动</code></p>
+<p>生产环境中请根据实际需求配置防火墙。</p>
+<h3 id="4-安装screen"><a href="#4-安装screen" class="headerlink" title="4.安装screen"></a>4.安装screen</h3><p><code>yum install -y screen</code></p>
+<h3 id="5-下载Elasticserch、Logstash、Kibana、Kafka"><a href="#5-下载Elasticserch、Logstash、Kibana、Kafka" class="headerlink" title="5.下载Elasticserch、Logstash、Kibana、Kafka"></a>5.下载Elasticserch、Logstash、Kibana、Kafka</h3><p><a href="https://www.elastic.co/downloads" target="_blank" rel="noopener">官网</a>下载后上传至服务器</p>
+<h2 id="三、Filebeat配置"><a href="#三、Filebeat配置" class="headerlink" title="三、Filebeat配置"></a>三、Filebeat配置</h2><h3 id="1-安装Filebeat"><a href="#1-安装Filebeat" class="headerlink" title="1.安装Filebeat"></a>1.安装Filebeat</h3><p><code>curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-6.3.0-x86_64.rpm</code><br><code>rpm -ivh filebeat-6.3.0-x86_64.rpm</code></p>
+<h3 id="2-监控nginx日志"><a href="#2-监控nginx日志" class="headerlink" title="2.监控nginx日志"></a>2.监控nginx日志</h3><p>将nginx日志格式修改为json<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">log_format</span> access_json <span class="string">'&#123;"<span class="variable">@timestamp</span>":"<span class="variable">$time_iso8601</span>",'</span></span><br><span class="line">                           <span class="string">'"host":"<span class="variable">$server_addr</span>",'</span></span><br><span class="line">                           <span class="string">'"clientip":"<span class="variable">$remote_addr</span>",'</span></span><br><span class="line">                           <span class="string">'"size":<span class="variable">$body_bytes_sent</span>,'</span></span><br><span class="line">                           <span class="string">'"responsetime":<span class="variable">$request_time</span>,'</span></span><br><span class="line">                           <span class="string">'"upstreamtime":"<span class="variable">$upstream_response_time</span>",'</span></span><br><span class="line">                           <span class="string">'"upstreamhost":"<span class="variable">$upstream_addr</span>",'</span></span><br><span class="line">                           <span class="string">'"http_host":"<span class="variable">$host</span>",'</span></span><br><span class="line">                           <span class="string">'"url":"<span class="variable">$uri</span>",'</span></span><br><span class="line">                           <span class="string">'"domain":"<span class="variable">$host</span>",'</span></span><br><span class="line">                           <span class="string">'"xff":"<span class="variable">$http_x_forwarded_for</span>",'</span></span><br><span class="line">                           <span class="string">'"referer":"<span class="variable">$http_referer</span>",'</span></span><br><span class="line">                           <span class="string">'"status":"<span class="variable">$status</span>"&#125;'</span>;</span><br><span class="line">    <span class="attribute">access_log</span>  /var/log/nginx/access.log  access_json;</span><br></pre></td></tr></table></figure></p>
+<p>修改Filebeat配置文件<br><code>vi /etc/filebeat/filebeat.yml</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">filebeat.prospectors:</span><br><span class="line">- input_type: log</span><br><span class="line">  paths:</span><br><span class="line">    - /home/wwwlogs/access.log</span><br><span class="line">  document_type: &quot;nginx_access&quot;</span><br><span class="line">  fields:</span><br><span class="line">    logsource: nginx</span><br><span class="line">    logtype: nginx_access</span><br><span class="line">output.logstash:</span><br><span class="line">  hosts: [&quot;192.168.1.21:5044&quot;]  #不同日志根据实际情况传送至不同Kafka服务器</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-监控mysql慢查询日志"><a href="#3-监控mysql慢查询日志" class="headerlink" title="3.监控mysql慢查询日志"></a>3.监控mysql慢查询日志</h3><p>修改filebeat日志<br><code>vi /etc/filebeat/filebeat.yml</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">- input_type: log</span><br><span class="line">  paths:</span><br><span class="line">    - /usr/local/mysql/var/mysql/slow_log.CSV</span><br><span class="line">  document_type: &quot;mysql_slow&quot;</span><br><span class="line">  fields:</span><br><span class="line">    logsource: mysql</span><br><span class="line">    logtype: mysql_slow</span><br><span class="line"></span><br><span class="line">if [fields][logtype] == &quot;mysql_slow&quot; &#123;</span><br><span class="line">    csv &#123;</span><br><span class="line">      columns =&gt; [ &quot;timestamp&quot;, &quot;user_host&quot;, &quot;query_time&quot;, &quot;lock_time&quot;,</span><br><span class="line">                   &quot;rows_sent&quot;, &quot;rows_examined&quot;, &quot;db&quot;, &quot;last_insert_id&quot;,</span><br><span class="line">                   &quot;insert_id&quot;, &quot;server_id&quot;, &quot;sql_text&quot;, &quot;thread_id&quot;, &quot;rows_affected&quot; ]</span><br><span class="line">    &#125;</span><br><span class="line">    mutate &#123;</span><br><span class="line">      convert =&gt; &#123; &quot;rows_sent&quot; =&gt; &quot;integer&quot; &#125;</span><br><span class="line">      convert =&gt; &#123; &quot;rows_examined&quot; =&gt; &quot;integer&quot; &#125;</span><br><span class="line">      convert =&gt; &#123; &quot;last_insert_id&quot; =&gt; &quot;integer&quot; &#125;</span><br><span class="line">      convert =&gt; &#123; &quot;insert_id&quot; =&gt; &quot;integer&quot; &#125;</span><br><span class="line">      convert =&gt; &#123; &quot;server_id&quot; =&gt; &quot;integer&quot; &#125;</span><br><span class="line">      convert =&gt; &#123; &quot;thread_id&quot; =&gt; &quot;integer&quot; &#125;</span><br><span class="line">      convert =&gt; &#123; &quot;rows_affected&quot; =&gt; &quot;integer&quot; &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    date &#123;</span><br><span class="line">      match =&gt; [ &quot;timestamp&quot;, &quot;yyyy-MM-dd HH:mm:ss.SSSSSS&quot; ]</span><br><span class="line">      remove_field =&gt; [ &quot;timestamp&quot; ]</span><br><span class="line">    &#125;</span><br><span class="line">    mutate &#123;</span><br><span class="line"> gsub =&gt; [</span><br><span class="line">        &quot;query_time&quot;, &quot;(.*\.)(\d)(\d)\d+&quot;, &quot;\1\2\3&quot;,</span><br><span class="line">        &quot;lock_time&quot;, &quot;(.*\.)(\d)(\d)\d+&quot;, &quot;\1\2\3&quot;</span><br><span class="line">        ]</span><br><span class="line">        &#125;</span><br><span class="line">     ruby &#123; code =&gt; &quot;event.set(&apos;query_time&apos; , event.get(&apos;query_time&apos;) ? event.get(&apos;query_time&apos;).split(&apos;:&apos;).inject(0)&#123;|a, m| a = a * 60 + m.to_f&#125; : 0)&quot;&#125;</span><br><span class="line">     ruby &#123; code =&gt; &quot;event.set(&apos;lock_time&apos; , event.get(&apos;lock_time&apos;) ? event.get(&apos;lock_time&apos;).split(&apos;:&apos;).inject(0)&#123;|a, m| a = a * 60 + m.to_f&#125; : 0)&quot; &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  output.logstash:</span><br><span class="line">  hosts: [&quot;192.168.1.23:5044&quot;]  #不同日志根据实际情况传送至不同Kafka服务器</span><br></pre></td></tr></table></figure></p>
+<h2 id="二、Kafka集群上的Logstash配置"><a href="#二、Kafka集群上的Logstash配置" class="headerlink" title="二、Kafka集群上的Logstash配置"></a>二、Kafka集群上的Logstash配置</h2><h3 id="1-接收nginx日志"><a href="#1-接收nginx日志" class="headerlink" title="1.接收nginx日志"></a>1.接收nginx日志</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">input &#123;</span><br><span class="line">    beats &#123;</span><br><span class="line">    	port =&gt; 5044</span><br><span class="line">        codec =&gt; plain&#123; charset =&gt; &quot;GBK&quot; &#125; #设置编码</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">filter &#123;</span><br><span class="line">  if [fields][logtype] == &quot;nginx_access&quot;&#123;</span><br><span class="line">    mutate &#123;</span><br><span class="line">      gsub =&gt; [&quot;message&quot;, &quot;\\x0D&quot;, &quot;&quot;]  #替换字符</span><br><span class="line">      gsub =&gt; [&quot;message&quot;, &quot;\\x0A&quot;, &quot;&quot;]</span><br><span class="line">      gsub =&gt; [&quot;message&quot;, &quot;\\x22&quot;, &quot;&quot;]</span><br><span class="line">    &#125;</span><br><span class="line">    json &#123;</span><br><span class="line">      source =&gt; &quot;message&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">output &#123;</span><br><span class="line">  if [fields][dep] == &quot;nginx_access&quot;&#123;</span><br><span class="line">    kafka &#123;</span><br><span class="line">      id =&gt;&quot;my_kafka_id&quot;</span><br><span class="line">      codec =&gt; json</span><br><span class="line">      topic_id =&gt;&quot;test&quot;</span><br><span class="line">      bootstrap_servers =&gt; &quot;192.168.1.21:9092&quot;</span><br><span class="line">      batch_size =&gt; 5</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-接收mysql慢查询日志"><a href="#2-接收mysql慢查询日志" class="headerlink" title="2.接收mysql慢查询日志"></a>2.接收mysql慢查询日志</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">input &#123;</span><br><span class="line">    beats &#123;</span><br><span class="line">    	port =&gt; 5044</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">output &#123;</span><br><span class="line">if [fields][logtype] == &quot;mysql_slow&quot;&#123;</span><br><span class="line">    kafka &#123;</span><br><span class="line">      id =&gt;&quot;my_kafka_id&quot;</span><br><span class="line">      codec =&gt; json</span><br><span class="line">      topic_id =&gt;&quot;test&quot;</span><br><span class="line">      bootstrap_servers =&gt; &quot;192.168.1.23:9092&quot;</span><br><span class="line">      batch_size =&gt; 5</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="四-Kafka配置"><a href="#四-Kafka配置" class="headerlink" title="四.Kafka配置"></a>四.Kafka配置</h3><p>创建数据和日志目录<br><code>mkdir /kafka/zookeeper/data</code><br><code>mkdir /kafka/zookeeper/logs</code><br>创建myid 文件(每台服务器写入不同值)<br><code>echo 1 &gt; /kafka/zookeeper/data/myid</code><br>配置zookeeper<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">maxClientCnxns=0</span><br><span class="line">dataDir=/kafka/zookeeper/data</span><br><span class="line">dataLogDir=/kafka/zookeeper/logs</span><br><span class="line">clientPort=2181</span><br><span class="line">#最大客户端连接数</span><br><span class="line">maxClientCnxns=20</span><br><span class="line">#心跳间隔</span><br><span class="line">tickTime=2000</span><br><span class="line">当初始化连接时间超过该值，则表示连接失败。</span><br><span class="line">initLimit=10</span><br><span class="line">#此配置项表示Leader与Follower之间发送消息时，请求和应答时间长度。</span><br><span class="line">syncLimit=5</span><br><span class="line">#第一个端口是连接到leader的端口，第二个是用来选举leader 用的端口</span><br><span class="line">server.1=192.168.1.21:2888:3888</span><br><span class="line">server.2=192.168.1.22:2888:3888</span><br><span class="line">server.3=192.168.1.23:2888:3888</span><br></pre></td></tr></table></figure></p>
+<p>配置kafka<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">broker.id=0 ##集群每个服务器不同</span><br><span class="line">#消费者的访问端口，logstash或者elasticsearch</span><br><span class="line">listeners=PLAINTEXT://192.168.1.21:9092</span><br><span class="line">#接收和发送线程数</span><br><span class="line">num.network.threads=3</span><br><span class="line">#处理请求线程数</span><br><span class="line">num.io.threads=8</span><br><span class="line">#发送缓冲区</span><br><span class="line">socket.send.buffer.bytes=102400</span><br><span class="line">#接收缓冲区</span><br><span class="line">socket.receive.buffer.bytes=102400</span><br><span class="line">#套接字服务器接受请求上限(防止OOM)。</span><br><span class="line">socket.request.max.bytes=104857600</span><br><span class="line">#以逗号分隔的目录列表，其中存储日志文件。</span><br><span class="line">log.dirs=/home/kafka/logs</span><br><span class="line">num.partitions=1</span><br><span class="line">num.recovery.threads.per.data.dir=1</span><br><span class="line">offsets.topic.replication.factor=1</span><br><span class="line">transaction.state.log.replication.factor=1</span><br><span class="line">transaction.state.log.min.isr=1</span><br><span class="line">zookeeper.connect=192.168.1.21:2181,192.168.1.22:2181,192.168.1.23:2181</span><br><span class="line">zookeeper.connection.timeout.ms=6000</span><br><span class="line">group.initial.rebalance.delay.ms=0</span><br></pre></td></tr></table></figure></p>
+<p>启动集群<br><code>nohup /kafka/bin/zookeeper-server-start.sh zookeeper.properties &gt;&gt;/dev/null 2&gt;&amp;1 &amp;</code><br><code>nohup /kafka/bin/kafka-server-start.sh /kafka/config/server.properties &gt;&gt;/dev/null 2&gt;&amp;1 &amp;</code><br>测试集群<br><code>/kafka/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test</code><br><code>/kafka/bin/kafka-topics.sh --zookeeper 192.168.1.21:2181 --list</code></p>
+<h2 id="五、Elasticsearch配置"><a href="#五、Elasticsearch配置" class="headerlink" title="五、Elasticsearch配置"></a>五、Elasticsearch配置</h2><p>由于elasticsearch无法在root权限下运行，在此创建账号elk<br><code>useradd eeelk</code><br>解压elasticsearch文件<br><code>tar -zxvf elasticserch-6.2.4.tar.gz</code><br>修改配置文件（三台服务器均需修改，node.name不同即可）<br><code>vi elasticsearch-6.2.4/config/elasticsearch.yml</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cluster.name: myescluster         #自定义修改一个集群名称</span><br><span class="line">node.name: node1                 #节点名称</span><br><span class="line">network.host: 192.168.1.41      #节点IP（或者解析的主机名）</span><br><span class="line">http.port: 9200</span><br><span class="line">http.cors.enabled: true</span><br><span class="line">http.cors.allow-origin: &quot;*&quot;</span><br><span class="line">http.cors.allow-headers: Authorization,X-Requested-With,Content-Length,Content-Type</span><br><span class="line">bootstrap.memory_lock: false          #设置elasticsearch的进程锁住内存</span><br><span class="line">discovery.zen.ping.unicast.hosts: [&quot;192.168.1.41&quot;, &quot;192.168.1.42&quot;,&quot;192.168.1.43&quot;]  #集群个节点IP地址</span><br><span class="line">discovery.zen.minimum_master_nodes: 2      #为了避免脑裂，集群节点数最少为 半数+1</span><br></pre></td></tr></table></figure></p>
+<p>向limits.conf添加以下内容（设置允许打开文件最大值）<br><code>vi /etc/security/limits.conf</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">* soft nofile 655360</span><br><span class="line">* hard nofile 655360</span><br><span class="line">root soft nofile 100001</span><br><span class="line">root hard nofile 100002</span><br></pre></td></tr></table></figure></p>
+<p>向sysctl.conf中添加以下内容（设置最大线程数）<br><code>vi /etc/sysctl.conf</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vm.max_map_count=655360</span><br></pre></td></tr></table></figure></p>
+<p>使配置生效<br><code>sysctl -p</code><br>赋予elk用户文件夹权限<br><code>chown -R elk.elk /home/elk/elasticsearch-6.2.4/</code><br>运行elk<br><code>su eeelk</code></p>
+<p><code>./elasticsearch-6.2.4/bin/elasticsearch -d</code><br>打开浏览器访问<a href="http://ip:9200" target="_blank" rel="noopener">http://ip:9200</a><br><img src="/deployment/ELK6-2-4部署/elasticsearch9200.png"></p>
+<h2 id="六、elasticsearch-head安装"><a href="#六、elasticsearch-head安装" class="headerlink" title="六、elasticsearch-head安装"></a>六、elasticsearch-head安装</h2><p><a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">官网</a>查询对应版本下载连接<br><img src="/deployment/ELK6-2-4部署/nodejs版本.png"><br>安装nodejs<br><code>wget https://nodejs.org/dist/v8.11.3/node-v8.11.3-linux-x64.tar.xz</code></p>
+<p><code>xz -d node-v8.11.2-linux-x64.tar.xz</code></p>
+<p><code>tar  xvf node-v8.11.2-linux-x64.tar</code></p>
+<p>将nodejs加入环境变量<br><code>vi /etc/profile</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export NODE_HOME=/home/eeelk/node-v8.11.3-linux-x64</span><br><span class="line">export PATH=$NODE_HOME/bin:$PATH</span><br></pre></td></tr></table></figure></p>
+<p>使环境变量生效<br><code>source /etc/profile</code><br>安装elasticsearch-head<br><code>wget https://github.com/mobz/elasticsearch-head/archive/master.zip</code><br><code>unzip master.zip</code><br><code>cd elasticsearch-head-master</code><br><code>npm install</code><br>如果安装时报错提示phantomjs-prebuilt安装失败则执行<br><code>npm install phantomjs-prebuilt@2.1.16 --ignore-scripts</code><br>修改elasticsearch-head配置<br><code>vi Gruntfile.js</code><br><img src="/deployment/ELK6-2-4部署/elasticsearch-head.png"><br>启动elasticsearch-head<br><code>npm run start</code><br>打开浏览器访问<a href="http://ip:9100" target="_blank" rel="noopener">http://ip:9100</a><br><img src="/deployment/ELK6-2-4部署/elasticsearch-head9100.png"></p>
+<h2 id="七、kibana配置"><a href="#七、kibana配置" class="headerlink" title="七、kibana配置"></a>七、kibana配置</h2><p>修改配置文件<br><code>vi kibana-6.2.4/config/kibana.yml</code><br><img src="/deployment/ELK6-2-4部署/kibana配置.png"><br>启动kibana<br><code>./kibana-6.2.4/bin/kibana</code><br>访问<a href="http://ip:5601" target="_blank" rel="noopener">http://ip:5601</a><br><img src="/deployment/ELK6-2-4部署/kibana5601.png"></p>
+<h2 id="八、X-Pack安装"><a href="#八、X-Pack安装" class="headerlink" title="八、X-Pack安装"></a>八、X-Pack安装</h2><h3 id="1-在elasticsearh上安装x-pack"><a href="#1-在elasticsearh上安装x-pack" class="headerlink" title="1.在elasticsearh上安装x-pack"></a>1.在elasticsearh上安装x-pack</h3><p><code>/elasticsearch-6.2.4/bin/elasticsearch-plugin install x-pack</code><br>安装完成后重启elasticsearch服务后，初始化密码<br><code>./elasticsearch-6.2.4/bin/x-pack/setup-passwords interactive</code></p>
+<h3 id="2-在logstash上安装x-Pack"><a href="#2-在logstash上安装x-Pack" class="headerlink" title="2.在logstash上安装x-Pack"></a>2.在logstash上安装x-Pack</h3><p><code>.logstash-6.2.4/bin/logstash-plugin install x-pack</code><br>在logstash.yml中设置账号密码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xpack.monitoring.elasticsearch.username: logstash_system</span><br><span class="line">xpack.monitoring.elasticsearch.password: 初始化elk中x-pack生成的密码</span><br></pre></td></tr></table></figure></p>
+<p>在logstash的config文件中添加elasticsearh账号密码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">output &#123;</span><br><span class="line">    elasticsearch &#123;</span><br><span class="line">       hosts =&gt; [&quot;192.168.1.41:9200&quot;,&quot;192.168.1.42:9200&quot;,&quot;192.168.1.43:9200&quot;]</span><br><span class="line">       user =&gt; &quot;elastic&quot;</span><br><span class="line">       password =&gt; &quot;123456&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-在kibana上安装x-pack"><a href="#3-在kibana上安装x-pack" class="headerlink" title="3.在kibana上安装x-pack"></a>3.在kibana上安装x-pack</h3><p><code>/kibana-6.2.4/bin/kibana-plugin install x-pack</code><br>在kibana配置中设置账号密码<br><code>vi kibana-6.2.4/config/kibana.yml</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">elasticsearch.username: &quot;elasti&quot;</span><br><span class="line">elasticsearch.password: &quot;123456&quot;</span><br></pre></td></tr></table></figure></p>
+<p>在elasticsearch配置中启用x-pack验证<br><code>vi elasticsearch-6.2.4/config/kibana.yml</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xpack.security.enabled: true</span><br></pre></td></tr></table></figure></p>
+<p>重启elasticsearch、kibana、logstash服务</p>
+<h2 id="九、Logstash配置"><a href="#九、Logstash配置" class="headerlink" title="九、Logstash配置"></a>九、Logstash配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">input&#123;</span><br><span class="line">      kafka&#123;</span><br><span class="line">        codec =&gt; json</span><br><span class="line">        bootstrap_servers =&gt; &quot;192.168.1.21:9092,192.168.1.22:9092,192.168.1.23:9092&quot;</span><br><span class="line">        auto_offset_reset =&gt; &quot;latest&quot; #从最新的偏移量开始消费</span><br><span class="line">        consumer_threads =&gt; 5</span><br><span class="line">        decorate_events =&gt; true #此属性会将当前topic、offset、group、partition等信息也带到message中</span><br><span class="line">        topics =&gt; &quot;test&quot; #数组类型，可配置多个topic</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br><span class="line">filter &#123;</span><br><span class="line">   geoip &#123;</span><br><span class="line">      source =&gt; &quot;slbip&quot; # 与日志中访问地址的key要对应</span><br><span class="line">      target =&gt; &quot;geoip&quot;</span><br><span class="line">      database =&gt; &quot;GeoLite2-City_20180605/GeoLite2-City.mmdb&quot;</span><br><span class="line">      add_field =&gt; [ &quot;[geoip][coordinates]&quot;,&quot;%&#123;[geoip][longitude]&#125;&quot; ]</span><br><span class="line">      add_field =&gt; [ &quot;[geoip][coordinates]&quot;,&quot;%&#123;[geoip][latitude]&#125;&quot; ]</span><br><span class="line">  &#125;</span><br><span class="line">  mutate &#123;</span><br><span class="line">      convert =&gt; [ &quot;[geoip][coordinates]&quot;,&quot;float&quot; ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">output&#123;</span><br><span class="line">  elasticsearch &#123;</span><br><span class="line">    hosts =&gt; [&quot;192.168.1.41:9200&quot;,&quot;192.168.1.42:9200&quot;,&quot;192.168.1.43:9200&quot;]</span><br><span class="line">    index =&gt; &quot;logstash-%&#123;[fields][dep]&#125;-%&#123;[fields][project]&#125;-%&#123;[fields][logsource]&#125;-%&#123;+YYYY.MM.dd&#125;&quot;</span><br><span class="line">    user =&gt; &quot;elastic&quot;</span><br><span class="line">    password =&gt; &quot;123456&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="十、filebeat-amp-logstash通过ssl交互"><a href="#十、filebeat-amp-logstash通过ssl交互" class="headerlink" title="十、filebeat&amp;logstash通过ssl交互"></a>十、filebeat&amp;logstash通过ssl交互</h2><h3 id="安装openssl"><a href="#安装openssl" class="headerlink" title="安装openssl"></a>安装openssl</h3><p><code>wget https://www.openssl.org/source/openssl-1.1.1-pre8.tar.gz</code><br><code>tar -zxvf openssl-1.1.1-pre8.tar.gz</code><br><code>cd openssl-1.1.1-pre8</code><br><code>./config --prefix=/usr/local/openssl</code><br><code>./config -t</code><br><code>make</code><br><code>make install</code></p>
+<h3 id="创建证书"><a href="#创建证书" class="headerlink" title="创建证书"></a>创建证书</h3><p>创建证书目录<br><code>mkdir -p /etc/pki/tls/certs</code><br><code>mkdir -p /etc/pki/tls/private</code><br>生成证书<br><code>vi /etc/ssl/openssl.cnf</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#在[ v3_ca ]下面填写</span><br><span class="line">subjectAltName = IP:192.168.1.21</span><br></pre></td></tr></table></figure></p>
+<p><code>cd /etc/pki/tls/</code><br><code>openssl req -config /usr/local/openssl/ssl/openssl.cnf -x509 -days 3650 -batch -node</code><br><code>openssl req -subj &#39;/CN=192.168.1.21/&#39; -x509 -days $((100 * 365)) -batch -nodes -newkey rsa:2048 -keyout pki/tls/private/logstash.key -out pki/tls/certs/logstash.crt</code><br>在filebeat机器上生成证书文件</p>
+<h3 id="配置证书"><a href="#配置证书" class="headerlink" title="配置证书"></a>配置证书</h3><p>将filebeat.crt logstash.crt 传到对方服务器<br>修改logstash配置<br><code>vi /home/elk/logstash-6.2.4/config/logs.conf</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">input &#123;</span><br><span class="line"> beats &#123;</span><br><span class="line">   host =&gt; &quot;192.168.1.21&quot;</span><br><span class="line">   port =&gt; 5044</span><br><span class="line">   ssl =&gt; true</span><br><span class="line">   ssl_certificate_authorities =&gt; [&quot;/etc/pki/tls/certs/filebeat.crt&quot;]</span><br><span class="line">   ssl_certificate =&gt; &quot;/etc/pki/tls/certs/logstash.crt&quot;</span><br><span class="line">   ssl_key =&gt; &quot;/etc/pki/tls/private/logstash.key&quot;</span><br><span class="line">   ssl_verify_mode =&gt; &quot;force_peer&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>修改filebeat配置<br><code>vi /etc/filebeat/filebeat.yml</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">output.logstash:</span><br><span class="line">  hosts: [&quot;192.168.1.21:5044&quot;]</span><br><span class="line">  ssl.certificate_authorities: [&quot;/etc/pki/tls/certs/logstash.crt&quot;]</span><br><span class="line">  ssl.certificate: &quot;/etc/pki/tls/certs/filebeat.crt&quot;</span><br><span class="line">  ssl.key: &quot;/etc/pki/tls/private/filebeat.key&quot;</span><br></pre></td></tr></table></figure></p>
+<p>重启logstash和filebeat服务</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+	
+	<div>
+      
+	</div>
+	
+	<div>
+		
+			<div>
+    
+        <div style="text-align:center;color: #555;font-size:14px;">-------------End-------------</div>
+    
+</div>
+		
+	</div>
+	
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Thank you very much for your donation.</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt=" 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt=" 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+      <div id="bitcoin" style="display: inline-block">
+        <img id="bitcoin_qr" src="/images/bitcoin.png" alt=" 比特币"/>
+        <p>比特币</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/企业安全/" rel="tag"><i class="fa fa-tag"></i> 企业安全</a>
+          
+            <a href="/tags/ELK/" rel="tag"><i class="fa fa-tag"></i> ELK</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Security/开源产品自建企业安全-脑图/" rel="prev" title="开源产品自建企业安全-脑图">
+                开源产品自建企业安全-脑图 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zODM5Mi8xNDkyMA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+
+    
+  
+ <div class="sidebar-inner">
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/diyz.jpg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+		
+		  
+		  
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a rel="external nofollow" href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=1321425651" target="_blank" title="QQ" rel="external nofollow"><i class="fa fa-fw fa-qq"></i>QQ</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a rel="external nofollow" href="mailto:1321425651@qq.com" target="_blank" title="E-Mail" rel="external nofollow"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a rel="external nofollow" href="https://github.com/doubiduo" target="_blank" title="GitHub" rel="external nofollow"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a rel="external nofollow" href="https://steamcommunity.com/id/doubiduo" target="_blank" title="Steam" rel="external nofollow"><i class="fa fa-fw fa-steam"></i>Steam</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a rel="external nofollow" href="https://www.diyz.bid/atom.xml" target="_blank" title="RSS" rel="external nofollow"><i class="fa fa-fw fa-rss"></i>RSS</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+			
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、ELK介绍"><span class="nav-text">一、ELK介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-什么是ELK"><span class="nav-text">1.什么是ELK</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-为什么需要ELK"><span class="nav-text">2.为什么需要ELK</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-ELK工作原理"><span class="nav-text">3.ELK工作原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、环境配置"><span class="nav-text">二、环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-服务器清单"><span class="nav-text">1.服务器清单</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-安装JDK"><span class="nav-text">2.安装JDK</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-关闭防火墙"><span class="nav-text">3.关闭防火墙</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-安装screen"><span class="nav-text">4.安装screen</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-下载Elasticserch、Logstash、Kibana、Kafka"><span class="nav-text">5.下载Elasticserch、Logstash、Kibana、Kafka</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、Filebeat配置"><span class="nav-text">三、Filebeat配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-安装Filebeat"><span class="nav-text">1.安装Filebeat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-监控nginx日志"><span class="nav-text">2.监控nginx日志</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-监控mysql慢查询日志"><span class="nav-text">3.监控mysql慢查询日志</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、Kafka集群上的Logstash配置"><span class="nav-text">二、Kafka集群上的Logstash配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-接收nginx日志"><span class="nav-text">1.接收nginx日志</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-接收mysql慢查询日志"><span class="nav-text">2.接收mysql慢查询日志</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四-Kafka配置"><span class="nav-text">四.Kafka配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、Elasticsearch配置"><span class="nav-text">五、Elasticsearch配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、elasticsearch-head安装"><span class="nav-text">六、elasticsearch-head安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七、kibana配置"><span class="nav-text">七、kibana配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八、X-Pack安装"><span class="nav-text">八、X-Pack安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-在elasticsearh上安装x-pack"><span class="nav-text">1.在elasticsearh上安装x-pack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-在logstash上安装x-Pack"><span class="nav-text">2.在logstash上安装x-Pack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-在kibana上安装x-pack"><span class="nav-text">3.在kibana上安装x-pack</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#九、Logstash配置"><span class="nav-text">九、Logstash配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十、filebeat-amp-logstash通过ssl交互"><span class="nav-text">十、filebeat&amp;logstash通过ssl交互</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装openssl"><span class="nav-text">安装openssl</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建证书"><span class="nav-text">创建证书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置证书"><span class="nav-text">配置证书</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+	  
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- taggg -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2020224399094607"
+     data-ad-slot="5456418301"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">doubiduo</span>
+
+  
+
+  
+</div>
+
+
+  
+
+
+
+  <div class="powered-by">由 <a rel="external nofollow" class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">全站共214.4k字</span>
+</div>
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
     // Popup Window;
     var isfetched = false;
     var isXml = true;
@@ -316,4 +1508,159 @@
         onPopupClose();
       }
     });
-  </script><script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script><script>AV.initialize("auf5TIy4OQOv6c52DIqTOgHd-gzGzoHsz","tBf3kX7KmYaId0Nh4PlLx3XQ")</script><script>function showTime(e){var t=new AV.Query(e),c=[],u=$(".leancloud_visitors");u.each(function(){c.push($(this).attr("id").trim())}),t.containedIn("url",c),t.find().done(function(e){var t=".leancloud-visitors-count";if(0!==e.length){for(var n=0;n<e.length;n++){var o=e[n],i=o.get("url"),s=o.get("time"),r=document.getElementById(i);$(r).find(t).text(s)}for(n=0;n<c.length;n++){i=c[n],r=document.getElementById(i);var l=$(r).find(t);""==l.text()&&l.text(0)}}else u.find(t).text(0)}).fail(function(e,t){console.log("Error: "+t.code+" "+t.message)})}function addCount(i){var e=$(".leancloud_visitors"),s=e.attr("id").trim(),r=e.attr("data-flag-title").trim(),t=new AV.Query(i);t.equalTo("url",s),t.find({success:function(e){if(0<e.length){var t=e[0];t.fetchWhenSave(!0),t.increment("time"),t.save(null,{success:function(e){$(document.getElementById(s)).find(".leancloud-visitors-count").text(e.get("time"))},error:function(e,t){console.log("Failed to save Visitor num, with error message: "+t.message)}})}else{var n=new i,o=new AV.ACL;o.setPublicReadAccess(!0),o.setPublicWriteAccess(!0),n.setACL(o),n.set("title",r),n.set("url",s),n.set("time",1),n.save(null,{success:function(e){$(document.getElementById(s)).find(".leancloud-visitors-count").text(e.get("time"))},error:function(e,t){console.log("Failed to create")}})}},error:function(e){console.log("Error:"+e.code+" "+e.message)}})}$(function(){var e=AV.Object.extend("Counter");1==$(".leancloud_visitors").length?addCount(e):1<$(".post-title-link").length&&showTime(e)})</script><script>!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script></body></html>
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("auf5TIy4OQOv6c52DIqTOgHd-gzGzoHsz", "tBf3kX7KmYaId0Nh4PlLx3XQ");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            
+            counter.save(null, {
+              success: function(counter) {
+                
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            
+              var newcounter = new Counter();
+              /* Set ACL */
+              var acl = new AV.ACL();
+              acl.setPublicReadAccess(true);
+              acl.setPublicWriteAccess(true);
+              newcounter.setACL(acl);
+              /* End Set ACL */
+              newcounter.set("title", title);
+              newcounter.set("url", url);
+              newcounter.set("time", 1);
+              newcounter.save(null, {
+                success: function(newcounter) {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+                },
+                error: function(newcounter, error) {
+                  console.log('Failed to create');
+                }
+              });
+            
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

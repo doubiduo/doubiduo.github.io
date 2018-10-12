@@ -1,3 +1,4 @@
+https://www.diyz.bid/notes/cissp学习笔记（12）——安全通信和网络攻击/
 https://www.diyz.bid/notes/cissp学习笔记（11）——网络安全架构与保护网络组件/
 https://www.diyz.bid/Security/关于Java沙箱逃逸的这20年/
 https://www.diyz.bid/Security/安全培训大纲/

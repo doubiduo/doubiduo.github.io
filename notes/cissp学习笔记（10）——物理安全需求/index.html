@@ -1,4 +1,1299 @@
-<!DOCTYPE html><html class="theme-next pisces use-motion" lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#222"><script src="/lib/pace/pace.min.js?v=1.0.2"></script><link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet"><script></script><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css"><link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.ico?v=6.3.0"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.ico?v=6.3.0"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.ico?v=6.3.0"><link rel="mask-icon" href="/images/logo.ico?v=6.3.0" color="#222"><script type="text/javascript" id="hexo.configurations">var NexT=window.NexT||{},CONFIG={root:"/",scheme:"Pisces",version:"6.3.0",sidebar:{position:"left",display:"post",offset:12,b2t:!1,scrollpercent:!1,onmobile:!1},fancybox:!1,fastclick:!1,lazyload:!1,tabs:!0,motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},algolia:{applicationID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}}}</script><meta name="description" content="本文为cissp中物理安全需求章节的学习笔记"><meta name="keywords" content="学习笔记,cissp,douiduo,diyz.bid"><meta property="og:type" content="article"><meta property="og:title" content="cissp学习笔记（10）——物理安全需求"><meta property="og:url" content="https://www.diyz.bid/notes/cissp学习笔记（10）——物理安全需求/index.html"><meta property="og:site_name" content="doubiduo"><meta property="og:description" content="本文为cissp中物理安全需求章节的学习笔记"><meta property="og:locale" content="zh-CN"><meta property="og:updated_time" content="2018-10-11T10:12:52.875Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="cissp学习笔记（10）——物理安全需求"><meta name="twitter:description" content="本文为cissp中物理安全需求章节的学习笔记"><link rel="alternate" href="/atom.xml" title="doubiduo" type="application/atom+xml"><link rel="canonical" href="https://www.diyz.bid/notes/cissp学习笔记（10）——物理安全需求/"><script type="text/javascript" id="page.configurations">CONFIG.page={sidebar:""}</script><title>cissp学习笔记（10）——物理安全需求 | doubiduo</title><script async src="https://www.googletagmanager.com/gtag/js?id=UA-124427626-1"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-124427626-1")</script><script type="text/javascript">var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?9c8b377e488072512752a147d13a537c";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><noscript><style type="text/css">.sidebar-inner,.use-motion .brand,.use-motion .collection-title,.use-motion .comments,.use-motion .menu-item,.use-motion .motion-element,.use-motion .pagination,.use-motion .post-block,.use-motion .post-body,.use-motion .post-header{opacity:initial}.use-motion .logo,.use-motion .site-subtitle,.use-motion .site-title{opacity:initial;top:initial}.logo-line-after i{right:initial}</style></noscript><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-2020224399094607",enable_page_level_ads:!0})</script></head><body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN"><div class="container sidebar-position-left page-post-detail"><div class="headband"></div><header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-wrapper"><div class="site-meta"><div class="custom-logo-site-title"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">doubiduo</span><span class="logo-line-after"><i></i></span></a></div><h1 class="site-subtitle" itemprop="description">diyz.bid</h1></div><div class="site-nav-toggle"> <button aria-label="切换导航栏"><span class="btn-bar"></span><span class="btn-bar"></span><span class="btn-bar"></span></button></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i><br>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i><br>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i><br>归档</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="menu-item-icon fa fa-fw fa-link"></i><br>友链</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user-circle"></i><br>关于</a></li><li class="menu-item menu-item-search"><a href="javascript:;" class="popup-trigger"><i class="menu-item-icon fa fa-search fa-fw"></i><br>搜索</a></li></ul><div class="site-search"><div class="popup search-popup local-search-popup"><div class="local-search-header clearfix"><span class="search-icon"><i class="fa fa-search"></i></span><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span><div class="local-search-input-wrapper"> <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input"></div></div><div id="local-search-result"></div></div></div></nav></div></header><main id="main" class="main"><div class="main-inner"><div class="content-wrap"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2020224399094607" data-ad-slot="5456418301" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({})</script><div id="content" class="content"><div id="posts" class="posts-expand"><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="https://www.diyz.bid/notes/cissp学习笔记（10）——物理安全需求/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content=""><meta itemprop="description" content=""><meta itemprop="image" content="/images/diyz.jpg"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="doubiduo"></span><header class="post-header"><h2 class="post-title" itemprop="name headline">cissp学习笔记（10）——物理安全需求</h2><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i></span> <span class="post-meta-item-text">发表于</span> <time title="创建时间：2018-09-25 14:11:39" itemprop="dateCreated datePublished" datetime="2018-09-25T14:11:39+08:00">2018-09-25</time> <span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-calendar-check-o"></i></span> <span class="post-meta-item-text">更新于</span> <time title="修改时间：2018-10-11 18:12:52" itemprop="dateModified" datetime="2018-10-11T18:12:52+08:00">2018-10-11</time></span> <span class="post-category"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-folder-o"></i></span> <span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/notes/" itemprop="url" rel="index"><span itemprop="name">notes</span></a></span></span> <span class="post-symbolscount"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-file-word-o"></i></span> <span class="post-meta-item-text">本文字数：</span> <span title="本文字数">13k</span></span> <span id="/notes/cissp学习笔记（10）——物理安全需求/" class="leancloud_visitors" data-flag-title="cissp学习笔记（10）——物理安全需求"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-eye"></i></span> <span class="post-meta-item-text">阅读次数：</span><span class="leancloud-visitors-count"></span></span><div class="post-description">本文为cissp中物理安全需求章节的学习笔记</div></div></header><div class="post-body" itemprop="articleBody"><p>在本章的考试大纲内容有：<br>3) 安全工程(安全的工程学和管理)</p><ul><li>J. 应用安全原则到场所和设施设计中</li><li><p>K. 设计和应用物理安全</p><ul><li>K.1 配线柜</li><li>K.2 服务器机房</li><li>K.3 介质存储设施</li><li>K.4 证据存储</li><li>K.5 受限和工作区域安全(例如，运营中心)</li><li>K.6 数据中心安全</li><li>K.7 基础设施和HVAC注意事项</li><li>K.8 水的问题(例如，漏水和水灾)</li><li>K.9 火灾预防、检测和抑制<br>7) 安全运营(例如，基本概念、调查、实践管理、灾难恢复)</li></ul></li><li><p>O. 应用和管理物理安全</p><ul><li>O.1 周边(例如，访问控制和监控)</li><li>O.2 内部安全(例如，陪同要求/访问控制、钥匙和锁)</li></ul></li></ul><h3 id="10-1-应用安全原则到选址和设施设计"><a href="#10-1-应用安全原则到选址和设施设计" class="headerlink" title="10.1 应用安全原则到选址和设施设计"></a>10.1 应用安全原则到选址和设施设计</h3><h4 id="10-1-1-安全设施计划"><a href="#10-1-1-安全设施计划" class="headerlink" title="10.1.1 安全设施计划"></a>10.1.1 安全设施计划</h4><p>　　安全设施计划描述了组织的安全要求的轮廓，并且着重强调为了提供安全性所用的方法和机制。关键路径分析是一种系统工作，可以确定关键任务应用、过程和操作以及所有必要的支持要素之间的关系。当正确执行关键路径分析时，支撑组织的必要的相互依赖和相互作用就会形成。一旦分析完成，那么结果将作为一列安全条目提供服务。在检查关键路径时，己完成的评估或潜在的技术融合是很重要的。技术融合是不同的技术、解决方案、工具和系统在随着时间的推移进行发展和合井的趋势。安保人员应参与场所和设施的设计考虑。否则，对于现存的逻辑安全，在许多物理安全方面的内容可能会被忽略。</p><h4 id="10-1-2-场所选择"><a href="#10-1-2-场所选择" class="headerlink" title="10.1.2 场所选择"></a>10.1.2 场所选择</h4><p>　　场所的选择应该以组织的安全需要为基础。成本、地点和大小都很重要，但是解决安全要求始终应当放在首位。在整个场所选择过程中，场所的位置和构造起到了至关重要的作用。毗邻其他建筑物和业务是另一个至关重要的考虑因素。至少要确保建筑物的设计要求能够应对极端的天气，并且能够阻拦或防御明显的非法闯入企图。容易受到攻击的进入位置(例女日，窗户和门)往往就是此类分析。此外，还应当评估非法闯入容易借助的遮挡视线的物体(例如，树木、灌木或人为因素) 。</p><h4 id="10-1-3-可视性"><a href="#10-1-3-可视性" class="headerlink" title="10.1.3 可视性"></a>10.1.3 可视性</h4><p>　　可视性是十分重要的。必须对周围地形、周围区域的组成、紧急事件服务机构、潜在危险等进行分析。</p><h4 id="10-1-4-自然灾害"><a href="#10-1-4-自然灾害" class="headerlink" title="10.1.4 自然灾害"></a>10.1.4 自然灾害</h4><p>　　必须准备应付自然灾害，并且使町环境经受得住灾害事件的影响，或者可以容易地进行替换。</p><h4 id="10-1-5-设施的设计"><a href="#10-1-5-设施的设计" class="headerlink" title="10.1.5 设施的设计"></a>10.1.5 设施的设计</h4><p>　　在进行设施的设计时，需要理解组织所需的安全等级。在设计开始之前，必须计划并设计恰当的安全等级。”安全架构”经常被称为环境设计预防犯罪(Crime Prevention Through Environmental Design，CPTED)。指导思想是通过结构化的物理环境和周围环境，在潜在的罪犯做出任何犯罪行为之前影响其个人决定。</p><h3 id="10-2-设计和实施物理安全"><a href="#10-2-设计和实施物理安全" class="headerlink" title="10.2 设计和实施物理安全"></a>10.2 设计和实施物理安全</h3><p>　　用于对物理安全进行管理的安全控制可以分为三组： 行政性的、技术性的和物理性的。由于它们都用于描述访问控制的相同类别，因此记住这些分组的物理安全特性是十分重要的。为具体环境设计物理安全性时，需要牢记控制措施的功能顺序：</p><ul><li>阻拦</li><li>拒绝</li><li>检测</li><li>延缓</li></ul><h4 id="10-2-1-设备故障"><a href="#10-2-1-设备故障" class="headerlink" title="10.2.1 设备故障"></a>10.2.1 设备故障</h4><p>　　系统返回到完整的正常功能状态的响应时间与这种解决方案所涉及的维护成本成正比。成本包括存储、运输、预先购买以及维护现场安装和恢复专业技术。在某些情况中，维护现场替换是不可行的。对于这种情况，与硬件供应商签订服务级别协议(SLA)是十分必要的。SLA 清楚地定义了供应商在发生设备故障的紧急情况下所提供的响应时间。对老化的硬件进行替换和/或修理应该制定时间表。这些操作的时间表应该以为每种设备估计的平均无故障时间(Mean Time To Failure，MTTF)和平均修复时间(Mean Time To Repair，MTTR)为基础。设备送外修复时，需要在修复期间使用替代的解决方案或备份设备。通常，在出现小故障时进行修理是可以接受的，但是等到出现大故障时再进行更换，就是一种无法接受的安全实践。</p><h4 id="10-2-2-配线间"><a href="#10-2-2-配线间" class="headerlink" title="10.2.2 配线间"></a>10.2.2 配线间</h4><p>　　现代的配线间是整个建筑或一个楼层中连接到其他重要设备的网络电缆所在的地方，如配线架、交换机、路由器、局域网扩展和骨干渠道。配线间一个更专业的技术名称是房屋线缆分布室。为了保证最大线缆传输限制，大型建筑物里需要多个配线间。配线间的安全是非常重要的。大部分的安全重点是在防止未授权的物理访问方面。如果一个未授权的入侵者获准访问该地区，他们可能偷取设备、拖拉或切断电缆，甚至安放窃听设备。因此，配线间的安全策略应包括如下可靠规则：</p><ul><li>不把配线间作为通用的存储区。</li><li>足够多的锁。</li><li>持区域的整洁。</li><li>不要存放易燃易爆物品。</li><li>设置视频来监控内部的配线间活动。</li><li>使用开门传感器来记录日志。</li><li>不要把钥匙给除了授权管理人员之外的任何人。</li><li>对配线间的安全和内容进行定期的物理检查。</li><li>把配线间纳入组织的环境管理和监控，以确保有适当的环境控制和监控，以及检测破坏性条件，如洪水或火灾。</li></ul><h4 id="10-2-3-服务器机房"><a href="#10-2-3-服务器机房" class="headerlink" title="10.2.3 服务器机房"></a>10.2.3 服务器机房</h4><p>　　服务器机房、数据中心、通信机房、配线间、服务器保管室和π 机房是被封闭的、受限的和受保护的房间，这里放置着关键的服务器和网络设备。集中化的服务器机房不需要与人相协调。服务器机房应设在建筑物的核心位置。尽量避免放置在底层、顶层和地下室。此外，服务器机房应远离水、气和污水管道，这些管道泄漏或泛滥的风险太大，可能会造成严重的损坏和故障停机时间。</p><h4 id="10-2-4-介质存储设施"><a href="#10-2-4-介质存储设施" class="headerlink" title="10.2.4 介质存储设施"></a>10.2.4 介质存储设施</h4><ul><li>把介质存放在上锁的柜子或保险箱中。</li><li>有库管理员或保管员来管理对带锁的介质柜的访问。</li><li>使用存入/取出流程来跟踪谁在检索、使用和返回存储介质。</li><li>对于重用介质，当被返还时，运行安全磁盘擦除或归零(通过无意义的数据(比如零)来取代擦除数据的过程)过程来删除所有残留数据。</li></ul><h4 id="10-2-5-证据存储"><a href="#10-2-5-证据存储" class="headerlink" title="10.2.5 证据存储"></a>10.2.5 证据存储</h4><ul><li>安全证据存储可能涉及以下：</li><li>一个专用的存储系统以区别于生产网络</li><li>当没有新的数据集传输到存储系统时就将存储系统离钱</li><li>阻断存储系统和互联网的连接</li><li>跟踪证据存储系统的所有活动</li><li>计算存储在系统中所有数据的哈希值</li><li>限制安全管理员和法律顾问的访问</li><li>对所有存储在系统上的数据进行加密</li></ul><h4 id="10-2-6-受限的和工作区域安全-例如，运营中心"><a href="#10-2-6-受限的和工作区域安全-例如，运营中心" class="headerlink" title="10.2.6 受限的和工作区域安全(例如，运营中心)"></a>10.2.6 受限的和工作区域安全(例如，运营中心)</h4><p>　　工作区和参观区域的设计和配置都应该仔细考虑。对设施内所有地方的进入要求不应该等同对待。进入含有更高价值或重要资产的区域应该受到限制。有价值的和保密的资产应该放置在设施的核心保护区或中心地区。实际上，应该专注于部署物理保护的同心圆。这种配置类型要求较高的授权级别才能进入组织的更敏感区域。设施安全设计过程应该支持内部安全的实施和维护。除了在适当的工作场所管理员工外，还应该解决访客和访客控制问题。</p><h4 id="10-2-7-数据中心安全"><a href="#10-2-7-数据中心安全" class="headerlink" title="10.2.7 数据中心安全"></a>10.2.7 数据中心安全</h4><h5 id="1-智能卡"><a href="#1-智能卡" class="headerlink" title="1. 智能卡"></a>1. 智能卡</h5><p>　　智能卡是信用卡大小的身份证、员工证或安全通行证，卡上具有磁条、条形码或植入的集成电路芯片。智能卡包含了经过授权的可以被用于身份识别和/或身份认证目的的持卡人信息。某些智能卡甚至具有处理信息的能力或被用于在内存芯片上存储一定数量的数据。下列短语或术语指的都是智能卡：</p><ul><li>包含集成电路(IC)的身份令牌</li><li>处理器IC卡</li><li>具有ISO 7816接口的IC卡</li></ul><p>　　大多数情况下，智能卡被用于多因子配置，因此，智能卡被盗或丢失不容易发生冒名替代的后果。最常见的用于智能卡的多因子认证要求使用PIN。</p><h5 id="2-接近式读卡机"><a href="#2-接近式读卡机" class="headerlink" title="2. 接近式读卡机"></a>2. 接近式读卡机</h5><p>　　接近式读卡机可以是无源设备、场源设备或发送应答器。接近式设备由经过授权的持卡人携带或持有，当持卡人通过接近式读卡机时，接近式读卡机能够确定持卡人的身份及其是否己被授权进行访问。无源设备不具有活动电子，只是具有特定属性的小磁场(如DVD 上常见的防盗设备)。场源设备是一种电子设备，当进入由读卡机产生的电磁场时会被激活。发送应答器是自有电源的设备，并且发射由读卡机接收的信号。除了智能卡、无记忆卡和接近式读卡机以外，还可以使用无线射频识别(RFID)或生物测定学方面的访问控制设备来管理物理访问。</p><h5 id="3-入侵检测系统"><a href="#3-入侵检测系统" class="headerlink" title="3. 入侵检测系统"></a>3. 入侵检测系统</h5><p>　　入侵检测系统是自动化的或人工的系统，这种系统被设计用于检测未经授权的个人企图发起的入侵、破坏或攻击行为，未授权入口点的使用情况，以及在未经授权的时间或非正常时间发生的犯法事件。物理的入侵检测系统也被称为防盗警报器，用于检测未经授权的活动并通知管理机构(内部的安全部门或外部的执法部门)。</p><h5 id="4-访问滥用"><a href="#4-访问滥用" class="headerlink" title="4. 访问滥用"></a>4. 访问滥用</h5><p>　　物理访问控制的滥用示例包括敞开安全门、绕过锁或访问控制。伪装是指使用其他人的安全ID获得进入某座设施的权限。尾随是指跟随着某个人通过受到安全保护的门或通道，而自己并没有接受身份识别或身份认证。这样的检测滥用可以通过建立审计跟踪和保持访问日志来完成。</p><h5 id="5-放射防护"><a href="#5-放射防护" class="headerlink" title="5. 放射防护"></a>5. 放射防护</h5><p>　　用于阻止放射攻击的对策和防护类型被称为瞬时电磁脉冲设备屏蔽技术TEMPEST设备。TEMPEST的一些对策有法拉第笼、白噪声和控制区：</p><ul><li><strong>法拉第笼</strong> 通常是完全包围区域所有面的金属网。这个金属外壳具有能够产生电容效应(因此以法拉第命名)的弱电，从而可以防止所有电磁信号(放射信号)逸出或进入由法拉第笼围绕的区域。法拉第笼能够非常有效地阻拦EM信号。事实上，在有效的法拉第笼的内部，移动电话无法使用，并且无法接收广播或电视信号。</li><li><strong>白噪声</strong> 白噪声指的是一直广播虚假通信数据，从而掩盖和隐藏实际存在的放射信号。白噪声可以由另一个非机密来源的实际信号、特定频率的连续信号、随机的可变信号(例如，在广播电台或电视台之间听到的自噪声)甚至导致截获设备失效的干扰信号组成。在区域边界的周围生成白噪声是最为有效的，此时白噪声通过向外广播以保护需要放射信号才能完成正常运作的区域内部。</li><li><strong>控制区</strong> 控制区是第三种TEMPEST对策，它只是在受保护区域环境内实现法拉第笼或白噪声，在受保护区域环境外则不采取任何措施。控制区是所需设备使用和支持放射信号的区域(例如，无线互联、移动电话、无线电和电视信号)。在控制区外部，我们需要使用不同的TEMPEST对策来阻止对放射信号的拦截。</li></ul><h4 id="10-2-8-基础设施和HVAC注意事项"><a href="#10-2-8-基础设施和HVAC注意事项" class="headerlink" title="10.2.8 基础设施和HVAC注意事项"></a>10.2.8 基础设施和HVAC注意事项</h4><p>　　电力公司供应的电源并不总是连续的和平稳的。大多数电子设备需要平稳的电力供应才能正常工作。由于电源的波动而导致设备损坏的事情经常发生。不间断电源供应(Uninterruptible Power Supply，UPS)是一种自充电的电池类型，可以为敏感的设备提供连续和平稳的电力。另一种确保设备不会因为电源波动而造成损坏的方法是使用带有电涌保护器的配电盘。电涌保护器包含一根保险丝，它在电源功率剧烈变化而造成对设备的损坏之前熔断。但是一旦电涌保护器的保险丝熔断或电路因跳闸切断，电流就会被完全中断。如果希望维持很长时间的电力并且不会造成停电，那么需要一台现场发电机。大多数发电机运转时都使用液态或气态的燃料水槽，为了保证可靠性，必须维持充足的燃料。发电机被认为是电源的替换或后备方案。与电源相关的问题有很多。下面是应当熟悉的一组电源术语：</p><ul><li><strong>故障(fault)</strong> 电力瞬间消失</li><li><strong>中断(blackout)</strong> 电力完全消失</li><li><strong>电压不足(sag)</strong> 瞬间电压降低</li><li><strong>降压(brownout)</strong> 长时间低电压</li><li><strong>脉冲(spike)</strong> 瞬间高电压</li><li><strong>电涌(surge)</strong> 长时间高电压</li><li><strong>起动功率(inrush)</strong> 电源开始的电涌通常与连接的电源有关，无论电源是主电源还是替换/辅助电源</li><li><strong>噪声(noise)</strong> 持续不断的电源干扰</li><li><strong>瞬时现象(transient)</strong> 短时间的线路杂音干扰</li><li><strong>平稳(clean)</strong> 完全平稳的电流</li><li><strong>接地(ground)</strong> 电路中的电线是接地的</li></ul><h5 id="1-噪声"><a href="#1-噪声" class="headerlink" title="1. 噪声"></a>1. 噪声</h5><p>　　噪声造成的问题不仅会影响设备的功能，还可能会干扰通信、传输和播放的质量。电磁干扰(EMI)有两种类型： 普通模式和导线模式。普通模式的噪声是由电源或运转的电子设备的火线和地线之间的电势差产生的。导线模式的噪声是由电源或运转的电子设备的火线和中线之间的电势差产生的。与此类似的问题是射频干扰(RFI)，它与EMI一样，会影响许多系统。RFI由很多常见的电器产生。保护电力供应和保护设备不受到噪声干扰，这是为IT基础设施维护高效和功能稳定的环境的重要部分。这种保护措施所采取的步骤包括： 提供充足的电力条件，建立合适的接地措施，屏蔽所有电缆，以及限制暴露在EMI和RFI源中。</p><h5 id="2-温度、湿度和静电"><a href="#2-温度、湿度和静电" class="headerlink" title="2. 温度、湿度和静电"></a>2. 温度、湿度和静电</h5><p>　　除了考虑电源问题，维护环境还包括控制来暖、通风和空调(HVAC)的机制。湿度太高会导致侵蚀，湿度太低则会产生静电。即使在不产生静电的地毯上，如果环境中的湿度太低，那么仍然可能产生两万伏特的静电放电。</p><h4 id="10-2-9-水的问题-例如，漏水和水灾"><a href="#10-2-9-水的问题-例如，漏水和水灾" class="headerlink" title="10.2.9 水的问题(例如，漏水和水灾)"></a>10.2.9 水的问题(例如，漏水和水灾)</h4><p>　　只要有可能，就要将放置服务器的房间和重要计算机设备远离任何水源或传输管道。还可能希望在关键任务系统的地板周围安装水检测电路。水检测电路具有警报装置，如果水正在侵入设备，那么就会发出警报。</p><h4 id="10-2-10-火灾的预防、检测和抑制"><a href="#10-2-10-火灾的预防、检测和抑制" class="headerlink" title="10.2.10 火灾的预防、检测和抑制"></a>10.2.10 火灾的预防、检测和抑制</h4><p>　　不同的抑制介质针对火的不同方面：</p><ul><li>水能够抑制高温</li><li>苏打酸和其他干粉能够抑制燃料供应</li><li>二氧化碳能够抑制氧气供应</li><li>哈龙替代物与其他非易燃气体能够干扰化学燃烧和/或抑制氧气供应</li></ul><h5 id="1-灭火器"><a href="#1-灭火器" class="headerlink" title="1. 灭火器"></a>1. 灭火器</h5><table><thead><tr><th>级别</th><th>火灾类型</th><th>灭火材料</th></tr></thead><tbody><tr><td>A</td><td>普通的易燃品</td><td>水、苏打酸(干粉或液态化学物质)</td></tr><tr><td>B</td><td>液体</td><td>二氧化碳、哈龙*、苏打酸</td></tr><tr><td>C</td><td>电子</td><td>二氧化碳、哈龙*</td></tr><tr><td>D</td><td>金属</td><td>干粉</td></tr></tbody></table><ul><li>哈龙或EPA 批准的哈龙替代物</li></ul><h5 id="2-防火检测系统"><a href="#2-防火检测系统" class="headerlink" title="2. 防火检测系统"></a>2. 防火检测系统</h5><p>　　当达到某一特定温度时，设定好温度的检测系统就会触发灭火抑制装置。触发器通常是带洒水头的金属或塑料元件，在某一特定的温度下会融化。温度上升比率检测系统在温度的改变速度达到某一特定级别时就会触发灭火抑制装置。火焰激发系统是根据火焰的红外线能量来触发灭火抑制装置。烟感系统则根据光电或放射性电离传感器来触发灭火抑制装置。大多数防火检测系统可以与火灾响应服务通知机制链接在一起。在灭火抑制装置被触发时，这些链接在一起的系统会通过发出自动的消息或警报来通知本地的火灾响应团队以及请求援助。</p><h5 id="3-放水灭火系统"><a href="#3-放水灭火系统" class="headerlink" title="3. 放水灭火系统"></a>3. 放水灭火系统</h5><ul><li>湿管道系统(也称为封闭头系统)总是充满了水。当灭火装置被触发时，就会立刻放水。</li><li>干管道系统中包含被压缩的空气。一旦灭火装置被触发，空气泄漏，打开水间，从而使管道充满水井放出水来。</li><li>洪水系统是干管道系统的另一种形式，它使用较粗的管道，因此能排出大股的水流。洪水系统对于放置了电子设备和计算机的环境不太适合。</li><li>预先响应系统是干管道/湿管道系统的组合系统。这种系统一直作为干管道系统存在，直至检测到有火灾(烟、热及其他)发生，然后向管道中充满水。由于充分受热，洒水头触发器被融化之后释放出水。如果在洒水头被触发之前火被熄灭，那么管道可以被手工排空并重新设置。这种系统还允许在洒水头触发之前进行人工干预，以便停止放水。</li></ul><h5 id="4-气体释放系统"><a href="#4-气体释放系统" class="headerlink" title="4. 气体释放系统"></a>4. 气体释放系统</h5><p>　　气体释放系统通常比放水系统更有效。然而，气体释放系统不应当被部署在有人的环境中。气体释放系统通常从空气中抽走氧气，因此对人是非常危险的。</p><h5 id="5-损失"><a href="#5-损失" class="headerlink" title="5. 损失"></a>5. 损失</h5><p>　　火灾引起的破坏性要素包括烟和热，还包括灭火抑制介质(如水或苏打酸)。烟对大多数存储设备都会造成损坏。热会损坏所有的电子或计算机组件。灭火抑制介质可能会引起电路短路、加快侵蚀或导致设备无法使用。在设计火灾响应系统时，必须考虑上述所有问题。</p><h3 id="10-3-实施和管理物理安全"><a href="#10-3-实施和管理物理安全" class="headerlink" title="10.3 实施和管理物理安全"></a>10.3 实施和管理物理安全</h3><h4 id="10-3-1-周边-例如，访问控制和监控"><a href="#10-3-1-周边-例如，访问控制和监控" class="headerlink" title="10.3.1 周边(例如，访问控制和监控)"></a>10.3.1 周边(例如，访问控制和监控)</h4><p>　　建筑物或校园位置的入口也很重要。单入口可极大地提供安全性，但多个入口在紧急情况下可提供更好的疏散性。</p><h5 id="1-栅栏、大门、旋转门和陷阱"><a href="#1-栅栏、大门、旋转门和陷阱" class="headerlink" title="1. 栅栏、大门、旋转门和陷阱"></a>1. 栅栏、大门、旋转门和陷阱</h5><p>　　栅栏是外围设备。栅栏被用于在受到特殊安全保护级别的区域和其他区域之间进行明确的隔离。用栅栏筑围墙可以包括广泛的成分、材料和建造方法，可能包括地上的画线、铁丝网、带刺铁丝网、水泥墙和使用激光、运动探测仪或热源探测仪的不可见防线。大门是栅栏上受到控制的出入点。为了维持栅栏整体的有效性，大门的阻挡程度必须与栅栏的阻挡程度相同。绞链和锁闭/闭合机制应该进行加固，以防止损坏、破坏或拆卸。当大门关闭时，不应该提供任何额外的出入脆弱性。门的数量应当尽可能最少。旋转门每次只可以进一个人，并且常常限制为单方向转动。要么只允许进门，要么只允许出门。旋转门基本上可以等同于安全的旋转门。陷阱是通常由保安人员守护的双重门设置。陷阱的目的是牵制主体，直至其身份得到确认和验正。如果经过证明他们可以被授权进入，那么内部的门打开，从而准许这些人员进入设施或周围的附属地区。如果他们没有得到授权，那么两扇门都保持关闭并锁住，直至警卫(通常是保安人员或警察)到来将这些闯入者护送离开设施或因非法入侵逮捕他们(这也被称为迟滞特性) 。通常，陷阱包括阻止跟随捎带和尾随的措施。</p><h5 id="2-照明"><a href="#2-照明" class="headerlink" title="2. 照明"></a>2. 照明</h5><p>　　照明是最常用的一种边界安全控制形式。照明的主要目的是阻拦那些偶然的入侵者、闯入者、小偷和希望在黑暗中实施恶意行为的潜在窃贼。照明应当不照亮保安人员、看门狗、巡逻岗哨或其他类似的安全保卫者。此外，在攻击者非法闯入期间，照明也不能因为强光或反射使保安人员、看门狗和监控设备受到干扰，否则更利于攻击者。</p><h5 id="3-保安和看门狗"><a href="#3-保安和看门狗" class="headerlink" title="3. 保安和看门狗"></a>3. 保安和看门狗</h5><p>　　所有的物理安全控制，无论是静止的阻碍物还是主动的检测和监视机制，最终都要依靠人的介入来阻止实际的入侵和攻击。保安可能沿边界进行部署，或者被部署在边界内。他们监视着进出口，或者监控着进行检测和监视的显示器。保安的真正优势在于他们能够适应任何环境或情况并做出反应。保安能够记住并识别攻击和入侵的行为和方式，可以适应正在改变的环境，并且能够作出判断和决定。在需要立即的、现场的事态控制和决策制定时，保安常常是恰当的安全控制选择。不是所有的环境和设施都支持部署保安。这可能是由于实际环境中存在不适合人的因素，或是设施的规划、设计、位置和建筑的原因。不是所有的保安都是可信赖的。预先筛选、联系和培训无法保证不会出现低效的和不可靠的保安。看门狗可以替代保安，它们常常作为边界的安全控制措施进行部署。作为侦测和威慑的一种形式，看门狗是非常有效的。然而，喂养狗的费用很高，并且需要高标准的养护，同时还会带来极高的保险和责任要求。</p><h4 id="10-3-2-内部安全-例如，陪同要求-访问者控制、钥匙和锁"><a href="#10-3-2-内部安全-例如，陪同要求-访问者控制、钥匙和锁" class="headerlink" title="10.3.2 内部安全(例如，陪同要求/访问者控制、钥匙和锁)"></a>10.3.2 内部安全(例如，陪同要求/访问者控制、钥匙和锁)</h4><h5 id="1-钥匙和密码锁"><a href="#1-钥匙和密码锁" class="headerlink" title="1. 钥匙和密码锁"></a>1. 钥匙和密码锁</h5><p>　　锁使得被关闭的门保持闭合。它们被用于阻止缺乏正确授权的人。锁是身份标识和身份认证机制的强硬形式。只有具有正确的钥匙或密码，才会被授权准许进入。使用钥匙的锁是最常见的和最廉价的物理访问控制设备形式，常常被称作预置锁。可编程的锁或密码锁能够提供比预置锁更广泛的控制。电子访问控制(EAC)锁由下列三种元素组成： 保持门关闭的电磁体、验证主体和使电磁体失效的凭证读卡机，以及重新使用电磁体的闭门感应器。</p><h5 id="2-员工证"><a href="#2-员工证" class="headerlink" title="2. 员工证"></a>2. 员工证</h5><p>　　员工证、身份证或安全ID都是物理身份标识和/或电子访问控制设备的形式。员工证可能被用在物理访问主要受到保安控制的环境中。员工证还可以在由扫描设备守卫而非保安守卫的环境中使用。</p><h5 id="3-运动探测仪"><a href="#3-运动探测仪" class="headerlink" title="3. 运动探测仪"></a>3. 运动探测仪</h5><p>　　运动探测仪或运动传感器是在特殊区域内使用的、用于感知物体运动的设备。运动探测仪的常见类型如下：</p><ul><li><strong>红外运动探测仪</strong> 对被监控区域红外照明模式的显著变化进行监视。</li><li><strong>热能型运动探测仪</strong> 对被监控区域内的热能等级和模式的显著变化进行监视。</li><li><strong>波形运动探测仪</strong> 向被监控的区域发射连续的弱超声波或高频微波，并且对反射波的显著扰动或变化进行监视。</li><li><strong>电容运动探测仪</strong> 对被监控物体周围区域的电场或磁场变化进行探测。</li><li><strong>光电运动探测仪</strong> 通常在没有窗户或保持昏暗的房间内部使用。</li><li><strong>无源音频运动探测仪</strong> 对被监控区域内的非正常声音进行侦听。</li></ul><h5 id="4-入侵警报"><a href="#4-入侵警报" class="headerlink" title="4. 入侵警报"></a>4. 入侵警报</h5><p>　　警报是一种分离机制，可以引发威慑、防护和/或通知。</p><ul><li><strong>威慑报警</strong> 引发威慑警报可能会采用额外的加锁、关门等措施。这种警报的目的是使得进一步的入侵或攻击变得更难。</li><li><strong>排斥报警</strong> 引发排斥警报声通常听起来像汽笛或钟声，并且会将灯打开。这些警报类型被用于令入侵者或攻击者气馁，从而不再继续他们的恶意或入侵行为，并且离开这个设施。</li><li><strong>通知报警</strong> 引发通知警报对于入侵者汇攻击者来说常常是缄默的，但是它们会记录事故的相关数据，并且通知管理员、保安和执法机构。事故的记录可以采取日志文件和/或闭路电视磁带的形式。缄默警报的目的是将授权的安全人员带到入侵或攻击的位置，以便期望抓住进行有害活动的人。</li></ul><p>　　报警也通过它们所在的地方(本地、集中、专有或辅助)被归类。</p><ul><li><strong>本地报警</strong> 本地警报系统必须广播司听到的警报信号(最大可到120分贝)，这个信号最远可以传播400英尺。此外，本地警报系统必须受到保护，通常应由保安进行保护，以防止损害和损坏。为了使警报系统有效，附近必须有安全团队或保安，他们可以在警报被触发后立即进行响应。</li><li><strong>集中式警报系统</strong> 可能在本地没有警报，在警报触发时会通过信号通知远程或集中式监控站。大多数中央集中式系统都是很知名的公司或是国家安全公司。专有系统类似于中央系统，但托管组织有他们自己的现场保安人员等待并响应安全破坏。</li><li><strong>辅助警报系统</strong> 辅助警报系统可以加入本地或集中式警报系统。当安全边界被破坏时，紧急服务机构将被通知和对事件做出响应，并抵达相应地点。这些紧急服务机构可能包括消防、警察和医疗服务。</li></ul><h5 id="5-二次验证机制"><a href="#5-二次验证机制" class="headerlink" title="5. 二次验证机制"></a>5. 二次验证机制</h5><p>　　当运动检测器、传感器和报警器被使用时，二次验证机制应该在适当的位置。随着这些设备的灵敏度增高，错误触发会经常发生。使用两个或两个以上的检测和传感器系统，并要求警报发出之前的短时内有两个或两个以上的快速成功触发。这可以显著减少错误警报，并提高报警显示实际入侵或攻击的可能性。CCTV是一种安全机制，涉及运动探测器、传感器和报警器。然而，CCTV并不是自动化的检测和响应系统。CCTV需要人员观看捕获的批频来检测可疑和恶意的活动，并触发报警。安全摄像头可以扩大保安人员的有效可见范围，因此增大了监控的范围。用来作为一个二次或后续机制，当自动化系统触发后进行审查。事实上，审计和审计跟踪的使用逻辑同样用于CCTV 和事件记录。CCTV 是预防措施，而审查事件记录是检测措施。</p><h5 id="6-环境和生命安全"><a href="#6-环境和生命安全" class="headerlink" title="6. 环境和生命安全"></a>6. 环境和生命安全</h5><p>　　不论在任何情况和任何条件下，保护人员生命是安全的最重要方面。因此，对于所有安全解决方案来说，防止人员遭受生命伤害是最重要的目标。对人员生命安全进行维护的部分内容是维护设施的基本环境。物理安全措施应注重保障人员生命，然后才是恢复环境的安全性和恢复IT基础设施的必要功能。<br>　　许多组织采取人员紧急计划(0∞upant Emergency Plan，OEP)指导和协助在灾难发生时维持人员生命安全。OEP提供了如何减少对生命的威胁、防止损伤、管理压力、处理迁移以及提供安全监控保护财产的指导，并保护资产避免在物理事件中遭受损害。OEP不解决IT问题或业务连续性问题，而只解决人员和一般财产问题。BCP和DRP才解决IT、业务连续性和恢复问题。</p><h5 id="7-隐私责任和法律需求"><a href="#7-隐私责任和法律需求" class="headerlink" title="7. 隐私责任和法律需求"></a>7. 隐私责任和法律需求</h5><p>　　隐私意味着保护个人信息不被泄露给未经任何授权的个人或实体。处理隐私是任何有员工的组织的一个要求。因此，隐私是所有组织的一个核心问题。对于任何组织，隐私保护应该在安全策略中是一个核心任务或目标设定。</p><h5 id="8-合规要求"><a href="#8-合规要求" class="headerlink" title="8. 合规要求"></a>8. 合规要求</h5><p>　　每个组织都运营在一定的行业和管辖权内。这两个实体(可能还有附属的实体)把法律要求、限制和规定强加到它们领域内的组织实践中。这些法律要求可以应用于软件许可、雇佣限制、处理敏感资料，并符合安全规定。遵守所有适用的法律规定是维护安全的一个关键部分。法律法规要求对于行业或国家(也经常是州和城市)都一定在基础安全建设方面被视为底线和基础。</p><h3 id="10-4-考试要点"><a href="#10-4-考试要点" class="headerlink" title="10.4 考试要点"></a>10.4 考试要点</h3><ul><li><strong>理解为什么缺乏物理安全就没有安全性</strong> 缺乏对物理环境的控制，那么行政性的或技术性的/逻辑性的访问控制就无法提供足够的安全性。如果’怀有恶意的人可以获得对设施或设备的物理访问权限，那么他们就会进行他们想要做的任何事情，包括从破坏到泄密乃至更改的任何事情。</li><li><strong>能够列举行政性的物理安全控制</strong> 行政性的物理安全控制包括场地的构造和选择、场地管理、人员控制、意识培训和紧急事件响应及规程。</li><li><strong>能够列举技术性的物理安全控制</strong> 技术性的物理安全控制包括访问控制、入侵检测、警报、CCTV、监视、HVAC、电源以及火灾检查和排除。</li><li><strong>能够指出物理安全的物理控制</strong> 物理安全的物理控制包括栅栏、照明、锁、建筑材料、陷阱、看门狗和警卫。</li><li><strong>理解控制的作用顺序</strong> 控制的作用顺序依次是： 阻拦、拒绝、检测和延缓。</li><li><strong>理解选择场地和设计建筑设施的主要内容</strong> 确定场地方面的主要内容包括可视性、周围地形、地区的可到达性以及自然灾害的影响。设计建筑设施方面的主要内容是要理解组织需要的安全等级，在建筑设计开始之前制定计划。</li><li><strong>理解如何设计和配置安全工作区域</strong> 对设施内所有地方的进入要求不应该等同对待。包含更高价值或重要资产的地区的进出应该受到限制。有价值的和机密的资产应该放在设施提供的保护核心或中心地区。同样，集中放置的服务器或计算机机房不需要人员协调。</li><li><strong>理解配线间的安全问题</strong> 现代的配线间是整个建筑或一个楼层中连接到其他重要设备的网络电缆所在的地方，如配线架、交换机、路由器、局域网扩展、骨干渠道。配线间大部分的安全集中在防止未授权的物理访问。如果未授权入侵者进入该区域，他们可能会偷盗设备、拖拉或切断电缆甚至安放窃听设备。</li><li><strong>理解在安全设施内如何管理来访者</strong> 如果设备通过受限制的区域控制物理安全，那么就需要具备管理来访者的方法。来访者经常会被指派一名陪同，并且他们的访问和行动都要受到严密监视。当外来人员被授权进入受保护的区域时，未能对他们的行动进行跟踪可能会导致针对保护程度最高的资产的恶意行为。</li><li><strong>理解为管理物理安全而进行的安全控制的三种策略，并且能够举出它们的例子</strong> 用于对物理安全进行管理的安全控制可以分为三组： 行政性的、技术性的和物理性的。理解何时以及如何使用这些类型，并且能够列出每种类型的例子。</li><li><strong>理解介质存储的安全需求</strong> 介质存储设施应该被设计用于安全地保存空白介质、可重用介质和安装介质。关注的问题包括盗窃、数据损坏和数据的残余恢复。对介质存储设备的保护包括带锁的柜子或保险箱、使用库管理员或保管员、实施存入/取出过程以及利用介质消磁。</li><li><strong>理解证据存储的问题</strong> 证据存储用来保留用于恢复、内部调查和电子取证调查的日志、驱动图像、虚拟机快照和其他数据。保护措施包括专用/隔离存储设施、离线存储、活动跟踪、哈希管理、访问限制和加密。</li><li><strong>理解物理访问控制的常见威胁</strong> 无论使用哪一种形式的物理访问控制，为了阻止滥用、伪装和尾随，必须同时配备保安人员或其他监控系统。物理访问控制的滥用是指打开安全门或者绕过锁或访问控制措施。伪装是指使用其他人的安全ID获得进入某座设施的权限。尾随是指跟随着某人通过受到安全保护的门或通道，而本身没有接受身份识别或获得授权。</li><li><strong>理解对审计跟踪和访问日志的需要</strong> 对于物理访问控制来说，审计跟踪和访问日志也是非常有用的工具。它们可能需要保安人员手工建立，或者在有足够的自动化访问控制机制(例如，智能卡和某些接近式读卡机)的情况下自动生成。还可以考虑使用CCTV(闭路电视)进行入口点的监控。CCTV(闭路电视)能够将审计跟踪和访问日志与可视化的事件历史记录进行比较。这些信息对于重新构建入侵、破坏或攻击事件非常关键。</li><li><strong>理解对平稳电源的需要</strong> 电力公司供应的电源并不总是连续的和平稳的。大多数电子设备需要平稳的电力供应才能正常工作。由于电源的波动而导致设备损坏的事情经常发生。许多组织机构通过几种方法来选择管理他们自己的电源。不间断电源供应(UPS)是一种自充电的电池类型，可以为敏感的设备提供连续和平稳的电力。UPS在主要电源出现故障或无法获得的情况下，还能够提供持续的电力供应。UPS可以提供数十分钟或数小时的电力，这取决于它的容量和设备所需的用电量。</li><li><strong>理解常用的电力术语</strong> 知道下列术语的定义： 故障、中断、电压不足、降压、脉冲、电涌、起动功率、噪声、瞬时现象、平稳和接地。</li><li><strong>理解如何控制环境</strong> 除了考虑电源问题，维护环境还包括控制来暖、通风和空调(HVAC)的机制。主要放置计算机的房间应该保持温度在华氏60到75度之间(即摄氏15到23度)。计算机房间的湿度应该维持在40%和60%之间。湿度太高会导致侵蚀，湿度太低会导致产生静电。</li><li><strong>知道什么是静电</strong> 即使在不产生静电的地毯上，如果环境中的湿度太低，那么也仍然可能产生两万伏特的静电放电。即使很少的静电放电也可能毁坏电子设备。</li><li><strong>理解管理漏水和水灾的需求</strong> 环境安全策略和措施中应当解决漏水和水灾问题。管道漏水不会每天都发生，但当真的发生时，经常会造或重大的损失。水和电是不能相容的。如果计算机系统与水接触了(特别是在系统运行时)，那么就会发生损坏事故。只要有可能，就要让放置服务器的房间和重要计算机设备远离任何水源或传输管道。</li><li><strong>理解防火检测和灭火措施的重要性</strong> 防火检测和灭火措施绝不能被忽略。保护人员不受到伤害应该始终是所有安全或保护系统中最重要的目标。除了保护人员不受到伤害以外，设计防火检测和灭火措施的目的是将由火、烟、热和灭火材料引起的损失最小化，特别是与IT基础设施相关的部分。</li><li><strong>理解由于火灾和灭火材料可能导致的环境污染和损失</strong> 火灾引起的破坏性要素包括烟和热，也包括灭火介质(如水或苏打酸)。烟对大多数存储设备都会造成损坏。热会损坏所有的电子或计算机组件。灭火抑制介质可能会引起电路短路、加快侵蚀或导致设备无法使用。在设计火灾响应系统时，必须解决所有这些问题。</li><li><strong>理解人员的隐私和安全</strong> 在所有的情况下，安全最重要的作用方面是保护人。因此，防止对人的伤害是所有安全解决方案中最重要的目标。</li></ul><h3 id="10-5-复习题"><a href="#10-5-复习题" class="headerlink" title="10.5 复习题"></a>10.5 复习题</h3><ol><li><p>以下哪一项是安全中最重要的方面?<br>A. 物理安全<br>B. 入侵检测<br>C. 逻辑安全<br>D. 意识培训</p></li><li><p>对于新的设施，有什么方法可以用来制定出组织的需要?<br>A. 日志文件审计<br>B. 关键路径分析<br>C. 风险分析<br>D. 存货清单</p></li><li><p>通常什么基础设施组件位于多个楼层的相同位置，用于把每个楼层网络连接在一起以提供便利?<br>A. 服务器机房<br>B. 配线间<br>C. 数据中心<br>D. 介质柜</p></li><li><p>以下哪一项不是设施或场地的安全关注的设计元素?<br>A. 工作区和访客区的隔离<br>B. 限制对高价值或重要区域的访问<br>C. 位于设施核心或中央位置的机密区域<br>D. 对设施内所有位置的相同访问</p></li><li><p>为了维持最有效和安全的服务器机房，以下哪一项不必是真的?<br>A. 必须和人共存<br>B. 必须包括非水灭火装置的使用<br>C. 湿度必须保持在40%到60%之间<br>D. 温度必须保持在华氏60到75度</p></li><li><p>下列哪个典型的安全措施的执行不涉及包含可重用移动介质的存储设施?<br>A. 雇佣库管理员或保管员<br>B. 使用存入/取出过程<br>C. 哈希<br>D. 在返回的介质上使用净化工具</p></li><li><p>以下哪一项是一套双门，往往由保安人员保护，并且用于容纳主体，并直到他们的身份和授权信息被验证?<br>A. 大门<br>B. 旋转门<br>C. 陷阱<br>D. 接近式传感器</p></li><li><p>周边安全设备或机制的最常见形式是什么?<br>A. 保安人员<br>B. 栅栏<br>C. CCTV(闭路电视)<br>D. 照明</p></li><li><p>以下哪一项不是使用保安人员的缺点?<br>A. 保安人员通常不了解设施内操作的范围<br>B 并非所有环境和设施都支持保安人员<br>C. 并非所有安全人员自身就是可靠的<br>D. 预先筛选、联系和培训并不能保证安全人员的有效和可靠</p></li><li><p>基于水的灭火系统中最常见的故障原因是什么?<br>A. 缺水<br>B. 人<br>C. 离子检测器<br>D. 在吊顶上探测仪的布放</p></li><li><p>物理访问控制设备最普通和便直的是什么?<br>A. 照明<br>B. 保安人员<br>C. 钥匙锁<br>D. 栅栏</p></li><li><p>什么类型的运动检测仪能感应到被监控对象周围电场或磁场的变化?<br>A. 波形检测仪<br>B. 光电检测仪<br>C. 热能检测仪<br>D. 电容检测仪</p></li><li><p>以下哪一项不是触发物理安全报警的典型类型?<br>A. 预防<br>B. 威慑<br>C. 排斥<br>D. 通知</p></li><li><p>无论使用何种形式的物理访问控制，保安人员或其他监控系统都必须被部署来阻止以下问题，但除了哪一个?<br>A. 尾随<br>B. 间谍<br>C. 伪装<br>D. 滥用</p></li><li><p>所有安全解决方案中最重要的目标是什么?<br>A. 暴露阻止<br>B. 维护完整性<br>C. 人身安全<br>D. 维持可用性</p></li><li><p>计算机机房理想的湿度范围是什么?<br>A. 20%至40%<br>B. 40%至60%<br>C. 60%至75%<br>D. 80%至95%</p></li><li><p>什么电压等级的静电会引起存储在硬盘中的数据的破坏?<br>A. 4000 伏特<br>B. 17000 伏特<br>C. 40 伏特<br>D. 1500 伏特</p></li><li><p>B类灭火器不会使用下列哪个灭火材料?<br>A. 水<br>B. 二氧化碳<br>C. 晗龙或可接受的哈龙替代品<br>D. 苏打酸</p></li><li><p>对于计算机设施，基于水的灭火系统最好的类型是什么?<br>A. 湿管系统<br>B. 干管系统<br>C. 预先响应系统<br>D. 洪水系统</p></li><li><p>在发生火灾和除非灭火的情况下，下列哪一项不是造成计算机设备损坏的罪魁祸首?<br>A. 热<br>B. 灭火介质<br>C. 烟<br>D. 照明</p></li></ol></div><div></div><div><div><div style="text-align:center;color:#555;font-size:14px">-------------End-------------</div></div></div><div><div style="padding:10px 0;margin:20px auto;width:90%;text-align:center"><div>Thank you very much for your donation.</div> <button id="rewardButton" disable="enable" onclick='var qr=document.getElementById("QR");"none"===qr.style.display?qr.style.display="block":qr.style.display="none"'> <span>打赏</span></button><div id="QR" style="display:none"><div id="wechat" style="display:inline-block"> <img id="wechat_qr" src="/images/wechatpay.png" alt=" 微信支付"><p>微信支付</p></div><div id="alipay" style="display:inline-block"> <img id="alipay_qr" src="/images/alipay.png" alt=" 支付宝"><p>支付宝</p></div><div id="bitcoin" style="display:inline-block"> <img id="bitcoin_qr" src="/images/bitcoin.png" alt=" 比特币"><p>比特币</p></div></div></div></div><footer class="post-footer"><div class="post-tags"><a href="/tags/cissp/" rel="tag"><i class="fa fa-tag"></i> cissp</a><a href="/tags/学习笔记/" rel="tag"><i class="fa fa-tag"></i> 学习笔记</a></div><div class="post-nav"><div class="post-nav-next post-nav-item"><a href="/notes/cissp学习笔记（9）——安全脆弱性、威胁和对策/" rel="next" title="cissp学习笔记（9）——安全脆弱性、威胁和对策"><i class="fa fa-chevron-left"></i> cissp学习笔记（9）——安全脆弱性、威胁和对策</a></div><span class="post-nav-divider"></span><div class="post-nav-prev post-nav-item"> <a href="/Security/安全培训大纲/" rel="prev" title="安全培训大纲">安全培训大纲<i class="fa fa-chevron-right"></i></a></div></div></footer></div></article></div></div><div class="comments" id="comments"><div id="lv-container" data-id="city" data-uid="MTAyMC8zODM5Mi8xNDkyMA=="></div></div></div><div class="sidebar-toggle"><div class="sidebar-toggle-line-wrap"><span class="sidebar-toggle-line sidebar-toggle-line-first"></span><span class="sidebar-toggle-line sidebar-toggle-line-middle"></span><span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id="sidebar" class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap"> 文章目录</li><li class="sidebar-nav-overview" data-target="site-overview-wrap"> 站点概览</li></ul><section class="site-overview-wrap sidebar-panel"><div class="site-overview"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"> <img class="site-author-image" itemprop="image" src="/images/diyz.jpg" alt=""><p class="site-author-name" itemprop="name"></p><p class="site-description motion-element" itemprop="description"></p></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"> <a href="/archives/"><span class="site-state-item-count">28</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"> <a href="/categories/index.html"><span class="site-state-item-count">5</span> <span class="site-state-item-name">分类</span></a></div><div class="site-state-item site-state-tags"> <a href="/tags/index.html"><span class="site-state-item-count">18</span> <span class="site-state-item-name">标签</span></a></div></nav><div class="links-of-author motion-element"><span class="links-of-author-item"><a rel="external nofollow" href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=1321425651" target="_blank" title="QQ" rel="external nofollow"><i class="fa fa-fw fa-qq"></i> QQ</a></span><span class="links-of-author-item"><a rel="external nofollow" href="mailto:1321425651@qq.com" target="_blank" title="E-Mail" rel="external nofollow"><i class="fa fa-fw fa-envelope"></i> E-Mail</a></span><span class="links-of-author-item"><a rel="external nofollow" href="https://github.com/doubiduo" target="_blank" title="GitHub" rel="external nofollow"><i class="fa fa-fw fa-github"></i> GitHub</a></span><span class="links-of-author-item"><a rel="external nofollow" href="https://steamcommunity.com/id/doubiduo" target="_blank" title="Steam" rel="external nofollow"><i class="fa fa-fw fa-steam"></i> Steam</a></span><span class="links-of-author-item"><a rel="external nofollow" href="https://www.diyz.bid/atom.xml" target="_blank" title="RSS" rel="external nofollow"><i class="fa fa-fw fa-rss"></i> RSS</a></span></div></div></section><section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active"><div class="post-toc"><div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#10-1-应用安全原则到选址和设施设计"><span class="nav-text">10.1 应用安全原则到选址和设施设计</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#10-1-1-安全设施计划"><span class="nav-text">10.1.1 安全设施计划</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-1-2-场所选择"><span class="nav-text">10.1.2 场所选择</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-1-3-可视性"><span class="nav-text">10.1.3 可视性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-1-4-自然灾害"><span class="nav-text">10.1.4 自然灾害</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-1-5-设施的设计"><span class="nav-text">10.1.5 设施的设计</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-2-设计和实施物理安全"><span class="nav-text">10.2 设计和实施物理安全</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#10-2-1-设备故障"><span class="nav-text">10.2.1 设备故障</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-2-2-配线间"><span class="nav-text">10.2.2 配线间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-2-3-服务器机房"><span class="nav-text">10.2.3 服务器机房</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-2-4-介质存储设施"><span class="nav-text">10.2.4 介质存储设施</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-2-5-证据存储"><span class="nav-text">10.2.5 证据存储</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-2-6-受限的和工作区域安全-例如，运营中心"><span class="nav-text">10.2.6 受限的和工作区域安全(例如，运营中心)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-2-7-数据中心安全"><span class="nav-text">10.2.7 数据中心安全</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-智能卡"><span class="nav-text">1. 智能卡</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-接近式读卡机"><span class="nav-text">2. 接近式读卡机</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-入侵检测系统"><span class="nav-text">3. 入侵检测系统</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-访问滥用"><span class="nav-text">4. 访问滥用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-放射防护"><span class="nav-text">5. 放射防护</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-2-8-基础设施和HVAC注意事项"><span class="nav-text">10.2.8 基础设施和HVAC注意事项</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-噪声"><span class="nav-text">1. 噪声</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-温度、湿度和静电"><span class="nav-text">2. 温度、湿度和静电</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-2-9-水的问题-例如，漏水和水灾"><span class="nav-text">10.2.9 水的问题(例如，漏水和水灾)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-2-10-火灾的预防、检测和抑制"><span class="nav-text">10.2.10 火灾的预防、检测和抑制</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-灭火器"><span class="nav-text">1. 灭火器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-防火检测系统"><span class="nav-text">2. 防火检测系统</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-放水灭火系统"><span class="nav-text">3. 放水灭火系统</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-气体释放系统"><span class="nav-text">4. 气体释放系统</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-损失"><span class="nav-text">5. 损失</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-3-实施和管理物理安全"><span class="nav-text">10.3 实施和管理物理安全</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#10-3-1-周边-例如，访问控制和监控"><span class="nav-text">10.3.1 周边(例如，访问控制和监控)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-栅栏、大门、旋转门和陷阱"><span class="nav-text">1. 栅栏、大门、旋转门和陷阱</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-照明"><span class="nav-text">2. 照明</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-保安和看门狗"><span class="nav-text">3. 保安和看门狗</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-3-2-内部安全-例如，陪同要求-访问者控制、钥匙和锁"><span class="nav-text">10.3.2 内部安全(例如，陪同要求/访问者控制、钥匙和锁)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-钥匙和密码锁"><span class="nav-text">1. 钥匙和密码锁</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-员工证"><span class="nav-text">2. 员工证</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-运动探测仪"><span class="nav-text">3. 运动探测仪</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-入侵警报"><span class="nav-text">4. 入侵警报</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-二次验证机制"><span class="nav-text">5. 二次验证机制</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-环境和生命安全"><span class="nav-text">6. 环境和生命安全</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-隐私责任和法律需求"><span class="nav-text">7. 隐私责任和法律需求</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-合规要求"><span class="nav-text">8. 合规要求</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-4-考试要点"><span class="nav-text">10.4 考试要点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-5-复习题"><span class="nav-text">10.5 复习题</span></a></li></ol></div></div></section><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2020224399094607" data-ad-slot="5456418301" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({})</script></div></aside></div></main><footer id="footer" class="footer"><div class="footer-inner"><div class="copyright">&copy; <span itemprop="copyrightYear">2018</span><span class="with-love" id="animate"><i class="fa fa-user"></i></span> <span class="author" itemprop="copyrightHolder">doubiduo</span></div><div class="powered-by">由 <a rel="external nofollow" class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动</div><div class="theme-info"><div class="powered-by"></div> <span class="post-count">全站共214.4k字</span></div></div></footer><div class="back-to-top"><i class="fa fa-arrow-up"></i></div></div><script type="text/javascript">"[object Function]"!==Object.prototype.toString.call(window.Promise)&&(window.Promise=null)</script><script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script><script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script><script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script><script type="text/javascript">!function(e,t){var n,c=e.getElementsByTagName(t)[0];"function"!=typeof LivereTower&&((n=e.createElement(t)).src="https://cdn-city.livere.com/js/embed.dist.js",n.async=!0,c.parentNode.insertBefore(n,c))}(document,"script")</script><script type="text/javascript">
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+  <script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.ico?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.ico?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.ico?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.ico?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="本文为cissp中物理安全需求章节的学习笔记">
+<meta name="keywords" content="学习笔记,cissp,douiduo,diyz.bid">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cissp学习笔记（10）——物理安全需求">
+<meta property="og:url" content="https://www.diyz.bid/notes/cissp学习笔记（10）——物理安全需求/index.html">
+<meta property="og:site_name" content="doubiduo">
+<meta property="og:description" content="本文为cissp中物理安全需求章节的学习笔记">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-11T10:12:52.875Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="cissp学习笔记（10）——物理安全需求">
+<meta name="twitter:description" content="本文为cissp中物理安全需求章节的学习笔记">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="doubiduo" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="https://www.diyz.bid/notes/cissp学习笔记（10）——物理安全需求/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>cissp学习笔记（10）——物理安全需求 | doubiduo</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-124427626-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-124427626-1');
+</script>
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9c8b377e488072512752a147d13a537c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-2020224399094607",
+    enable_page_level_ads: true
+  });
+</script>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">doubiduo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">diyz.bid</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-links">
+    <a href="/links/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-link"></i> <br />友链</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user-circle"></i> <br />关于</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+		    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- taggg -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2020224399094607"
+     data-ad-slot="5456418301"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.diyz.bid/notes/cissp学习笔记（10）——物理安全需求/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/diyz.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doubiduo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">cissp学习笔记（10）——物理安全需求
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-25 14:11:39" itemprop="dateCreated datePublished" datetime="2018-09-25T14:11:39+08:00">2018-09-25</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-11 18:12:52" itemprop="dateModified" datetime="2018-10-11T18:12:52+08:00">2018-10-11</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/notes/" itemprop="url" rel="index"><span itemprop="name">notes</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+		  
+            <span class="post-symbolscount">
+              
+
+              
+				<span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">13k</span>
+              
+
+              
+
+              
+            </span>
+          
+		  
+          
+          
+             <span id="/notes/cissp学习笔记（10）——物理安全需求/" class="leancloud_visitors" data-flag-title="cissp学习笔记（10）——物理安全需求">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+              <div class="post-description">本文为cissp中物理安全需求章节的学习笔记</div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在本章的考试大纲内容有：<br>3) 安全工程(安全的工程学和管理)</p>
+<ul>
+<li>J. 应用安全原则到场所和设施设计中</li>
+<li><p>K. 设计和应用物理安全</p>
+<ul>
+<li>K.1 配线柜</li>
+<li>K.2 服务器机房</li>
+<li>K.3 介质存储设施</li>
+<li>K.4 证据存储</li>
+<li>K.5 受限和工作区域安全(例如，运营中心)</li>
+<li>K.6 数据中心安全</li>
+<li>K.7 基础设施和HVAC注意事项</li>
+<li>K.8 水的问题(例如，漏水和水灾)</li>
+<li>K.9 火灾预防、检测和抑制<br>7) 安全运营(例如，基本概念、调查、实践管理、灾难恢复)</li>
+</ul>
+</li>
+<li><p>O. 应用和管理物理安全</p>
+<ul>
+<li>O.1 周边(例如，访问控制和监控)</li>
+<li>O.2 内部安全(例如，陪同要求/访问控制、钥匙和锁)</li>
+</ul>
+</li>
+</ul>
+<h3 id="10-1-应用安全原则到选址和设施设计"><a href="#10-1-应用安全原则到选址和设施设计" class="headerlink" title="10.1 应用安全原则到选址和设施设计"></a>10.1 应用安全原则到选址和设施设计</h3><h4 id="10-1-1-安全设施计划"><a href="#10-1-1-安全设施计划" class="headerlink" title="10.1.1 安全设施计划"></a>10.1.1 安全设施计划</h4><p>　　安全设施计划描述了组织的安全要求的轮廓，并且着重强调为了提供安全性所用的方法和机制。关键路径分析是一种系统工作，可以确定关键任务应用、过程和操作以及所有必要的支持要素之间的关系。当正确执行关键路径分析时，支撑组织的必要的相互依赖和相互作用就会形成。一旦分析完成，那么结果将作为一列安全条目提供服务。在检查关键路径时，己完成的评估或潜在的技术融合是很重要的。技术融合是不同的技术、解决方案、工具和系统在随着时间的推移进行发展和合井的趋势。安保人员应参与场所和设施的设计考虑。否则，对于现存的逻辑安全，在许多物理安全方面的内容可能会被忽略。</p>
+<h4 id="10-1-2-场所选择"><a href="#10-1-2-场所选择" class="headerlink" title="10.1.2 场所选择"></a>10.1.2 场所选择</h4><p>　　场所的选择应该以组织的安全需要为基础。成本、地点和大小都很重要，但是解决安全要求始终应当放在首位。在整个场所选择过程中，场所的位置和构造起到了至关重要的作用。毗邻其他建筑物和业务是另一个至关重要的考虑因素。至少要确保建筑物的设计要求能够应对极端的天气，并且能够阻拦或防御明显的非法闯入企图。容易受到攻击的进入位置(例女日，窗户和门)往往就是此类分析。此外，还应当评估非法闯入容易借助的遮挡视线的物体(例如，树木、灌木或人为因素) 。</p>
+<h4 id="10-1-3-可视性"><a href="#10-1-3-可视性" class="headerlink" title="10.1.3 可视性"></a>10.1.3 可视性</h4><p>　　可视性是十分重要的。必须对周围地形、周围区域的组成、紧急事件服务机构、潜在危险等进行分析。</p>
+<h4 id="10-1-4-自然灾害"><a href="#10-1-4-自然灾害" class="headerlink" title="10.1.4 自然灾害"></a>10.1.4 自然灾害</h4><p>　　必须准备应付自然灾害，并且使町环境经受得住灾害事件的影响，或者可以容易地进行替换。</p>
+<h4 id="10-1-5-设施的设计"><a href="#10-1-5-设施的设计" class="headerlink" title="10.1.5 设施的设计"></a>10.1.5 设施的设计</h4><p>　　在进行设施的设计时，需要理解组织所需的安全等级。在设计开始之前，必须计划并设计恰当的安全等级。”安全架构”经常被称为环境设计预防犯罪(Crime Prevention Through Environmental Design，CPTED)。指导思想是通过结构化的物理环境和周围环境，在潜在的罪犯做出任何犯罪行为之前影响其个人决定。</p>
+<h3 id="10-2-设计和实施物理安全"><a href="#10-2-设计和实施物理安全" class="headerlink" title="10.2 设计和实施物理安全"></a>10.2 设计和实施物理安全</h3><p>　　用于对物理安全进行管理的安全控制可以分为三组： 行政性的、技术性的和物理性的。由于它们都用于描述访问控制的相同类别，因此记住这些分组的物理安全特性是十分重要的。为具体环境设计物理安全性时，需要牢记控制措施的功能顺序：</p>
+<ul>
+<li>阻拦</li>
+<li>拒绝</li>
+<li>检测</li>
+<li>延缓</li>
+</ul>
+<h4 id="10-2-1-设备故障"><a href="#10-2-1-设备故障" class="headerlink" title="10.2.1 设备故障"></a>10.2.1 设备故障</h4><p>　　系统返回到完整的正常功能状态的响应时间与这种解决方案所涉及的维护成本成正比。成本包括存储、运输、预先购买以及维护现场安装和恢复专业技术。在某些情况中，维护现场替换是不可行的。对于这种情况，与硬件供应商签订服务级别协议(SLA)是十分必要的。SLA 清楚地定义了供应商在发生设备故障的紧急情况下所提供的响应时间。对老化的硬件进行替换和/或修理应该制定时间表。这些操作的时间表应该以为每种设备估计的平均无故障时间(Mean Time To Failure，MTTF)和平均修复时间(Mean Time To Repair，MTTR)为基础。设备送外修复时，需要在修复期间使用替代的解决方案或备份设备。通常，在出现小故障时进行修理是可以接受的，但是等到出现大故障时再进行更换，就是一种无法接受的安全实践。</p>
+<h4 id="10-2-2-配线间"><a href="#10-2-2-配线间" class="headerlink" title="10.2.2 配线间"></a>10.2.2 配线间</h4><p>　　现代的配线间是整个建筑或一个楼层中连接到其他重要设备的网络电缆所在的地方，如配线架、交换机、路由器、局域网扩展和骨干渠道。配线间一个更专业的技术名称是房屋线缆分布室。为了保证最大线缆传输限制，大型建筑物里需要多个配线间。配线间的安全是非常重要的。大部分的安全重点是在防止未授权的物理访问方面。如果一个未授权的入侵者获准访问该地区，他们可能偷取设备、拖拉或切断电缆，甚至安放窃听设备。因此，配线间的安全策略应包括如下可靠规则：</p>
+<ul>
+<li>不把配线间作为通用的存储区。</li>
+<li>足够多的锁。</li>
+<li>持区域的整洁。</li>
+<li>不要存放易燃易爆物品。</li>
+<li>设置视频来监控内部的配线间活动。</li>
+<li>使用开门传感器来记录日志。</li>
+<li>不要把钥匙给除了授权管理人员之外的任何人。</li>
+<li>对配线间的安全和内容进行定期的物理检查。</li>
+<li>把配线间纳入组织的环境管理和监控，以确保有适当的环境控制和监控，以及检测破坏性条件，如洪水或火灾。</li>
+</ul>
+<h4 id="10-2-3-服务器机房"><a href="#10-2-3-服务器机房" class="headerlink" title="10.2.3 服务器机房"></a>10.2.3 服务器机房</h4><p>　　服务器机房、数据中心、通信机房、配线间、服务器保管室和π 机房是被封闭的、受限的和受保护的房间，这里放置着关键的服务器和网络设备。集中化的服务器机房不需要与人相协调。服务器机房应设在建筑物的核心位置。尽量避免放置在底层、顶层和地下室。此外，服务器机房应远离水、气和污水管道，这些管道泄漏或泛滥的风险太大，可能会造成严重的损坏和故障停机时间。</p>
+<h4 id="10-2-4-介质存储设施"><a href="#10-2-4-介质存储设施" class="headerlink" title="10.2.4 介质存储设施"></a>10.2.4 介质存储设施</h4><ul>
+<li>把介质存放在上锁的柜子或保险箱中。</li>
+<li>有库管理员或保管员来管理对带锁的介质柜的访问。</li>
+<li>使用存入/取出流程来跟踪谁在检索、使用和返回存储介质。</li>
+<li>对于重用介质，当被返还时，运行安全磁盘擦除或归零(通过无意义的数据(比如零)来取代擦除数据的过程)过程来删除所有残留数据。</li>
+</ul>
+<h4 id="10-2-5-证据存储"><a href="#10-2-5-证据存储" class="headerlink" title="10.2.5 证据存储"></a>10.2.5 证据存储</h4><ul>
+<li>安全证据存储可能涉及以下：</li>
+<li>一个专用的存储系统以区别于生产网络</li>
+<li>当没有新的数据集传输到存储系统时就将存储系统离钱</li>
+<li>阻断存储系统和互联网的连接</li>
+<li>跟踪证据存储系统的所有活动</li>
+<li>计算存储在系统中所有数据的哈希值</li>
+<li>限制安全管理员和法律顾问的访问</li>
+<li>对所有存储在系统上的数据进行加密</li>
+</ul>
+<h4 id="10-2-6-受限的和工作区域安全-例如，运营中心"><a href="#10-2-6-受限的和工作区域安全-例如，运营中心" class="headerlink" title="10.2.6 受限的和工作区域安全(例如，运营中心)"></a>10.2.6 受限的和工作区域安全(例如，运营中心)</h4><p>　　工作区和参观区域的设计和配置都应该仔细考虑。对设施内所有地方的进入要求不应该等同对待。进入含有更高价值或重要资产的区域应该受到限制。有价值的和保密的资产应该放置在设施的核心保护区或中心地区。实际上，应该专注于部署物理保护的同心圆。这种配置类型要求较高的授权级别才能进入组织的更敏感区域。设施安全设计过程应该支持内部安全的实施和维护。除了在适当的工作场所管理员工外，还应该解决访客和访客控制问题。</p>
+<h4 id="10-2-7-数据中心安全"><a href="#10-2-7-数据中心安全" class="headerlink" title="10.2.7 数据中心安全"></a>10.2.7 数据中心安全</h4><h5 id="1-智能卡"><a href="#1-智能卡" class="headerlink" title="1. 智能卡"></a>1. 智能卡</h5><p>　　智能卡是信用卡大小的身份证、员工证或安全通行证，卡上具有磁条、条形码或植入的集成电路芯片。智能卡包含了经过授权的可以被用于身份识别和/或身份认证目的的持卡人信息。某些智能卡甚至具有处理信息的能力或被用于在内存芯片上存储一定数量的数据。下列短语或术语指的都是智能卡：</p>
+<ul>
+<li>包含集成电路(IC)的身份令牌</li>
+<li>处理器IC卡</li>
+<li>具有ISO 7816接口的IC卡</li>
+</ul>
+<p>　　大多数情况下，智能卡被用于多因子配置，因此，智能卡被盗或丢失不容易发生冒名替代的后果。最常见的用于智能卡的多因子认证要求使用PIN。</p>
+<h5 id="2-接近式读卡机"><a href="#2-接近式读卡机" class="headerlink" title="2. 接近式读卡机"></a>2. 接近式读卡机</h5><p>　　接近式读卡机可以是无源设备、场源设备或发送应答器。接近式设备由经过授权的持卡人携带或持有，当持卡人通过接近式读卡机时，接近式读卡机能够确定持卡人的身份及其是否己被授权进行访问。无源设备不具有活动电子，只是具有特定属性的小磁场(如DVD 上常见的防盗设备)。场源设备是一种电子设备，当进入由读卡机产生的电磁场时会被激活。发送应答器是自有电源的设备，并且发射由读卡机接收的信号。除了智能卡、无记忆卡和接近式读卡机以外，还可以使用无线射频识别(RFID)或生物测定学方面的访问控制设备来管理物理访问。</p>
+<h5 id="3-入侵检测系统"><a href="#3-入侵检测系统" class="headerlink" title="3. 入侵检测系统"></a>3. 入侵检测系统</h5><p>　　入侵检测系统是自动化的或人工的系统，这种系统被设计用于检测未经授权的个人企图发起的入侵、破坏或攻击行为，未授权入口点的使用情况，以及在未经授权的时间或非正常时间发生的犯法事件。物理的入侵检测系统也被称为防盗警报器，用于检测未经授权的活动并通知管理机构(内部的安全部门或外部的执法部门)。</p>
+<h5 id="4-访问滥用"><a href="#4-访问滥用" class="headerlink" title="4. 访问滥用"></a>4. 访问滥用</h5><p>　　物理访问控制的滥用示例包括敞开安全门、绕过锁或访问控制。伪装是指使用其他人的安全ID获得进入某座设施的权限。尾随是指跟随着某个人通过受到安全保护的门或通道，而自己并没有接受身份识别或身份认证。这样的检测滥用可以通过建立审计跟踪和保持访问日志来完成。</p>
+<h5 id="5-放射防护"><a href="#5-放射防护" class="headerlink" title="5. 放射防护"></a>5. 放射防护</h5><p>　　用于阻止放射攻击的对策和防护类型被称为瞬时电磁脉冲设备屏蔽技术TEMPEST设备。TEMPEST的一些对策有法拉第笼、白噪声和控制区：</p>
+<ul>
+<li><strong>法拉第笼</strong> 通常是完全包围区域所有面的金属网。这个金属外壳具有能够产生电容效应(因此以法拉第命名)的弱电，从而可以防止所有电磁信号(放射信号)逸出或进入由法拉第笼围绕的区域。法拉第笼能够非常有效地阻拦EM信号。事实上，在有效的法拉第笼的内部，移动电话无法使用，并且无法接收广播或电视信号。</li>
+<li><strong>白噪声</strong> 白噪声指的是一直广播虚假通信数据，从而掩盖和隐藏实际存在的放射信号。白噪声可以由另一个非机密来源的实际信号、特定频率的连续信号、随机的可变信号(例如，在广播电台或电视台之间听到的自噪声)甚至导致截获设备失效的干扰信号组成。在区域边界的周围生成白噪声是最为有效的，此时白噪声通过向外广播以保护需要放射信号才能完成正常运作的区域内部。</li>
+<li><strong>控制区</strong> 控制区是第三种TEMPEST对策，它只是在受保护区域环境内实现法拉第笼或白噪声，在受保护区域环境外则不采取任何措施。控制区是所需设备使用和支持放射信号的区域(例如，无线互联、移动电话、无线电和电视信号)。在控制区外部，我们需要使用不同的TEMPEST对策来阻止对放射信号的拦截。</li>
+</ul>
+<h4 id="10-2-8-基础设施和HVAC注意事项"><a href="#10-2-8-基础设施和HVAC注意事项" class="headerlink" title="10.2.8 基础设施和HVAC注意事项"></a>10.2.8 基础设施和HVAC注意事项</h4><p>　　电力公司供应的电源并不总是连续的和平稳的。大多数电子设备需要平稳的电力供应才能正常工作。由于电源的波动而导致设备损坏的事情经常发生。不间断电源供应(Uninterruptible Power Supply，UPS)是一种自充电的电池类型，可以为敏感的设备提供连续和平稳的电力。另一种确保设备不会因为电源波动而造成损坏的方法是使用带有电涌保护器的配电盘。电涌保护器包含一根保险丝，它在电源功率剧烈变化而造成对设备的损坏之前熔断。但是一旦电涌保护器的保险丝熔断或电路因跳闸切断，电流就会被完全中断。如果希望维持很长时间的电力并且不会造成停电，那么需要一台现场发电机。大多数发电机运转时都使用液态或气态的燃料水槽，为了保证可靠性，必须维持充足的燃料。发电机被认为是电源的替换或后备方案。与电源相关的问题有很多。下面是应当熟悉的一组电源术语：</p>
+<ul>
+<li><strong>故障(fault)</strong> 电力瞬间消失</li>
+<li><strong>中断(blackout)</strong> 电力完全消失</li>
+<li><strong>电压不足(sag)</strong> 瞬间电压降低</li>
+<li><strong>降压(brownout)</strong> 长时间低电压</li>
+<li><strong>脉冲(spike)</strong> 瞬间高电压</li>
+<li><strong>电涌(surge)</strong> 长时间高电压</li>
+<li><strong>起动功率(inrush)</strong> 电源开始的电涌通常与连接的电源有关，无论电源是主电源还是替换/辅助电源</li>
+<li><strong>噪声(noise)</strong> 持续不断的电源干扰</li>
+<li><strong>瞬时现象(transient)</strong> 短时间的线路杂音干扰</li>
+<li><strong>平稳(clean)</strong> 完全平稳的电流</li>
+<li><strong>接地(ground)</strong> 电路中的电线是接地的</li>
+</ul>
+<h5 id="1-噪声"><a href="#1-噪声" class="headerlink" title="1. 噪声"></a>1. 噪声</h5><p>　　噪声造成的问题不仅会影响设备的功能，还可能会干扰通信、传输和播放的质量。电磁干扰(EMI)有两种类型： 普通模式和导线模式。普通模式的噪声是由电源或运转的电子设备的火线和地线之间的电势差产生的。导线模式的噪声是由电源或运转的电子设备的火线和中线之间的电势差产生的。与此类似的问题是射频干扰(RFI)，它与EMI一样，会影响许多系统。RFI由很多常见的电器产生。保护电力供应和保护设备不受到噪声干扰，这是为IT基础设施维护高效和功能稳定的环境的重要部分。这种保护措施所采取的步骤包括： 提供充足的电力条件，建立合适的接地措施，屏蔽所有电缆，以及限制暴露在EMI和RFI源中。</p>
+<h5 id="2-温度、湿度和静电"><a href="#2-温度、湿度和静电" class="headerlink" title="2. 温度、湿度和静电"></a>2. 温度、湿度和静电</h5><p>　　除了考虑电源问题，维护环境还包括控制来暖、通风和空调(HVAC)的机制。湿度太高会导致侵蚀，湿度太低则会产生静电。即使在不产生静电的地毯上，如果环境中的湿度太低，那么仍然可能产生两万伏特的静电放电。</p>
+<h4 id="10-2-9-水的问题-例如，漏水和水灾"><a href="#10-2-9-水的问题-例如，漏水和水灾" class="headerlink" title="10.2.9 水的问题(例如，漏水和水灾)"></a>10.2.9 水的问题(例如，漏水和水灾)</h4><p>　　只要有可能，就要将放置服务器的房间和重要计算机设备远离任何水源或传输管道。还可能希望在关键任务系统的地板周围安装水检测电路。水检测电路具有警报装置，如果水正在侵入设备，那么就会发出警报。</p>
+<h4 id="10-2-10-火灾的预防、检测和抑制"><a href="#10-2-10-火灾的预防、检测和抑制" class="headerlink" title="10.2.10 火灾的预防、检测和抑制"></a>10.2.10 火灾的预防、检测和抑制</h4><p>　　不同的抑制介质针对火的不同方面：</p>
+<ul>
+<li>水能够抑制高温</li>
+<li>苏打酸和其他干粉能够抑制燃料供应</li>
+<li>二氧化碳能够抑制氧气供应</li>
+<li>哈龙替代物与其他非易燃气体能够干扰化学燃烧和/或抑制氧气供应</li>
+</ul>
+<h5 id="1-灭火器"><a href="#1-灭火器" class="headerlink" title="1. 灭火器"></a>1. 灭火器</h5><table>
+<thead>
+<tr>
+<th>级别</th>
+<th>火灾类型</th>
+<th>灭火材料</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>普通的易燃品</td>
+<td>水、苏打酸(干粉或液态化学物质)</td>
+</tr>
+<tr>
+<td>B</td>
+<td>液体</td>
+<td>二氧化碳、哈龙*、苏打酸</td>
+</tr>
+<tr>
+<td>C</td>
+<td>电子</td>
+<td>二氧化碳、哈龙*</td>
+</tr>
+<tr>
+<td>D</td>
+<td>金属</td>
+<td>干粉</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>哈龙或EPA 批准的哈龙替代物</li>
+</ul>
+<h5 id="2-防火检测系统"><a href="#2-防火检测系统" class="headerlink" title="2. 防火检测系统"></a>2. 防火检测系统</h5><p>　　当达到某一特定温度时，设定好温度的检测系统就会触发灭火抑制装置。触发器通常是带洒水头的金属或塑料元件，在某一特定的温度下会融化。温度上升比率检测系统在温度的改变速度达到某一特定级别时就会触发灭火抑制装置。火焰激发系统是根据火焰的红外线能量来触发灭火抑制装置。烟感系统则根据光电或放射性电离传感器来触发灭火抑制装置。大多数防火检测系统可以与火灾响应服务通知机制链接在一起。在灭火抑制装置被触发时，这些链接在一起的系统会通过发出自动的消息或警报来通知本地的火灾响应团队以及请求援助。</p>
+<h5 id="3-放水灭火系统"><a href="#3-放水灭火系统" class="headerlink" title="3. 放水灭火系统"></a>3. 放水灭火系统</h5><ul>
+<li>湿管道系统(也称为封闭头系统)总是充满了水。当灭火装置被触发时，就会立刻放水。</li>
+<li>干管道系统中包含被压缩的空气。一旦灭火装置被触发，空气泄漏，打开水间，从而使管道充满水井放出水来。</li>
+<li>洪水系统是干管道系统的另一种形式，它使用较粗的管道，因此能排出大股的水流。洪水系统对于放置了电子设备和计算机的环境不太适合。</li>
+<li>预先响应系统是干管道/湿管道系统的组合系统。这种系统一直作为干管道系统存在，直至检测到有火灾(烟、热及其他)发生，然后向管道中充满水。由于充分受热，洒水头触发器被融化之后释放出水。如果在洒水头被触发之前火被熄灭，那么管道可以被手工排空并重新设置。这种系统还允许在洒水头触发之前进行人工干预，以便停止放水。</li>
+</ul>
+<h5 id="4-气体释放系统"><a href="#4-气体释放系统" class="headerlink" title="4. 气体释放系统"></a>4. 气体释放系统</h5><p>　　气体释放系统通常比放水系统更有效。然而，气体释放系统不应当被部署在有人的环境中。气体释放系统通常从空气中抽走氧气，因此对人是非常危险的。</p>
+<h5 id="5-损失"><a href="#5-损失" class="headerlink" title="5. 损失"></a>5. 损失</h5><p>　　火灾引起的破坏性要素包括烟和热，还包括灭火抑制介质(如水或苏打酸)。烟对大多数存储设备都会造成损坏。热会损坏所有的电子或计算机组件。灭火抑制介质可能会引起电路短路、加快侵蚀或导致设备无法使用。在设计火灾响应系统时，必须考虑上述所有问题。</p>
+<h3 id="10-3-实施和管理物理安全"><a href="#10-3-实施和管理物理安全" class="headerlink" title="10.3 实施和管理物理安全"></a>10.3 实施和管理物理安全</h3><h4 id="10-3-1-周边-例如，访问控制和监控"><a href="#10-3-1-周边-例如，访问控制和监控" class="headerlink" title="10.3.1 周边(例如，访问控制和监控)"></a>10.3.1 周边(例如，访问控制和监控)</h4><p>　　建筑物或校园位置的入口也很重要。单入口可极大地提供安全性，但多个入口在紧急情况下可提供更好的疏散性。</p>
+<h5 id="1-栅栏、大门、旋转门和陷阱"><a href="#1-栅栏、大门、旋转门和陷阱" class="headerlink" title="1. 栅栏、大门、旋转门和陷阱"></a>1. 栅栏、大门、旋转门和陷阱</h5><p>　　栅栏是外围设备。栅栏被用于在受到特殊安全保护级别的区域和其他区域之间进行明确的隔离。用栅栏筑围墙可以包括广泛的成分、材料和建造方法，可能包括地上的画线、铁丝网、带刺铁丝网、水泥墙和使用激光、运动探测仪或热源探测仪的不可见防线。大门是栅栏上受到控制的出入点。为了维持栅栏整体的有效性，大门的阻挡程度必须与栅栏的阻挡程度相同。绞链和锁闭/闭合机制应该进行加固，以防止损坏、破坏或拆卸。当大门关闭时，不应该提供任何额外的出入脆弱性。门的数量应当尽可能最少。旋转门每次只可以进一个人，并且常常限制为单方向转动。要么只允许进门，要么只允许出门。旋转门基本上可以等同于安全的旋转门。陷阱是通常由保安人员守护的双重门设置。陷阱的目的是牵制主体，直至其身份得到确认和验正。如果经过证明他们可以被授权进入，那么内部的门打开，从而准许这些人员进入设施或周围的附属地区。如果他们没有得到授权，那么两扇门都保持关闭并锁住，直至警卫(通常是保安人员或警察)到来将这些闯入者护送离开设施或因非法入侵逮捕他们(这也被称为迟滞特性) 。通常，陷阱包括阻止跟随捎带和尾随的措施。</p>
+<h5 id="2-照明"><a href="#2-照明" class="headerlink" title="2. 照明"></a>2. 照明</h5><p>　　照明是最常用的一种边界安全控制形式。照明的主要目的是阻拦那些偶然的入侵者、闯入者、小偷和希望在黑暗中实施恶意行为的潜在窃贼。照明应当不照亮保安人员、看门狗、巡逻岗哨或其他类似的安全保卫者。此外，在攻击者非法闯入期间，照明也不能因为强光或反射使保安人员、看门狗和监控设备受到干扰，否则更利于攻击者。</p>
+<h5 id="3-保安和看门狗"><a href="#3-保安和看门狗" class="headerlink" title="3. 保安和看门狗"></a>3. 保安和看门狗</h5><p>　　所有的物理安全控制，无论是静止的阻碍物还是主动的检测和监视机制，最终都要依靠人的介入来阻止实际的入侵和攻击。保安可能沿边界进行部署，或者被部署在边界内。他们监视着进出口，或者监控着进行检测和监视的显示器。保安的真正优势在于他们能够适应任何环境或情况并做出反应。保安能够记住并识别攻击和入侵的行为和方式，可以适应正在改变的环境，并且能够作出判断和决定。在需要立即的、现场的事态控制和决策制定时，保安常常是恰当的安全控制选择。不是所有的环境和设施都支持部署保安。这可能是由于实际环境中存在不适合人的因素，或是设施的规划、设计、位置和建筑的原因。不是所有的保安都是可信赖的。预先筛选、联系和培训无法保证不会出现低效的和不可靠的保安。看门狗可以替代保安，它们常常作为边界的安全控制措施进行部署。作为侦测和威慑的一种形式，看门狗是非常有效的。然而，喂养狗的费用很高，并且需要高标准的养护，同时还会带来极高的保险和责任要求。</p>
+<h4 id="10-3-2-内部安全-例如，陪同要求-访问者控制、钥匙和锁"><a href="#10-3-2-内部安全-例如，陪同要求-访问者控制、钥匙和锁" class="headerlink" title="10.3.2 内部安全(例如，陪同要求/访问者控制、钥匙和锁)"></a>10.3.2 内部安全(例如，陪同要求/访问者控制、钥匙和锁)</h4><h5 id="1-钥匙和密码锁"><a href="#1-钥匙和密码锁" class="headerlink" title="1. 钥匙和密码锁"></a>1. 钥匙和密码锁</h5><p>　　锁使得被关闭的门保持闭合。它们被用于阻止缺乏正确授权的人。锁是身份标识和身份认证机制的强硬形式。只有具有正确的钥匙或密码，才会被授权准许进入。使用钥匙的锁是最常见的和最廉价的物理访问控制设备形式，常常被称作预置锁。可编程的锁或密码锁能够提供比预置锁更广泛的控制。电子访问控制(EAC)锁由下列三种元素组成： 保持门关闭的电磁体、验证主体和使电磁体失效的凭证读卡机，以及重新使用电磁体的闭门感应器。</p>
+<h5 id="2-员工证"><a href="#2-员工证" class="headerlink" title="2. 员工证"></a>2. 员工证</h5><p>　　员工证、身份证或安全ID都是物理身份标识和/或电子访问控制设备的形式。员工证可能被用在物理访问主要受到保安控制的环境中。员工证还可以在由扫描设备守卫而非保安守卫的环境中使用。</p>
+<h5 id="3-运动探测仪"><a href="#3-运动探测仪" class="headerlink" title="3. 运动探测仪"></a>3. 运动探测仪</h5><p>　　运动探测仪或运动传感器是在特殊区域内使用的、用于感知物体运动的设备。运动探测仪的常见类型如下：</p>
+<ul>
+<li><strong>红外运动探测仪</strong> 对被监控区域红外照明模式的显著变化进行监视。</li>
+<li><strong>热能型运动探测仪</strong> 对被监控区域内的热能等级和模式的显著变化进行监视。</li>
+<li><strong>波形运动探测仪</strong> 向被监控的区域发射连续的弱超声波或高频微波，并且对反射波的显著扰动或变化进行监视。</li>
+<li><strong>电容运动探测仪</strong> 对被监控物体周围区域的电场或磁场变化进行探测。</li>
+<li><strong>光电运动探测仪</strong> 通常在没有窗户或保持昏暗的房间内部使用。</li>
+<li><strong>无源音频运动探测仪</strong> 对被监控区域内的非正常声音进行侦听。</li>
+</ul>
+<h5 id="4-入侵警报"><a href="#4-入侵警报" class="headerlink" title="4. 入侵警报"></a>4. 入侵警报</h5><p>　　警报是一种分离机制，可以引发威慑、防护和/或通知。</p>
+<ul>
+<li><strong>威慑报警</strong> 引发威慑警报可能会采用额外的加锁、关门等措施。这种警报的目的是使得进一步的入侵或攻击变得更难。</li>
+<li><strong>排斥报警</strong> 引发排斥警报声通常听起来像汽笛或钟声，并且会将灯打开。这些警报类型被用于令入侵者或攻击者气馁，从而不再继续他们的恶意或入侵行为，并且离开这个设施。</li>
+<li><strong>通知报警</strong> 引发通知警报对于入侵者汇攻击者来说常常是缄默的，但是它们会记录事故的相关数据，并且通知管理员、保安和执法机构。事故的记录可以采取日志文件和/或闭路电视磁带的形式。缄默警报的目的是将授权的安全人员带到入侵或攻击的位置，以便期望抓住进行有害活动的人。</li>
+</ul>
+<p>　　报警也通过它们所在的地方(本地、集中、专有或辅助)被归类。</p>
+<ul>
+<li><strong>本地报警</strong> 本地警报系统必须广播司听到的警报信号(最大可到120分贝)，这个信号最远可以传播400英尺。此外，本地警报系统必须受到保护，通常应由保安进行保护，以防止损害和损坏。为了使警报系统有效，附近必须有安全团队或保安，他们可以在警报被触发后立即进行响应。</li>
+<li><strong>集中式警报系统</strong> 可能在本地没有警报，在警报触发时会通过信号通知远程或集中式监控站。大多数中央集中式系统都是很知名的公司或是国家安全公司。专有系统类似于中央系统，但托管组织有他们自己的现场保安人员等待并响应安全破坏。</li>
+<li><strong>辅助警报系统</strong> 辅助警报系统可以加入本地或集中式警报系统。当安全边界被破坏时，紧急服务机构将被通知和对事件做出响应，并抵达相应地点。这些紧急服务机构可能包括消防、警察和医疗服务。</li>
+</ul>
+<h5 id="5-二次验证机制"><a href="#5-二次验证机制" class="headerlink" title="5. 二次验证机制"></a>5. 二次验证机制</h5><p>　　当运动检测器、传感器和报警器被使用时，二次验证机制应该在适当的位置。随着这些设备的灵敏度增高，错误触发会经常发生。使用两个或两个以上的检测和传感器系统，并要求警报发出之前的短时内有两个或两个以上的快速成功触发。这可以显著减少错误警报，并提高报警显示实际入侵或攻击的可能性。CCTV是一种安全机制，涉及运动探测器、传感器和报警器。然而，CCTV并不是自动化的检测和响应系统。CCTV需要人员观看捕获的批频来检测可疑和恶意的活动，并触发报警。安全摄像头可以扩大保安人员的有效可见范围，因此增大了监控的范围。用来作为一个二次或后续机制，当自动化系统触发后进行审查。事实上，审计和审计跟踪的使用逻辑同样用于CCTV 和事件记录。CCTV 是预防措施，而审查事件记录是检测措施。</p>
+<h5 id="6-环境和生命安全"><a href="#6-环境和生命安全" class="headerlink" title="6. 环境和生命安全"></a>6. 环境和生命安全</h5><p>　　不论在任何情况和任何条件下，保护人员生命是安全的最重要方面。因此，对于所有安全解决方案来说，防止人员遭受生命伤害是最重要的目标。对人员生命安全进行维护的部分内容是维护设施的基本环境。物理安全措施应注重保障人员生命，然后才是恢复环境的安全性和恢复IT基础设施的必要功能。<br>　　许多组织采取人员紧急计划(0∞upant Emergency Plan，OEP)指导和协助在灾难发生时维持人员生命安全。OEP提供了如何减少对生命的威胁、防止损伤、管理压力、处理迁移以及提供安全监控保护财产的指导，并保护资产避免在物理事件中遭受损害。OEP不解决IT问题或业务连续性问题，而只解决人员和一般财产问题。BCP和DRP才解决IT、业务连续性和恢复问题。</p>
+<h5 id="7-隐私责任和法律需求"><a href="#7-隐私责任和法律需求" class="headerlink" title="7. 隐私责任和法律需求"></a>7. 隐私责任和法律需求</h5><p>　　隐私意味着保护个人信息不被泄露给未经任何授权的个人或实体。处理隐私是任何有员工的组织的一个要求。因此，隐私是所有组织的一个核心问题。对于任何组织，隐私保护应该在安全策略中是一个核心任务或目标设定。</p>
+<h5 id="8-合规要求"><a href="#8-合规要求" class="headerlink" title="8. 合规要求"></a>8. 合规要求</h5><p>　　每个组织都运营在一定的行业和管辖权内。这两个实体(可能还有附属的实体)把法律要求、限制和规定强加到它们领域内的组织实践中。这些法律要求可以应用于软件许可、雇佣限制、处理敏感资料，并符合安全规定。遵守所有适用的法律规定是维护安全的一个关键部分。法律法规要求对于行业或国家(也经常是州和城市)都一定在基础安全建设方面被视为底线和基础。</p>
+<h3 id="10-4-考试要点"><a href="#10-4-考试要点" class="headerlink" title="10.4 考试要点"></a>10.4 考试要点</h3><ul>
+<li><strong>理解为什么缺乏物理安全就没有安全性</strong> 缺乏对物理环境的控制，那么行政性的或技术性的/逻辑性的访问控制就无法提供足够的安全性。如果’怀有恶意的人可以获得对设施或设备的物理访问权限，那么他们就会进行他们想要做的任何事情，包括从破坏到泄密乃至更改的任何事情。</li>
+<li><strong>能够列举行政性的物理安全控制</strong> 行政性的物理安全控制包括场地的构造和选择、场地管理、人员控制、意识培训和紧急事件响应及规程。</li>
+<li><strong>能够列举技术性的物理安全控制</strong> 技术性的物理安全控制包括访问控制、入侵检测、警报、CCTV、监视、HVAC、电源以及火灾检查和排除。</li>
+<li><strong>能够指出物理安全的物理控制</strong> 物理安全的物理控制包括栅栏、照明、锁、建筑材料、陷阱、看门狗和警卫。</li>
+<li><strong>理解控制的作用顺序</strong> 控制的作用顺序依次是： 阻拦、拒绝、检测和延缓。</li>
+<li><strong>理解选择场地和设计建筑设施的主要内容</strong> 确定场地方面的主要内容包括可视性、周围地形、地区的可到达性以及自然灾害的影响。设计建筑设施方面的主要内容是要理解组织需要的安全等级，在建筑设计开始之前制定计划。</li>
+<li><strong>理解如何设计和配置安全工作区域</strong> 对设施内所有地方的进入要求不应该等同对待。包含更高价值或重要资产的地区的进出应该受到限制。有价值的和机密的资产应该放在设施提供的保护核心或中心地区。同样，集中放置的服务器或计算机机房不需要人员协调。</li>
+<li><strong>理解配线间的安全问题</strong> 现代的配线间是整个建筑或一个楼层中连接到其他重要设备的网络电缆所在的地方，如配线架、交换机、路由器、局域网扩展、骨干渠道。配线间大部分的安全集中在防止未授权的物理访问。如果未授权入侵者进入该区域，他们可能会偷盗设备、拖拉或切断电缆甚至安放窃听设备。</li>
+<li><strong>理解在安全设施内如何管理来访者</strong> 如果设备通过受限制的区域控制物理安全，那么就需要具备管理来访者的方法。来访者经常会被指派一名陪同，并且他们的访问和行动都要受到严密监视。当外来人员被授权进入受保护的区域时，未能对他们的行动进行跟踪可能会导致针对保护程度最高的资产的恶意行为。</li>
+<li><strong>理解为管理物理安全而进行的安全控制的三种策略，并且能够举出它们的例子</strong> 用于对物理安全进行管理的安全控制可以分为三组： 行政性的、技术性的和物理性的。理解何时以及如何使用这些类型，并且能够列出每种类型的例子。</li>
+<li><strong>理解介质存储的安全需求</strong> 介质存储设施应该被设计用于安全地保存空白介质、可重用介质和安装介质。关注的问题包括盗窃、数据损坏和数据的残余恢复。对介质存储设备的保护包括带锁的柜子或保险箱、使用库管理员或保管员、实施存入/取出过程以及利用介质消磁。</li>
+<li><strong>理解证据存储的问题</strong> 证据存储用来保留用于恢复、内部调查和电子取证调查的日志、驱动图像、虚拟机快照和其他数据。保护措施包括专用/隔离存储设施、离线存储、活动跟踪、哈希管理、访问限制和加密。</li>
+<li><strong>理解物理访问控制的常见威胁</strong> 无论使用哪一种形式的物理访问控制，为了阻止滥用、伪装和尾随，必须同时配备保安人员或其他监控系统。物理访问控制的滥用是指打开安全门或者绕过锁或访问控制措施。伪装是指使用其他人的安全ID获得进入某座设施的权限。尾随是指跟随着某人通过受到安全保护的门或通道，而本身没有接受身份识别或获得授权。</li>
+<li><strong>理解对审计跟踪和访问日志的需要</strong> 对于物理访问控制来说，审计跟踪和访问日志也是非常有用的工具。它们可能需要保安人员手工建立，或者在有足够的自动化访问控制机制(例如，智能卡和某些接近式读卡机)的情况下自动生成。还可以考虑使用CCTV(闭路电视)进行入口点的监控。CCTV(闭路电视)能够将审计跟踪和访问日志与可视化的事件历史记录进行比较。这些信息对于重新构建入侵、破坏或攻击事件非常关键。</li>
+<li><strong>理解对平稳电源的需要</strong> 电力公司供应的电源并不总是连续的和平稳的。大多数电子设备需要平稳的电力供应才能正常工作。由于电源的波动而导致设备损坏的事情经常发生。许多组织机构通过几种方法来选择管理他们自己的电源。不间断电源供应(UPS)是一种自充电的电池类型，可以为敏感的设备提供连续和平稳的电力。UPS在主要电源出现故障或无法获得的情况下，还能够提供持续的电力供应。UPS可以提供数十分钟或数小时的电力，这取决于它的容量和设备所需的用电量。</li>
+<li><strong>理解常用的电力术语</strong> 知道下列术语的定义： 故障、中断、电压不足、降压、脉冲、电涌、起动功率、噪声、瞬时现象、平稳和接地。</li>
+<li><strong>理解如何控制环境</strong> 除了考虑电源问题，维护环境还包括控制来暖、通风和空调(HVAC)的机制。主要放置计算机的房间应该保持温度在华氏60到75度之间(即摄氏15到23度)。计算机房间的湿度应该维持在40%和60%之间。湿度太高会导致侵蚀，湿度太低会导致产生静电。</li>
+<li><strong>知道什么是静电</strong> 即使在不产生静电的地毯上，如果环境中的湿度太低，那么也仍然可能产生两万伏特的静电放电。即使很少的静电放电也可能毁坏电子设备。</li>
+<li><strong>理解管理漏水和水灾的需求</strong> 环境安全策略和措施中应当解决漏水和水灾问题。管道漏水不会每天都发生，但当真的发生时，经常会造或重大的损失。水和电是不能相容的。如果计算机系统与水接触了(特别是在系统运行时)，那么就会发生损坏事故。只要有可能，就要让放置服务器的房间和重要计算机设备远离任何水源或传输管道。</li>
+<li><strong>理解防火检测和灭火措施的重要性</strong> 防火检测和灭火措施绝不能被忽略。保护人员不受到伤害应该始终是所有安全或保护系统中最重要的目标。除了保护人员不受到伤害以外，设计防火检测和灭火措施的目的是将由火、烟、热和灭火材料引起的损失最小化，特别是与IT基础设施相关的部分。</li>
+<li><strong>理解由于火灾和灭火材料可能导致的环境污染和损失</strong> 火灾引起的破坏性要素包括烟和热，也包括灭火介质(如水或苏打酸)。烟对大多数存储设备都会造成损坏。热会损坏所有的电子或计算机组件。灭火抑制介质可能会引起电路短路、加快侵蚀或导致设备无法使用。在设计火灾响应系统时，必须解决所有这些问题。</li>
+<li><strong>理解人员的隐私和安全</strong> 在所有的情况下，安全最重要的作用方面是保护人。因此，防止对人的伤害是所有安全解决方案中最重要的目标。</li>
+</ul>
+<h3 id="10-5-复习题"><a href="#10-5-复习题" class="headerlink" title="10.5 复习题"></a>10.5 复习题</h3><ol>
+<li><p>以下哪一项是安全中最重要的方面?<br>A. 物理安全<br>B. 入侵检测<br>C. 逻辑安全<br>D. 意识培训</p>
+</li>
+<li><p>对于新的设施，有什么方法可以用来制定出组织的需要?<br>A. 日志文件审计<br>B. 关键路径分析<br>C. 风险分析<br>D. 存货清单</p>
+</li>
+<li><p>通常什么基础设施组件位于多个楼层的相同位置，用于把每个楼层网络连接在一起以提供便利?<br>A. 服务器机房<br>B. 配线间<br>C. 数据中心<br>D. 介质柜</p>
+</li>
+<li><p>以下哪一项不是设施或场地的安全关注的设计元素?<br>A. 工作区和访客区的隔离<br>B. 限制对高价值或重要区域的访问<br>C. 位于设施核心或中央位置的机密区域<br>D. 对设施内所有位置的相同访问</p>
+</li>
+<li><p>为了维持最有效和安全的服务器机房，以下哪一项不必是真的?<br>A. 必须和人共存<br>B. 必须包括非水灭火装置的使用<br>C. 湿度必须保持在40%到60%之间<br>D. 温度必须保持在华氏60到75度</p>
+</li>
+<li><p>下列哪个典型的安全措施的执行不涉及包含可重用移动介质的存储设施?<br>A. 雇佣库管理员或保管员<br>B. 使用存入/取出过程<br>C. 哈希<br>D. 在返回的介质上使用净化工具</p>
+</li>
+<li><p>以下哪一项是一套双门，往往由保安人员保护，并且用于容纳主体，并直到他们的身份和授权信息被验证?<br>A. 大门<br>B. 旋转门<br>C. 陷阱<br>D. 接近式传感器</p>
+</li>
+<li><p>周边安全设备或机制的最常见形式是什么?<br>A. 保安人员<br>B. 栅栏<br>C. CCTV(闭路电视)<br>D. 照明</p>
+</li>
+<li><p>以下哪一项不是使用保安人员的缺点?<br>A. 保安人员通常不了解设施内操作的范围<br>B 并非所有环境和设施都支持保安人员<br>C. 并非所有安全人员自身就是可靠的<br>D. 预先筛选、联系和培训并不能保证安全人员的有效和可靠</p>
+</li>
+<li><p>基于水的灭火系统中最常见的故障原因是什么?<br>A. 缺水<br>B. 人<br>C. 离子检测器<br>D. 在吊顶上探测仪的布放</p>
+</li>
+<li><p>物理访问控制设备最普通和便直的是什么?<br>A. 照明<br>B. 保安人员<br>C. 钥匙锁<br>D. 栅栏</p>
+</li>
+<li><p>什么类型的运动检测仪能感应到被监控对象周围电场或磁场的变化?<br>A. 波形检测仪<br>B. 光电检测仪<br>C. 热能检测仪<br>D. 电容检测仪</p>
+</li>
+<li><p>以下哪一项不是触发物理安全报警的典型类型?<br>A. 预防<br>B. 威慑<br>C. 排斥<br>D. 通知</p>
+</li>
+<li><p>无论使用何种形式的物理访问控制，保安人员或其他监控系统都必须被部署来阻止以下问题，但除了哪一个?<br>A. 尾随<br>B. 间谍<br>C. 伪装<br>D. 滥用</p>
+</li>
+<li><p>所有安全解决方案中最重要的目标是什么?<br>A. 暴露阻止<br>B. 维护完整性<br>C. 人身安全<br>D. 维持可用性</p>
+</li>
+<li><p>计算机机房理想的湿度范围是什么?<br>A. 20%至40%<br>B. 40%至60%<br>C. 60%至75%<br>D. 80%至95%</p>
+</li>
+<li><p>什么电压等级的静电会引起存储在硬盘中的数据的破坏?<br>A. 4000 伏特<br>B. 17000 伏特<br>C. 40 伏特<br>D. 1500 伏特</p>
+</li>
+<li><p>B类灭火器不会使用下列哪个灭火材料?<br>A. 水<br>B. 二氧化碳<br>C. 晗龙或可接受的哈龙替代品<br>D. 苏打酸</p>
+</li>
+<li><p>对于计算机设施，基于水的灭火系统最好的类型是什么?<br>A. 湿管系统<br>B. 干管系统<br>C. 预先响应系统<br>D. 洪水系统</p>
+</li>
+<li><p>在发生火灾和除非灭火的情况下，下列哪一项不是造成计算机设备损坏的罪魁祸首?<br>A. 热<br>B. 灭火介质<br>C. 烟<br>D. 照明</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+	
+	<div>
+      
+	</div>
+	
+	<div>
+		
+			<div>
+    
+        <div style="text-align:center;color: #555;font-size:14px;">-------------End-------------</div>
+    
+</div>
+		
+	</div>
+	
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Thank you very much for your donation.</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt=" 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt=" 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+      <div id="bitcoin" style="display: inline-block">
+        <img id="bitcoin_qr" src="/images/bitcoin.png" alt=" 比特币"/>
+        <p>比特币</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/cissp/" rel="tag"><i class="fa fa-tag"></i> cissp</a>
+          
+            <a href="/tags/学习笔记/" rel="tag"><i class="fa fa-tag"></i> 学习笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/notes/cissp学习笔记（9）——安全脆弱性、威胁和对策/" rel="next" title="cissp学习笔记（9）——安全脆弱性、威胁和对策">
+                <i class="fa fa-chevron-left"></i> cissp学习笔记（9）——安全脆弱性、威胁和对策
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Security/安全培训大纲/" rel="prev" title="安全培训大纲">
+                安全培训大纲 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zODM5Mi8xNDkyMA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+
+    
+  
+ <div class="sidebar-inner">
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/diyz.jpg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+		
+		  
+		  
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a rel="external nofollow" href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=1321425651" target="_blank" title="QQ" rel="external nofollow"><i class="fa fa-fw fa-qq"></i>QQ</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a rel="external nofollow" href="mailto:1321425651@qq.com" target="_blank" title="E-Mail" rel="external nofollow"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a rel="external nofollow" href="https://github.com/doubiduo" target="_blank" title="GitHub" rel="external nofollow"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a rel="external nofollow" href="https://steamcommunity.com/id/doubiduo" target="_blank" title="Steam" rel="external nofollow"><i class="fa fa-fw fa-steam"></i>Steam</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a rel="external nofollow" href="https://www.diyz.bid/atom.xml" target="_blank" title="RSS" rel="external nofollow"><i class="fa fa-fw fa-rss"></i>RSS</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+			
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#10-1-应用安全原则到选址和设施设计"><span class="nav-text">10.1 应用安全原则到选址和设施设计</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#10-1-1-安全设施计划"><span class="nav-text">10.1.1 安全设施计划</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-1-2-场所选择"><span class="nav-text">10.1.2 场所选择</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-1-3-可视性"><span class="nav-text">10.1.3 可视性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-1-4-自然灾害"><span class="nav-text">10.1.4 自然灾害</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-1-5-设施的设计"><span class="nav-text">10.1.5 设施的设计</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-2-设计和实施物理安全"><span class="nav-text">10.2 设计和实施物理安全</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#10-2-1-设备故障"><span class="nav-text">10.2.1 设备故障</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-2-2-配线间"><span class="nav-text">10.2.2 配线间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-2-3-服务器机房"><span class="nav-text">10.2.3 服务器机房</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-2-4-介质存储设施"><span class="nav-text">10.2.4 介质存储设施</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-2-5-证据存储"><span class="nav-text">10.2.5 证据存储</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-2-6-受限的和工作区域安全-例如，运营中心"><span class="nav-text">10.2.6 受限的和工作区域安全(例如，运营中心)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-2-7-数据中心安全"><span class="nav-text">10.2.7 数据中心安全</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-智能卡"><span class="nav-text">1. 智能卡</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-接近式读卡机"><span class="nav-text">2. 接近式读卡机</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-入侵检测系统"><span class="nav-text">3. 入侵检测系统</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-访问滥用"><span class="nav-text">4. 访问滥用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-放射防护"><span class="nav-text">5. 放射防护</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-2-8-基础设施和HVAC注意事项"><span class="nav-text">10.2.8 基础设施和HVAC注意事项</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-噪声"><span class="nav-text">1. 噪声</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-温度、湿度和静电"><span class="nav-text">2. 温度、湿度和静电</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-2-9-水的问题-例如，漏水和水灾"><span class="nav-text">10.2.9 水的问题(例如，漏水和水灾)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-2-10-火灾的预防、检测和抑制"><span class="nav-text">10.2.10 火灾的预防、检测和抑制</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-灭火器"><span class="nav-text">1. 灭火器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-防火检测系统"><span class="nav-text">2. 防火检测系统</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-放水灭火系统"><span class="nav-text">3. 放水灭火系统</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-气体释放系统"><span class="nav-text">4. 气体释放系统</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-损失"><span class="nav-text">5. 损失</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-3-实施和管理物理安全"><span class="nav-text">10.3 实施和管理物理安全</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#10-3-1-周边-例如，访问控制和监控"><span class="nav-text">10.3.1 周边(例如，访问控制和监控)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-栅栏、大门、旋转门和陷阱"><span class="nav-text">1. 栅栏、大门、旋转门和陷阱</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-照明"><span class="nav-text">2. 照明</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-保安和看门狗"><span class="nav-text">3. 保安和看门狗</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-3-2-内部安全-例如，陪同要求-访问者控制、钥匙和锁"><span class="nav-text">10.3.2 内部安全(例如，陪同要求/访问者控制、钥匙和锁)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-钥匙和密码锁"><span class="nav-text">1. 钥匙和密码锁</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-员工证"><span class="nav-text">2. 员工证</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-运动探测仪"><span class="nav-text">3. 运动探测仪</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-入侵警报"><span class="nav-text">4. 入侵警报</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-二次验证机制"><span class="nav-text">5. 二次验证机制</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-环境和生命安全"><span class="nav-text">6. 环境和生命安全</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-隐私责任和法律需求"><span class="nav-text">7. 隐私责任和法律需求</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-合规要求"><span class="nav-text">8. 合规要求</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-4-考试要点"><span class="nav-text">10.4 考试要点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-5-复习题"><span class="nav-text">10.5 复习题</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+	  
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- taggg -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2020224399094607"
+     data-ad-slot="5456418301"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">doubiduo</span>
+
+  
+
+  
+</div>
+
+
+  
+
+
+
+  <div class="powered-by">由 <a rel="external nofollow" class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">全站共214.4k字</span>
+</div>
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
     // Popup Window;
     var isfetched = false;
     var isXml = true;
@@ -316,4 +1611,159 @@
         onPopupClose();
       }
     });
-  </script><script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script><script>AV.initialize("auf5TIy4OQOv6c52DIqTOgHd-gzGzoHsz","tBf3kX7KmYaId0Nh4PlLx3XQ")</script><script>function showTime(e){var t=new AV.Query(e),c=[],u=$(".leancloud_visitors");u.each(function(){c.push($(this).attr("id").trim())}),t.containedIn("url",c),t.find().done(function(e){var t=".leancloud-visitors-count";if(0!==e.length){for(var n=0;n<e.length;n++){var o=e[n],i=o.get("url"),s=o.get("time"),r=document.getElementById(i);$(r).find(t).text(s)}for(n=0;n<c.length;n++){i=c[n],r=document.getElementById(i);var l=$(r).find(t);""==l.text()&&l.text(0)}}else u.find(t).text(0)}).fail(function(e,t){console.log("Error: "+t.code+" "+t.message)})}function addCount(i){var e=$(".leancloud_visitors"),s=e.attr("id").trim(),r=e.attr("data-flag-title").trim(),t=new AV.Query(i);t.equalTo("url",s),t.find({success:function(e){if(0<e.length){var t=e[0];t.fetchWhenSave(!0),t.increment("time"),t.save(null,{success:function(e){$(document.getElementById(s)).find(".leancloud-visitors-count").text(e.get("time"))},error:function(e,t){console.log("Failed to save Visitor num, with error message: "+t.message)}})}else{var n=new i,o=new AV.ACL;o.setPublicReadAccess(!0),o.setPublicWriteAccess(!0),n.setACL(o),n.set("title",r),n.set("url",s),n.set("time",1),n.save(null,{success:function(e){$(document.getElementById(s)).find(".leancloud-visitors-count").text(e.get("time"))},error:function(e,t){console.log("Failed to create")}})}},error:function(e){console.log("Error:"+e.code+" "+e.message)}})}$(function(){var e=AV.Object.extend("Counter");1==$(".leancloud_visitors").length?addCount(e):1<$(".post-title-link").length&&showTime(e)})</script><script>!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script></body></html>
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("auf5TIy4OQOv6c52DIqTOgHd-gzGzoHsz", "tBf3kX7KmYaId0Nh4PlLx3XQ");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            
+            counter.save(null, {
+              success: function(counter) {
+                
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            
+              var newcounter = new Counter();
+              /* Set ACL */
+              var acl = new AV.ACL();
+              acl.setPublicReadAccess(true);
+              acl.setPublicWriteAccess(true);
+              newcounter.setACL(acl);
+              /* End Set ACL */
+              newcounter.set("title", title);
+              newcounter.set("url", url);
+              newcounter.set("time", 1);
+              newcounter.save(null, {
+                success: function(newcounter) {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+                },
+                error: function(newcounter, error) {
+                  console.log('Failed to create');
+                }
+              });
+            
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

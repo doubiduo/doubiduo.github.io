@@ -1,4 +1,1305 @@
-<!DOCTYPE html><html class="theme-next pisces use-motion" lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#222"><script src="/lib/pace/pace.min.js?v=1.0.2"></script><link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet"><script></script><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css"><link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.ico?v=6.3.0"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.ico?v=6.3.0"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.ico?v=6.3.0"><link rel="mask-icon" href="/images/logo.ico?v=6.3.0" color="#222"><script type="text/javascript" id="hexo.configurations">var NexT=window.NexT||{},CONFIG={root:"/",scheme:"Pisces",version:"6.3.0",sidebar:{position:"left",display:"post",offset:12,b2t:!1,scrollpercent:!1,onmobile:!1},fancybox:!1,fastclick:!1,lazyload:!1,tabs:!0,motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},algolia:{applicationID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}}}</script><meta name="description" content="本文为cissp中人员安全和风险管理概念章节的学习笔记"><meta name="keywords" content="学习笔记,cissp,douiduo,diyz.bid"><meta property="og:type" content="article"><meta property="og:title" content="cissp学习笔记（2）——人员安全和风险管理概念"><meta property="og:url" content="https://www.diyz.bid/notes/cissp学习笔记（2）——人员安全和风险管理概念/index.html"><meta property="og:site_name" content="doubiduo"><meta property="og:description" content="本文为cissp中人员安全和风险管理概念章节的学习笔记"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://www.diyz.bid/notes/cissp学习笔记（2）——人员安全和风险管理概念/风险的元素.png"><meta property="og:image" content="https://www.diyz.bid/notes/cissp学习笔记（2）——人员安全和风险管理概念/风险管理框架的6个步骤.png"><meta property="og:updated_time" content="2018-10-11T10:12:52.874Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="cissp学习笔记（2）——人员安全和风险管理概念"><meta name="twitter:description" content="本文为cissp中人员安全和风险管理概念章节的学习笔记"><meta name="twitter:image" content="https://www.diyz.bid/notes/cissp学习笔记（2）——人员安全和风险管理概念/风险的元素.png"><link rel="alternate" href="/atom.xml" title="doubiduo" type="application/atom+xml"><link rel="canonical" href="https://www.diyz.bid/notes/cissp学习笔记（2）——人员安全和风险管理概念/"><script type="text/javascript" id="page.configurations">CONFIG.page={sidebar:""}</script><title>cissp学习笔记（2）——人员安全和风险管理概念 | doubiduo</title><script async src="https://www.googletagmanager.com/gtag/js?id=UA-124427626-1"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-124427626-1")</script><script type="text/javascript">var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?9c8b377e488072512752a147d13a537c";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><noscript><style type="text/css">.sidebar-inner,.use-motion .brand,.use-motion .collection-title,.use-motion .comments,.use-motion .menu-item,.use-motion .motion-element,.use-motion .pagination,.use-motion .post-block,.use-motion .post-body,.use-motion .post-header{opacity:initial}.use-motion .logo,.use-motion .site-subtitle,.use-motion .site-title{opacity:initial;top:initial}.logo-line-after i{right:initial}</style></noscript><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-2020224399094607",enable_page_level_ads:!0})</script></head><body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN"><div class="container sidebar-position-left page-post-detail"><div class="headband"></div><header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-wrapper"><div class="site-meta"><div class="custom-logo-site-title"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">doubiduo</span><span class="logo-line-after"><i></i></span></a></div><h1 class="site-subtitle" itemprop="description">diyz.bid</h1></div><div class="site-nav-toggle"> <button aria-label="切换导航栏"><span class="btn-bar"></span><span class="btn-bar"></span><span class="btn-bar"></span></button></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i><br>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i><br>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i><br>归档</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="menu-item-icon fa fa-fw fa-link"></i><br>友链</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user-circle"></i><br>关于</a></li><li class="menu-item menu-item-search"><a href="javascript:;" class="popup-trigger"><i class="menu-item-icon fa fa-search fa-fw"></i><br>搜索</a></li></ul><div class="site-search"><div class="popup search-popup local-search-popup"><div class="local-search-header clearfix"><span class="search-icon"><i class="fa fa-search"></i></span><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span><div class="local-search-input-wrapper"> <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input"></div></div><div id="local-search-result"></div></div></div></nav></div></header><main id="main" class="main"><div class="main-inner"><div class="content-wrap"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2020224399094607" data-ad-slot="5456418301" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({})</script><div id="content" class="content"><div id="posts" class="posts-expand"><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="https://www.diyz.bid/notes/cissp学习笔记（2）——人员安全和风险管理概念/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content=""><meta itemprop="description" content=""><meta itemprop="image" content="/images/diyz.jpg"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="doubiduo"></span><header class="post-header"><h2 class="post-title" itemprop="name headline">cissp学习笔记（2）——人员安全和风险管理概念</h2><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i></span> <span class="post-meta-item-text">发表于</span> <time title="创建时间：2018-09-07 09:42:00" itemprop="dateCreated datePublished" datetime="2018-09-07T09:42:00+08:00">2018-09-07</time> <span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-calendar-check-o"></i></span> <span class="post-meta-item-text">更新于</span> <time title="修改时间：2018-10-11 18:12:52" itemprop="dateModified" datetime="2018-10-11T18:12:52+08:00">2018-10-11</time></span> <span class="post-category"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-folder-o"></i></span> <span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/notes/" itemprop="url" rel="index"><span itemprop="name">notes</span></a></span></span> <span class="post-symbolscount"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-file-word-o"></i></span> <span class="post-meta-item-text">本文字数：</span> <span title="本文字数">8.2k</span></span> <span id="/notes/cissp学习笔记（2）——人员安全和风险管理概念/" class="leancloud_visitors" data-flag-title="cissp学习笔记（2）——人员安全和风险管理概念"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-eye"></i></span> <span class="post-meta-item-text">阅读次数：</span><span class="leancloud-visitors-count"></span></span><div class="post-description">本文为cissp中人员安全和风险管理概念章节的学习笔记</div></div></header><div class="post-body" itemprop="articleBody"><p>在本章的考试大纲内容有：<br>安全和风险管理(例如安全、风险、合规性、法律、法规、业务连续性)</p><ul><li>H. 促进人员安全策略<ul><li>H.l 筛选候选人(例如背景检测、教育核查)</li><li>H.2 雇佣协议和策略</li><li>H.3 解雇员工的流程</li><li>H.4 供货商、顾问和承包商控制</li><li>H.5 合规性</li><li>H.6 隐私</li></ul></li><li>I. 理解和应用风险管理的概念<ul><li>I.1 识别威胁和脆弱性</li><li>I.2 风险评估/分析(定性、定量、混合)</li><li>I.3 风险分配/接受(例如系统授权)</li><li>I.4 措施选择</li><li>I.5 实施</li><li>I.6 控制类型(阻止、检测、纠正等)</li><li>I.7 控制评估</li><li>I.8 监控和测量</li><li>I.9 资产评估</li><li>I.10 报告</li><li>I.11 持续改进</li><li>I.l2 风险框架</li></ul></li><li>L. 建立和管理信息安全教育、培训和意识<ul><li>L.l 适合组织需要的水平的安全意识、培训和教育</li><li>L.2 定期的内容相关审查<br>安全评估与测试(设计、执行和分析安全测试)</li></ul></li><li>C.5 培训和意识</li></ul><h3 id="2-1-促进人员安全策略"><a href="#2-1-促进人员安全策略" class="headerlink" title="2.1 促进人员安全策略"></a>2.1 促进人员安全策略</h3><p>　　在任何安全解决方案中，人都是最薄弱的环节。无论部署怎样的物理或逻辑控制，人总能发现避免受到控制、回避或消除控制以及禁用控制的方法。<br>在构建工作描述方面的重要元素包括职责分离、工作职责和岗位轮换：</p><ul><li><strong>职责分离</strong> 职责分离属于安全概念，是指把关键的、重要的和敏感的工作任务分配给若干不同的管理员或高级执行者。这样做能阻止任何一个人具备破坏或削弱重要安全机制的能力。可以将职责分离视为对管理员的最小特权原则的应用。职责分离也能够防止共谋，共谋指的是负面活动由两人或多人共同完成，其意图往往是伪造、偷窃或间谍行为。</li><li><strong>工作职责</strong> 工作职责是要求员工在常规的基础上执行的特定工作任务。根据他们的职责，员工需要访问各种不同的对象、资源和服务。在安全的网络上，用户必须被授予访问与其工作任务有关元素的权限。为了保持最大的安全性，应该按照最小特权原则分配访问权限。最小特权原则规定：在安全环境中，应该授予用户完成工作任务或工作职责所必需的最小访问权限。这条原则的实际应用要求对所有资源和功能进行低级别的粒度访问控制。</li><li><strong>岗位轮换</strong> 岗位轮换是一种简单的方法，组织通过让员工在不同的工作岗位间轮换职位来提高整体安全性。岗位轮换有两个作用。首先，它提供了一种知识冗余类型。当许多员工中的每一位都有能力胜任所要求的若干工作岗位时，如果因为疾病或其他事件导致一位或多位员工在较长的时间内无法工作，那么组织遭受严重停工或生产效率降低的可能性就较小。</li></ul><h4 id="2-1-1-筛选候选人"><a href="#2-1-1-筛选候选人" class="headerlink" title="2.1.1 筛选候选人"></a>2.1.1 筛选候选人</h4><p>　　对于职位的安全性来说，背景调查和安全检查是证明候选人能够胜任工作、具备工作资格和值得信赖的必要因素。</p><h4 id="2-1-2-雇佣协议和策略"><a href="#2-1-2-雇佣协议和策略" class="headerlink" title="2.1.2 雇佣协议和策略"></a>2.1.2 雇佣协议和策略</h4><p>　　雇佣新员工时，应该签署雇佣协议。协议文档概略说明了组织的规则和限制、安全策略、可接受的使用和行为准则、详细的工作描述、破坏活动及其后果、要求员工胜任工作所需的时间。其中，很多条目都是独立的文挡。<br>　　保密协议(NonDisclosure Agreement，NDA)用来保护组织的机密信息不会被以前的员工泄漏。</p><h4 id="2-1-3-解雇员工的流程"><a href="#2-1-3-解雇员工的流程" class="headerlink" title="2.1.3 解雇员工的流程"></a>2.1.3 解雇员工的流程</h4><p>　　离职面谈的主要目的是： 根据前雇员签署的雇佣协议、保密协议和其他安全相关文档来审查责任和约束条件。<br>以下列出了应该尽快处理的其他事直：</p><ul><li>确认员工己归还放在交通工具或家中的组织配发的装置或供应品。</li><li>删除或禁用员工的网络用户账号。</li><li>通知人力资源部门支付最后的薪水，把未使用的休假换成工资，终止所有的福利待遇。</li><li>安排安全部门的人员陪同被解雇的员工在工作场所收拾他们的个人物品。</li><li>通知所有安全人员以及监控出入口的其他人员，确保被解雇的员工只能在安全人员护送下再次进入工作场所。</li></ul><h4 id="2-1-4-供应商、顾问和承包商控制"><a href="#2-1-4-供应商、顾问和承包商控制" class="headerlink" title="2.1.4 供应商、顾问和承包商控制"></a>2.1.4 供应商、顾问和承包商控制</h4><p>服务级别协议(Service-Level Agreement，SLA)中处理的常见问题：</p><ul><li>系统运行时间(作为总体运行时间的百分比)</li><li>最长连续停机时间( 以秒或分钟等计算)</li><li>最大负载</li><li>平均负载</li><li>诊断任务</li><li>故障转移时间(如果冗余处于适当位置)</li></ul><h4 id="2-1-5-合规性"><a href="#2-1-5-合规性" class="headerlink" title="2.1.5 合规性"></a>2.1.5 合规性</h4><p>　　合规是符合或遵守规则、策略、法规、标准或要求的行为。</p><h4 id="2-1-6-隐私"><a href="#2-1-6-隐私" class="headerlink" title="2.1.6 隐私"></a>2.1.6 隐私</h4><ul><li>主动防止对个人可确认的信息(也就是与某人或某个组织直接联系的数据点)的未授权访问。</li><li>防止对被视为个人的或秘密的信息进行未授权的访问。</li><li>防止未被同意或知晓的观察、监控或检查行为。</li></ul><h3 id="2-2-安全治理"><a href="#2-2-安全治理" class="headerlink" title="2.2 安全治理"></a>2.2 安全治理</h3><p>　　安全治理是与支持、定义和指导组织安全工作相关的实践集合。</p><h3 id="2-3-理解和应用风险管理概念"><a href="#2-3-理解和应用风险管理概念" class="headerlink" title="2.3 理解和应用风险管理概念"></a>2.3 理解和应用风险管理概念</h3><p>　　风险管理的主要目的是要将风险降低到一个可以接受的级别。达到风险管理主要目标的过程被称为风险分析。<br>风险分析包括：</p><ul><li>分析环境中的风险</li><li>评估每种风险发生的可能性和造成的损失</li><li>评估各种风险对策的成本以及生成安全措施的成本/效益报告并呈交给上级管理者</li></ul><h4 id="2-3-1-风险术语"><a href="#2-3-1-风险术语" class="headerlink" title="2.3.1 风险术语"></a>2.3.1 风险术语</h4><ul><li><strong>资产</strong> 资产是指环境中应该加以保护的任何事物，是用于商业过程和任务中的任何东西。</li><li><strong>资产估值</strong> 资产估值指的是根据实际的成本和非货币性支出为资产分配的货币价值。</li><li><strong>威胁</strong> 任何可能发生的、为组织或某种特定资产带来所不希望的或不想要结果的事情都被称为威胁。</li><li><strong>脆弱性</strong> 资产中的弱点或防护措施/对策的缺乏被称为脆弱性。</li><li><strong>暴露</strong> 暴露是指由于威胁而容易造成资产损失，脆弱性会被或将被威胁主体或威胁事件加以利用的可能性是存在的。</li><li><strong>风险</strong> 风险是某种威胁利用脆弱性并导致资产损害的可能性，是对可能性、概率或偶然性的评估。</li><li><strong>防护措施</strong> 防护措施或对策是指能消除脆弱性或对付一种或多种特定威胁的任何方法。</li><li><strong>攻击</strong> 攻击指的是威胁主体对脆弱性的利用。</li><li><strong>破坏</strong> 破坏是指发生安全机制被威胁主体绕过或阻挠的事情。<img src="/notes/cissp学习笔记（2）——人员安全和风险管理概念/风险的元素.png" title="[风险的元素]"></li></ul><h4 id="2-3-2-识别威胁和脆弱性"><a href="#2-3-2-识别威胁和脆弱性" class="headerlink" title="2.3.2 识别威胁和脆弱性"></a>2.3.2 识别威胁和脆弱性</h4><p>　　威胁可能来自任何地方。<br>编制威胁列表时，需要考虑以下各项：</p><ul><li>病毒</li><li>级联错误(一系列逐步上升的错误)和相关性错误(由于依赖的事件或事物不存在而引起)</li><li>己授权用户的犯罪行为</li><li>运动现象(振动、炸裂声等)</li><li>有企图的攻击</li><li>重组</li><li>己授权的用户疾病或传染病</li><li>黑客</li><li>不满的员工</li><li>用户错误</li><li>自然灾害(地震、水灾、火灾、火山爆发、咫风、龙卷风、海啸等)</li><li>物理损坏(碎裂、抛射、线缆被切断等)</li><li>数据、资源或服务的误用</li><li>对数据分类或安全策略的改变或危害</li><li>政府、党派或军队的入侵或限制</li><li>处理错误、缓冲区溢出</li><li>滥用个人特权</li><li>温度失控</li><li>能量异常( 静电噪音、EM 脉冲、无线电频率、电源损耗、电涌等)</li><li>数据丢失</li><li>信息战争</li><li>破产或改变/中断业务活动</li><li>编码/编程错误</li><li>入侵(物理的或逻辑的)</li><li>环境因素(存在天然气、液体、生物等)</li><li>设备故障</li><li>物理盗窃</li><li>社会工程学</li></ul><h4 id="2-3-3-风险评估-分析"><a href="#2-3-3-风险评估-分析" class="headerlink" title="2.3.3 风险评估/分析"></a>2.3.3 风险评估/分析</h4><p>　　目前有两种风险评估方法： 定量的风险分析和定性的风险分析。定量的风险分析把真实的货币价值分配给损失的资<br>产。定性的风险分析把主观的和无形的价值分配给损失的资产。</p><ol><li>定量的风险分析</li><li>定性的风险分析</li></ol><h4 id="2-3-4-风险分配-接受"><a href="#2-3-4-风险分配-接受" class="headerlink" title="2.3.4 风险分配/接受"></a>2.3.4 风险分配/接受</h4><p>风险分析的结果包括：</p><ul><li>所有资产的完整且详细的评估。</li><li>所有威肋和风险、发生概率以及一旦发生的损失范围的详细列表。</li><li>针对特定威胁的并且标识出有效性与ALE的防护措施和对策列表。</li><li>每种防护措施的成本/效益分析。</li></ul><h4 id="2-3-5-对策的选择和评估"><a href="#2-3-5-对策的选择和评估" class="headerlink" title="2.3.5 对策的选择和评估"></a>2.3.5 对策的选择和评估</h4><p>　　对策和防护措施需要根据业务任务的上下文进行评估。</p><h4 id="2-3-6-实施"><a href="#2-3-6-实施" class="headerlink" title="2.3.6 实施"></a>2.3.6 实施</h4><p>　　安全控制、对策和防护措施可以通过行政管理性、逻辑/技术性或物理性控制来实现。</p><h4 id="2-3-7-控制的类型"><a href="#2-3-7-控制的类型" class="headerlink" title="2.3.7 控制的类型"></a>2.3.7 控制的类型</h4><ul><li>1.威慑</li><li>2.预防</li><li>3.检测</li><li>4.补偿</li><li>5.纠正</li><li>6.恢复</li><li>7.指令</li></ul><h4 id="2-3-8-监控和测量"><a href="#2-3-8-监控和测量" class="headerlink" title="2.3.8 监控和测量"></a>2.3.8 监控和测量</h4><h4 id="2-3-9-资产评估"><a href="#2-3-9-资产评估" class="headerlink" title="2.3.9 资产评估"></a>2.3.9 资产评估</h4><p>对有形资产和无形资产的估值：</p><ul><li>购置成本</li><li>开发成本</li><li>经营或管理成本</li><li>维护或保养成本</li><li>获得资产的成本</li><li>保护或维持资产的成本</li><li>所有者和用户的价值</li><li>竞争者的价值</li><li>知识产权或资产的价值</li><li>市场评估(可维持的价格)</li><li>产品换代成本</li><li>生产率提升或下降</li><li>资产存在和损失的运营成本</li><li>资产损失责任</li><li>用处</li></ul><h4 id="2-3-10-持续改进"><a href="#2-3-10-持续改进" class="headerlink" title="2.3.10 持续改进"></a>2.3.10 持续改进</h4><p>　　安全性总是在不断变化。因此，随着时间的推移，任何己经实现的安全解决方案都需要更新和更改。如果不是由选定的对策提供连续的完善路径，那么应该将其替换为可以为安全性提供灵活改进的对策。</p><h4 id="2-3-11-风险框架"><a href="#2-3-11-风险框架" class="headerlink" title="2.3.11 风险框架"></a>2.3.11 风险框架</h4><p>风险管理系统有以下特点：</p><ul><li>通过实施强劲且持续不断的监管过程促进实时风险管理概念和不间断的信息系统授权概念的提升。</li><li>鼓励通过自动化操作，向高层领导者提供必要的信息以帮助他们在组织信息系统方面做出基于风险且划算的决定，以支持他们的核心任务和商业功能。</li><li>将信息安全与公司系统结构以及系统开发生命周期相结合。</li><li>强调选择、实施、评估、安全控制的监管以及信息系统的授权。</li><li>通过风险管理(功能)将信息系统层面的风险管理过程与组织层面的风险管理过程相联系。</li></ul><p>为部署在组织信息系统中井使用这些系统的安全控制建立责任和问责一体化制度。风险管理系统的步骤包括：</p><ul><li>分类</li><li>选择</li><li>实施</li><li>评估</li><li>授权</li><li>监控</li></ul> <img src="/notes/cissp学习笔记（2）——人员安全和风险管理概念/风险管理框架的6个步骤.png" title="[风险管理框架的6个步骤]"><h3 id="2-4-建立和管理信息安全教育、培训和意识"><a href="#2-4-建立和管理信息安全教育、培训和意识" class="headerlink" title="2.4 建立和管理信息安全教育、培训和意识"></a>2.4 建立和管理信息安全教育、培训和意识</h3><p>　　安全培训的先决条件是意识。培养安全意识的目标是要将安全放到首位并让用户认识到这一点。意识在整个组织机构之间建立了通用的安全理解基线或基础。</p><h3 id="2-5-管理安全功能"><a href="#2-5-管理安全功能" class="headerlink" title="2.5 管理安全功能"></a>2.5 管理安全功能</h3><ul><li>安全必须符合成本效益原则</li><li>安全必须可度量</li><li>安全机制本身和安全治理过程都会消耗资源</li><li>安全管理功能包括信息安全策略的开发和执行</li></ul><h3 id="2-6-考试要点"><a href="#2-6-考试要点" class="headerlink" title="2.6 考试要点"></a>2.6 考试要点</h3><ul><li><strong>知道隐私如何被放入IT 安全领域</strong> 知道隐私的多重含主U定义，为什么保护它是非常重要的，以及围绕隐私尤其是在工作环境中的隐私的各种问题。</li><li><strong>能够讨论安全的第三方治理</strong> 第三方治理的监督制度可以根据法律、法规、行业标准或许可要求进行强制执行。</li><li><strong>能够定义整体的风险管理</strong> 风险管理的过程如下： 识别可能造成数据损坏或泄漏的因素、根据数据的价值与对策的成本来评估这些因素，以及实现能够减轻或降低风险的有成本效益的解决方案。通过执行风险管理，就能够为降低整体风险奠定基础。</li><li><strong>理解风险分析及涉及的要素</strong> 执行风险分析能够为上层管理者提供详细、必要的依据，从而使其决定哪些风险应当被削弱、哪些风险应当被转移以及哪些风险应当被接受。为了全面评估风险和随后采取恰当的防范措施，就必须分析下列要素： 资产、资产估值、威胁、脆弱性、暴露、风险、己发生的风险、防护措施、对策、攻击和突破。</li><li><strong>知道如何评估威胁</strong> 威胁可能有很多来源，包括町、人和自然界。以团队的形式评估风险以便提供范围最广的视角。通过从各个角度全面地评估风险，就可以减少系统的脆弱性。</li><li><strong>理解定量的风险分析</strong> 定量的风险分析关注硬性指标和百分比。全部使用定量分析是不可能的，因为风险的某些方面是无形的。定量的风险分析过程涉及： 资产估值和威胁识别，接着确定威胁发生的潜在频率和损失，结果是防护措施的成本/效益分析。</li><li><strong>能够解释暴露因子(EF)的概念</strong> 暴露因子是定量风险分析的一个元素，表示组织的某种特定资产被己发生的风险损坏后造成损失的百分比。通过计算暴露因子，能够较好地实现风险管理策略。</li><li><strong>了解单一损失期望(SLE)井知道如何计算</strong> SLE是定量风险分析的一个元素，表示与针对特定资产的单个己发生风险相关联的成本。计算SLE时，可以使用公式： SLE=资产价值(AV) *暴露因子(EF)。</li><li><strong>理解年发生比率(ARO)</strong> ARO是定量风险分析的一个元素，指的是特定威胁或风险在一年内将会发生(也就是成为现实)的预计频率。理解ARO能够进一步计算风险和采取适当的防范措施。</li><li><strong>了解年度损失期望(ALE)井知道如何计算</strong> ALE是定量风险分析的一个元素，指的是针对某种特定的资产，所有己实施的威胁每年可能造成的损失成本。计算ALE 时可以使用公式： ALE=单一损失期望(SLE)*年发生比率(ARO)。</li><li><strong>了解评估防护措施的公式</strong> 除了确定防护措施每年的成本外，还必须计算实现措施后资产的ALE。为此，可以使用下面这个公式： 实现防护措施前的ALE- 实现防护措施后的ALE-每年的防护措施成本=公司防护措施的价值，即(ALEl - ALE2) - ACS。</li><li><strong>理解定性的风险分析</strong> 定性的风险分析更多是根据场景而不是根据计算。这种方式不是为可能发生的损失分配准确的货币价值，而是按程度将威胁分成等级，从而评估其风险、成本和影响。这些分析结果可以帮助那些负责制定风险管理策略的人。</li><li><strong>理解Delphi技术</strong> Delphi技术只是一个简单的匿名反馈和响应过程，这个过程被用于达成一致意见。达成的一致意见为责任方提供了正确评估风险和实施解决方案的机会。</li><li><strong>了解处理风险的选项</strong> 降低风险或风险缓解是防护措施和对策的实现。风险转让或转移风险是把风险带来的损失成本转移给另一个实体或组织。购买保险就是转让或转移风险的一种常见形式。接受风险是因为管理层对可能采用的防护措施进行了成本/效益分析上的评估，并且确定对策的戚本远远超过风险可能造成的损失的成本，还意味着管理层己经同意接受风险发生所造成的结果和损失。</li><li><strong>能够解释总风险、剩余风险和控制间隙</strong> 总风险指的是在没有实现防护措施的情况下，组织将要面对的风险数量。计算总风险的公式是： 威胁<em>脆弱性</em>资产价值=总风险。剩余风险是管理层选择接受而不是缓解的风险。总风险和剩余风险之间的差值被称为控制间隙，控制间隙是指通过实现防护措施被减少的风险数量。计算剩余风险的公式是： 总风险控制间隙=剩余风险。</li><li><strong>理解控制类型</strong> “访问控制”这一术语指的是一系列执行以下任务的控制=确保只有授权用户能够登录而未授权用户不能访问资源。控制类型包括预防、测探、校正、警报、恢复、指令和补偿控制。按执行方式控制可分为：行政管理性控制、逻辑性控制或物理性控制。</li><li><strong>理解雇佣新员工的安全含义</strong> 为了制定合适的安全计划，必须具有工作描述、工作分类、工作任务、工作职责、阻止共谋、候选人筛选、背景调查、安全许可、雇佣协议和竞业禁止协议的标准。通过部署这些机制，确保新雇佣的人员意识到要求的安全标准，从而保护组织的资产。</li><li><strong>能够解释职责分离</strong> 职责分离属于安全概念，指的是将关键的、重要的和敏感的工作任务分配给不同的人。通过分离责任这种方式，就可以确保任何人不可能危及系统安全。</li><li><strong>理解最小特权原则</strong> 最小特权原则表明，在安全环境中，用户应该被授予完成要求的工作任务或工作职责所必需的最少访问权限。通过限制用户只能访问完成工作任务所要求的那些资源，就能限制敏感信息的脆弱性。</li><li><strong>了解岗位轮换和强制性休假是必要的</strong> 岗位轮换有两个作用： 提供了一种知识元余类型： 人员流动可以减少伪造、数据更改、偷窃、阴谋破坏和信息滥用的风险。一到两个星期的强制性休假被用于审计和认证员工的工作任务和权限。这种做法往往比较容易发现滥用、欺诈或疏忽行为。</li><li><strong>理解供应商控制、顾问控制和承包商控制</strong> 利用供应商控制、顾问控制以及承包商控制来确定这个主要组织外部的不同实体、个人或机构的绩效水平、期望值高低、薪酬水平以及影响程度。通常情况下，服务水平协议(SLA) 的文件或政策中会对这些控制进行明确规定。</li><li><strong>能够解释适当的解雇策略</strong> 解雇策略定义了解雇员工的过程，应当包括： 始终有一位证人在场，禁止员工访问网络，进行离职面谈，护送员工离开办公室，交回安全标志和门卡，返还公司的财产。</li><li><strong>了解如何实现安全意识培训</strong> 在真正的培训开始之前，必须让用户树立主人翁的安全意识。一旦树立了安全意识，培训或教育员工执行工作任务和遵守安全策略就可以开始了。所有的新员工都需要进行培训。这样他们才能够遵守安全策略中规定的所有标准、指导方针和步骤。教育是一项更细致的工作，学生/用户需要学习比他们完成工作任务实际所需知识多得多的知识。教育往往与用户参加认证考试或寻求职务晋升相关联。</li><li><strong>理解如何管理安全功能</strong> 为了实现管理安全功能，组织必须采取恰当且充分的安全治理。执行风险评估以驱动安全政策的施行是最明显、最直接的安全功能管理例子。同时这也和预算、度量、资源以及信息安全策略以及评估安全系统的完整性及有效性息息相关。</li><li><strong>了解风险管理框架的6个步骤</strong> 风险管理框架的6 个步骤分别是： 分类、选择、实施、评估、授权和监控。</li></ul><h3 id="2-7-复习题"><a href="#2-7-复习题" class="headerlink" title="2.7 复习题"></a>2.7 复习题</h3><ol><li><p>以下哪一项是任何安全解决方案中最薄弱的元素?<br>A. 软件产品<br>B. 互联网连接<br>C. 安全策略<br>D. 人</p></li><li><p>当试图雇佣新员工时，首先要做什么?<br>A. 创建工作描述<br>B. 设置职位分类<br>C. 审查候选人<br>D. 要求简历</p></li><li><p>以下哪一项是离职面谈的主要目的?<br>A. 返还离职员工的个人物品。<br>B. 审查保密协议。<br>C. 评估离职员工的表现。<br>D. 取消离职员工的网络访问账户</p></li><li><p>当员工被解雇时，接下来应该做什么?<br>A. 在他们被正式解雇前几个小时通知员工。<br>B. 一旦他们被通知解雇，就禁用员工的网络访问权。<br>C. 发送一封广播的电子邮件通知大家，某个员工将被解雇。<br>D. 等到你和雇员是楼里唯一剩下的人时宣布解雇。</p></li><li><p>如果一个组织与外部实体签订合同，提供关键业务功能或服务，例如账户或技术支持。用于<br>确保这些实体能够提供充分的安全性的流程被称为什么?<br>A. 资产识别<br>B. 第三方管理<br>C. 离职审查<br>D. 定性分析</p></li><li><p>___的一部分是业务流程和组织策略的逻辑和实际调查。这个过lV策略审查确保定期的和执行的业务任务、系统和方法是可行、有效的，并且具有成本效益，但最重要的是(至少相对于安全治理)，他们通过减少脆弱性和避免、减少或缓解风险来支持安全性。<br>A. 混合评估<br>B. 风险规避过程<br>C. 对策选择<br>D. 文档审查</p></li><li><p>以下哪一项不是正确的?<br>A. IT安全只能针对逻辑性或技术性的攻击提供保护。<br>B. 实现风险管理目标的过程被称为风险分析。<br>C. 对于IT基础设施的风险是以所有计算机为基础的。<br>D. 资产是在业务流程或任务中使用的任何东西。</p></li><li><p>下列哪一项不是风险分析过程中的元素?<br>A. 为风险分析环境。<br>B. 为防护措施创建成本/收益报告并提交给上层管理者。<br>C. 选择适当的防护措施并实施它们。<br>D. 评估每个威胁事件，及其发生和造成损害的成本和可能性。</p></li><li><p>在风险分析中，下列哪一项一般不会被认为是资产?<br>A. 开发过程<br>B. IT基础设施<br>C. 专有的系统资源<br>D. 用户的个人文件</p></li><li><p>以下哪一项表示偶然的或有意的漏洞利用?<br>A. 威胁事件<br>B. 风险<br>C. 威胁代理<br>D. 破坏</p></li><li><p>当没有或缺乏防护措施和对策时，会存在什么?<br>A. 脆弱性<br>B. 暴露<br>C. 风险<br>D. 渗透</p></li><li><p>下列哪一项不是有效的风险定义?<br>A. 几率、可能性或机会的评估<br>B. 移除脆弱性或防止一个(或多个)特定攻击发生的任何事情<br>C. 风险=威胁*脆弱性<br>D. 每个暴露实例</p></li><li><p>当评估防护措施时，在大多数情况下应遵循什么规则?<br>A. 资产年度损失期望成本不应该超过年度的保护成本。<br>B. 防护措施的年度成本应该等于资产价值。<br>C. 防护措施的年度成本不应该超过资产的年度损失期望。<br>D. 防护措施的年度成本不应该超过安全预算的10%。</p></li><li><p>单一损失期望是怎样计算的?<br>A. 威胁+脆弱性<br>B. 资产价值<em>暴露因子<br>C. 年发生比率</em>脆弱性<br>D. 年发生比率<em>资产价值</em>暴露因子</p></li><li><p>一家公司的防护措施的价值怎样计算?<br>A. 使用防护措施前的ALE-使用防护措施后的ALE 防护措施的年度成本<br>B. 防护前ALE*防护措施的ARO<br>C. 执行防护后ALE+年度防护价值-控制间隙<br>D. 总风险一控制间隙</p></li><li><p>什么安全控制直接关注于防止共谋?<br>A. 最小特权原则<br>B. 工作描述<br>C. 职责分离<br>D. 定量的风险分析</p></li><li><p>什么样的流程或事件通常是由组织主持，针对具有相似工作职能的员工群体?<br>A. 教育<br>B. 意识<br>C. 培训<br>D. 解雇</p></li><li><p>以下哪一项没有具体或直接关系到组织的安全功能管理?<br>A. 员工工作满意度<br>B. 度量<br>C. 信息安全策略<br>D. 预算</p></li><li><p>由于缺少灭火器，你意识到一场火灾的威胁和脆弱性，然后开始执行风险分析。基于这些<br>信息，下列哪些是可能的风险?<br>A. 病毒感染<br>B. 设备损坏<br>C. 系统故障<br>D. 未授权地访问机密信息</p></li></ol><p>20 通过特定的威胁/脆弱性/风险关系，己经执行了基本的定量风险分析。选择一个可能的对策。当再次计算时，下列哪个因素会变化?<br>A. 暴露因子<br>B. 单一损失期望<br>C. 资产价值<br>D. 年发生比率</p></div><div></div><div><div><div style="text-align:center;color:#555;font-size:14px">-------------End-------------</div></div></div><div><div style="padding:10px 0;margin:20px auto;width:90%;text-align:center"><div>Thank you very much for your donation.</div> <button id="rewardButton" disable="enable" onclick='var qr=document.getElementById("QR");"none"===qr.style.display?qr.style.display="block":qr.style.display="none"'> <span>打赏</span></button><div id="QR" style="display:none"><div id="wechat" style="display:inline-block"> <img id="wechat_qr" src="/images/wechatpay.png" alt=" 微信支付"><p>微信支付</p></div><div id="alipay" style="display:inline-block"> <img id="alipay_qr" src="/images/alipay.png" alt=" 支付宝"><p>支付宝</p></div><div id="bitcoin" style="display:inline-block"> <img id="bitcoin_qr" src="/images/bitcoin.png" alt=" 比特币"><p>比特币</p></div></div></div></div><footer class="post-footer"><div class="post-tags"><a href="/tags/cissp/" rel="tag"><i class="fa fa-tag"></i> cissp</a><a href="/tags/学习笔记/" rel="tag"><i class="fa fa-tag"></i> 学习笔记</a></div><div class="post-nav"><div class="post-nav-next post-nav-item"><a href="/notes/cissp学习笔记（1）——通过原则和策略的安全治理/" rel="next" title="cissp学习笔记（1）——通过原则和策略的安全治理"><i class="fa fa-chevron-left"></i> cissp学习笔记（1）——通过原则和策略的安全治理</a></div><span class="post-nav-divider"></span><div class="post-nav-prev post-nav-item"> <a href="/notes/cissp学习笔记（3）——业务连续性计划/" rel="prev" title="cissp学习笔记（3）——业务连续性计划">cissp学习笔记（3）——业务连续性计划<i class="fa fa-chevron-right"></i></a></div></div></footer></div></article></div></div><div class="comments" id="comments"><div id="lv-container" data-id="city" data-uid="MTAyMC8zODM5Mi8xNDkyMA=="></div></div></div><div class="sidebar-toggle"><div class="sidebar-toggle-line-wrap"><span class="sidebar-toggle-line sidebar-toggle-line-first"></span><span class="sidebar-toggle-line sidebar-toggle-line-middle"></span><span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id="sidebar" class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap"> 文章目录</li><li class="sidebar-nav-overview" data-target="site-overview-wrap"> 站点概览</li></ul><section class="site-overview-wrap sidebar-panel"><div class="site-overview"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"> <img class="site-author-image" itemprop="image" src="/images/diyz.jpg" alt=""><p class="site-author-name" itemprop="name"></p><p class="site-description motion-element" itemprop="description"></p></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"> <a href="/archives/"><span class="site-state-item-count">28</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"> <a href="/categories/index.html"><span class="site-state-item-count">5</span> <span class="site-state-item-name">分类</span></a></div><div class="site-state-item site-state-tags"> <a href="/tags/index.html"><span class="site-state-item-count">18</span> <span class="site-state-item-name">标签</span></a></div></nav><div class="links-of-author motion-element"><span class="links-of-author-item"><a rel="external nofollow" href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=1321425651" target="_blank" title="QQ" rel="external nofollow"><i class="fa fa-fw fa-qq"></i> QQ</a></span><span class="links-of-author-item"><a rel="external nofollow" href="mailto:1321425651@qq.com" target="_blank" title="E-Mail" rel="external nofollow"><i class="fa fa-fw fa-envelope"></i> E-Mail</a></span><span class="links-of-author-item"><a rel="external nofollow" href="https://github.com/doubiduo" target="_blank" title="GitHub" rel="external nofollow"><i class="fa fa-fw fa-github"></i> GitHub</a></span><span class="links-of-author-item"><a rel="external nofollow" href="https://steamcommunity.com/id/doubiduo" target="_blank" title="Steam" rel="external nofollow"><i class="fa fa-fw fa-steam"></i> Steam</a></span><span class="links-of-author-item"><a rel="external nofollow" href="https://www.diyz.bid/atom.xml" target="_blank" title="RSS" rel="external nofollow"><i class="fa fa-fw fa-rss"></i> RSS</a></span></div></div></section><section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active"><div class="post-toc"><div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-促进人员安全策略"><span class="nav-text">2.1 促进人员安全策略</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-1-筛选候选人"><span class="nav-text">2.1.1 筛选候选人</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-2-雇佣协议和策略"><span class="nav-text">2.1.2 雇佣协议和策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-3-解雇员工的流程"><span class="nav-text">2.1.3 解雇员工的流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-4-供应商、顾问和承包商控制"><span class="nav-text">2.1.4 供应商、顾问和承包商控制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-5-合规性"><span class="nav-text">2.1.5 合规性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-6-隐私"><span class="nav-text">2.1.6 隐私</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-安全治理"><span class="nav-text">2.2 安全治理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-理解和应用风险管理概念"><span class="nav-text">2.3 理解和应用风险管理概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-1-风险术语"><span class="nav-text">2.3.1 风险术语</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-2-识别威胁和脆弱性"><span class="nav-text">2.3.2 识别威胁和脆弱性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-3-风险评估-分析"><span class="nav-text">2.3.3 风险评估/分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-4-风险分配-接受"><span class="nav-text">2.3.4 风险分配/接受</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-5-对策的选择和评估"><span class="nav-text">2.3.5 对策的选择和评估</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-6-实施"><span class="nav-text">2.3.6 实施</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-7-控制的类型"><span class="nav-text">2.3.7 控制的类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-8-监控和测量"><span class="nav-text">2.3.8 监控和测量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-9-资产评估"><span class="nav-text">2.3.9 资产评估</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-10-持续改进"><span class="nav-text">2.3.10 持续改进</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-11-风险框架"><span class="nav-text">2.3.11 风险框架</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-建立和管理信息安全教育、培训和意识"><span class="nav-text">2.4 建立和管理信息安全教育、培训和意识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-管理安全功能"><span class="nav-text">2.5 管理安全功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-6-考试要点"><span class="nav-text">2.6 考试要点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-7-复习题"><span class="nav-text">2.7 复习题</span></a></li></ol></div></div></section><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2020224399094607" data-ad-slot="5456418301" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({})</script></div></aside></div></main><footer id="footer" class="footer"><div class="footer-inner"><div class="copyright">&copy; <span itemprop="copyrightYear">2018</span><span class="with-love" id="animate"><i class="fa fa-user"></i></span> <span class="author" itemprop="copyrightHolder">doubiduo</span></div><div class="powered-by">由 <a rel="external nofollow" class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动</div><div class="theme-info"><div class="powered-by"></div> <span class="post-count">全站共214.4k字</span></div></div></footer><div class="back-to-top"><i class="fa fa-arrow-up"></i></div></div><script type="text/javascript">"[object Function]"!==Object.prototype.toString.call(window.Promise)&&(window.Promise=null)</script><script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script><script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script><script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script><script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script><script type="text/javascript">!function(e,t){var n,c=e.getElementsByTagName(t)[0];"function"!=typeof LivereTower&&((n=e.createElement(t)).src="https://cdn-city.livere.com/js/embed.dist.js",n.async=!0,c.parentNode.insertBefore(n,c))}(document,"script")</script><script type="text/javascript">
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+  <script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.ico?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.ico?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.ico?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.ico?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="本文为cissp中人员安全和风险管理概念章节的学习笔记">
+<meta name="keywords" content="学习笔记,cissp,douiduo,diyz.bid">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cissp学习笔记（2）——人员安全和风险管理概念">
+<meta property="og:url" content="https://www.diyz.bid/notes/cissp学习笔记（2）——人员安全和风险管理概念/index.html">
+<meta property="og:site_name" content="doubiduo">
+<meta property="og:description" content="本文为cissp中人员安全和风险管理概念章节的学习笔记">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://www.diyz.bid/notes/cissp学习笔记（2）——人员安全和风险管理概念/风险的元素.png">
+<meta property="og:image" content="https://www.diyz.bid/notes/cissp学习笔记（2）——人员安全和风险管理概念/风险管理框架的6个步骤.png">
+<meta property="og:updated_time" content="2018-10-11T10:12:52.874Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="cissp学习笔记（2）——人员安全和风险管理概念">
+<meta name="twitter:description" content="本文为cissp中人员安全和风险管理概念章节的学习笔记">
+<meta name="twitter:image" content="https://www.diyz.bid/notes/cissp学习笔记（2）——人员安全和风险管理概念/风险的元素.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="doubiduo" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="https://www.diyz.bid/notes/cissp学习笔记（2）——人员安全和风险管理概念/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>cissp学习笔记（2）——人员安全和风险管理概念 | doubiduo</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-124427626-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-124427626-1');
+</script>
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9c8b377e488072512752a147d13a537c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-2020224399094607",
+    enable_page_level_ads: true
+  });
+</script>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">doubiduo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">diyz.bid</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-links">
+    <a href="/links/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-link"></i> <br />友链</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user-circle"></i> <br />关于</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+		    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- taggg -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2020224399094607"
+     data-ad-slot="5456418301"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.diyz.bid/notes/cissp学习笔记（2）——人员安全和风险管理概念/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/diyz.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="doubiduo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">cissp学习笔记（2）——人员安全和风险管理概念
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-07 09:42:00" itemprop="dateCreated datePublished" datetime="2018-09-07T09:42:00+08:00">2018-09-07</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-11 18:12:52" itemprop="dateModified" datetime="2018-10-11T18:12:52+08:00">2018-10-11</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/notes/" itemprop="url" rel="index"><span itemprop="name">notes</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+		  
+            <span class="post-symbolscount">
+              
+
+              
+				<span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">8.2k</span>
+              
+
+              
+
+              
+            </span>
+          
+		  
+          
+          
+             <span id="/notes/cissp学习笔记（2）——人员安全和风险管理概念/" class="leancloud_visitors" data-flag-title="cissp学习笔记（2）——人员安全和风险管理概念">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+              <div class="post-description">本文为cissp中人员安全和风险管理概念章节的学习笔记</div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在本章的考试大纲内容有：<br>安全和风险管理(例如安全、风险、合规性、法律、法规、业务连续性)</p>
+<ul>
+<li>H. 促进人员安全策略<ul>
+<li>H.l 筛选候选人(例如背景检测、教育核查)</li>
+<li>H.2 雇佣协议和策略</li>
+<li>H.3 解雇员工的流程</li>
+<li>H.4 供货商、顾问和承包商控制</li>
+<li>H.5 合规性</li>
+<li>H.6 隐私</li>
+</ul>
+</li>
+<li>I. 理解和应用风险管理的概念<ul>
+<li>I.1 识别威胁和脆弱性</li>
+<li>I.2 风险评估/分析(定性、定量、混合)</li>
+<li>I.3 风险分配/接受(例如系统授权)</li>
+<li>I.4 措施选择</li>
+<li>I.5 实施</li>
+<li>I.6 控制类型(阻止、检测、纠正等)</li>
+<li>I.7 控制评估</li>
+<li>I.8 监控和测量</li>
+<li>I.9 资产评估</li>
+<li>I.10 报告</li>
+<li>I.11 持续改进</li>
+<li>I.l2 风险框架</li>
+</ul>
+</li>
+<li>L. 建立和管理信息安全教育、培训和意识<ul>
+<li>L.l 适合组织需要的水平的安全意识、培训和教育</li>
+<li>L.2 定期的内容相关审查<br>安全评估与测试(设计、执行和分析安全测试)</li>
+</ul>
+</li>
+<li>C.5 培训和意识</li>
+</ul>
+<h3 id="2-1-促进人员安全策略"><a href="#2-1-促进人员安全策略" class="headerlink" title="2.1 促进人员安全策略"></a>2.1 促进人员安全策略</h3><p>　　在任何安全解决方案中，人都是最薄弱的环节。无论部署怎样的物理或逻辑控制，人总能发现避免受到控制、回避或消除控制以及禁用控制的方法。<br>在构建工作描述方面的重要元素包括职责分离、工作职责和岗位轮换：</p>
+<ul>
+<li><strong>职责分离</strong> 职责分离属于安全概念，是指把关键的、重要的和敏感的工作任务分配给若干不同的管理员或高级执行者。这样做能阻止任何一个人具备破坏或削弱重要安全机制的能力。可以将职责分离视为对管理员的最小特权原则的应用。职责分离也能够防止共谋，共谋指的是负面活动由两人或多人共同完成，其意图往往是伪造、偷窃或间谍行为。</li>
+<li><strong>工作职责</strong> 工作职责是要求员工在常规的基础上执行的特定工作任务。根据他们的职责，员工需要访问各种不同的对象、资源和服务。在安全的网络上，用户必须被授予访问与其工作任务有关元素的权限。为了保持最大的安全性，应该按照最小特权原则分配访问权限。最小特权原则规定：在安全环境中，应该授予用户完成工作任务或工作职责所必需的最小访问权限。这条原则的实际应用要求对所有资源和功能进行低级别的粒度访问控制。</li>
+<li><strong>岗位轮换</strong> 岗位轮换是一种简单的方法，组织通过让员工在不同的工作岗位间轮换职位来提高整体安全性。岗位轮换有两个作用。首先，它提供了一种知识冗余类型。当许多员工中的每一位都有能力胜任所要求的若干工作岗位时，如果因为疾病或其他事件导致一位或多位员工在较长的时间内无法工作，那么组织遭受严重停工或生产效率降低的可能性就较小。</li>
+</ul>
+<h4 id="2-1-1-筛选候选人"><a href="#2-1-1-筛选候选人" class="headerlink" title="2.1.1 筛选候选人"></a>2.1.1 筛选候选人</h4><p>　　对于职位的安全性来说，背景调查和安全检查是证明候选人能够胜任工作、具备工作资格和值得信赖的必要因素。</p>
+<h4 id="2-1-2-雇佣协议和策略"><a href="#2-1-2-雇佣协议和策略" class="headerlink" title="2.1.2 雇佣协议和策略"></a>2.1.2 雇佣协议和策略</h4><p>　　雇佣新员工时，应该签署雇佣协议。协议文档概略说明了组织的规则和限制、安全策略、可接受的使用和行为准则、详细的工作描述、破坏活动及其后果、要求员工胜任工作所需的时间。其中，很多条目都是独立的文挡。<br>　　保密协议(NonDisclosure Agreement，NDA)用来保护组织的机密信息不会被以前的员工泄漏。</p>
+<h4 id="2-1-3-解雇员工的流程"><a href="#2-1-3-解雇员工的流程" class="headerlink" title="2.1.3 解雇员工的流程"></a>2.1.3 解雇员工的流程</h4><p>　　离职面谈的主要目的是： 根据前雇员签署的雇佣协议、保密协议和其他安全相关文档来审查责任和约束条件。<br>以下列出了应该尽快处理的其他事直：</p>
+<ul>
+<li>确认员工己归还放在交通工具或家中的组织配发的装置或供应品。</li>
+<li>删除或禁用员工的网络用户账号。</li>
+<li>通知人力资源部门支付最后的薪水，把未使用的休假换成工资，终止所有的福利待遇。</li>
+<li>安排安全部门的人员陪同被解雇的员工在工作场所收拾他们的个人物品。</li>
+<li>通知所有安全人员以及监控出入口的其他人员，确保被解雇的员工只能在安全人员护送下再次进入工作场所。</li>
+</ul>
+<h4 id="2-1-4-供应商、顾问和承包商控制"><a href="#2-1-4-供应商、顾问和承包商控制" class="headerlink" title="2.1.4 供应商、顾问和承包商控制"></a>2.1.4 供应商、顾问和承包商控制</h4><p>服务级别协议(Service-Level Agreement，SLA)中处理的常见问题：</p>
+<ul>
+<li>系统运行时间(作为总体运行时间的百分比)</li>
+<li>最长连续停机时间( 以秒或分钟等计算)</li>
+<li>最大负载</li>
+<li>平均负载</li>
+<li>诊断任务</li>
+<li>故障转移时间(如果冗余处于适当位置)</li>
+</ul>
+<h4 id="2-1-5-合规性"><a href="#2-1-5-合规性" class="headerlink" title="2.1.5 合规性"></a>2.1.5 合规性</h4><p>　　合规是符合或遵守规则、策略、法规、标准或要求的行为。</p>
+<h4 id="2-1-6-隐私"><a href="#2-1-6-隐私" class="headerlink" title="2.1.6 隐私"></a>2.1.6 隐私</h4><ul>
+<li>主动防止对个人可确认的信息(也就是与某人或某个组织直接联系的数据点)的未授权访问。</li>
+<li>防止对被视为个人的或秘密的信息进行未授权的访问。</li>
+<li>防止未被同意或知晓的观察、监控或检查行为。</li>
+</ul>
+<h3 id="2-2-安全治理"><a href="#2-2-安全治理" class="headerlink" title="2.2 安全治理"></a>2.2 安全治理</h3><p>　　安全治理是与支持、定义和指导组织安全工作相关的实践集合。</p>
+<h3 id="2-3-理解和应用风险管理概念"><a href="#2-3-理解和应用风险管理概念" class="headerlink" title="2.3 理解和应用风险管理概念"></a>2.3 理解和应用风险管理概念</h3><p>　　风险管理的主要目的是要将风险降低到一个可以接受的级别。达到风险管理主要目标的过程被称为风险分析。<br>风险分析包括：</p>
+<ul>
+<li>分析环境中的风险</li>
+<li>评估每种风险发生的可能性和造成的损失</li>
+<li>评估各种风险对策的成本以及生成安全措施的成本/效益报告并呈交给上级管理者</li>
+</ul>
+<h4 id="2-3-1-风险术语"><a href="#2-3-1-风险术语" class="headerlink" title="2.3.1 风险术语"></a>2.3.1 风险术语</h4><ul>
+<li><strong>资产</strong> 资产是指环境中应该加以保护的任何事物，是用于商业过程和任务中的任何东西。</li>
+<li><strong>资产估值</strong> 资产估值指的是根据实际的成本和非货币性支出为资产分配的货币价值。</li>
+<li><strong>威胁</strong> 任何可能发生的、为组织或某种特定资产带来所不希望的或不想要结果的事情都被称为威胁。</li>
+<li><strong>脆弱性</strong> 资产中的弱点或防护措施/对策的缺乏被称为脆弱性。</li>
+<li><strong>暴露</strong> 暴露是指由于威胁而容易造成资产损失，脆弱性会被或将被威胁主体或威胁事件加以利用的可能性是存在的。</li>
+<li><strong>风险</strong> 风险是某种威胁利用脆弱性并导致资产损害的可能性，是对可能性、概率或偶然性的评估。</li>
+<li><strong>防护措施</strong> 防护措施或对策是指能消除脆弱性或对付一种或多种特定威胁的任何方法。</li>
+<li><strong>攻击</strong> 攻击指的是威胁主体对脆弱性的利用。</li>
+<li><strong>破坏</strong> 破坏是指发生安全机制被威胁主体绕过或阻挠的事情。<img src="/notes/cissp学习笔记（2）——人员安全和风险管理概念/风险的元素.png" title="[风险的元素]">
+</li>
+</ul>
+<h4 id="2-3-2-识别威胁和脆弱性"><a href="#2-3-2-识别威胁和脆弱性" class="headerlink" title="2.3.2 识别威胁和脆弱性"></a>2.3.2 识别威胁和脆弱性</h4><p>　　威胁可能来自任何地方。<br>编制威胁列表时，需要考虑以下各项：</p>
+<ul>
+<li>病毒</li>
+<li>级联错误(一系列逐步上升的错误)和相关性错误(由于依赖的事件或事物不存在而引起)</li>
+<li>己授权用户的犯罪行为</li>
+<li>运动现象(振动、炸裂声等)</li>
+<li>有企图的攻击</li>
+<li>重组</li>
+<li>己授权的用户疾病或传染病</li>
+<li>黑客</li>
+<li>不满的员工</li>
+<li>用户错误</li>
+<li>自然灾害(地震、水灾、火灾、火山爆发、咫风、龙卷风、海啸等)</li>
+<li>物理损坏(碎裂、抛射、线缆被切断等)</li>
+<li>数据、资源或服务的误用</li>
+<li>对数据分类或安全策略的改变或危害</li>
+<li>政府、党派或军队的入侵或限制</li>
+<li>处理错误、缓冲区溢出</li>
+<li>滥用个人特权</li>
+<li>温度失控</li>
+<li>能量异常( 静电噪音、EM 脉冲、无线电频率、电源损耗、电涌等)</li>
+<li>数据丢失</li>
+<li>信息战争</li>
+<li>破产或改变/中断业务活动</li>
+<li>编码/编程错误</li>
+<li>入侵(物理的或逻辑的)</li>
+<li>环境因素(存在天然气、液体、生物等)</li>
+<li>设备故障</li>
+<li>物理盗窃</li>
+<li>社会工程学</li>
+</ul>
+<h4 id="2-3-3-风险评估-分析"><a href="#2-3-3-风险评估-分析" class="headerlink" title="2.3.3 风险评估/分析"></a>2.3.3 风险评估/分析</h4><p>　　目前有两种风险评估方法： 定量的风险分析和定性的风险分析。定量的风险分析把真实的货币价值分配给损失的资<br>产。定性的风险分析把主观的和无形的价值分配给损失的资产。</p>
+<ol>
+<li>定量的风险分析</li>
+<li>定性的风险分析</li>
+</ol>
+<h4 id="2-3-4-风险分配-接受"><a href="#2-3-4-风险分配-接受" class="headerlink" title="2.3.4 风险分配/接受"></a>2.3.4 风险分配/接受</h4><p>风险分析的结果包括：</p>
+<ul>
+<li>所有资产的完整且详细的评估。</li>
+<li>所有威肋和风险、发生概率以及一旦发生的损失范围的详细列表。</li>
+<li>针对特定威胁的并且标识出有效性与ALE的防护措施和对策列表。</li>
+<li>每种防护措施的成本/效益分析。</li>
+</ul>
+<h4 id="2-3-5-对策的选择和评估"><a href="#2-3-5-对策的选择和评估" class="headerlink" title="2.3.5 对策的选择和评估"></a>2.3.5 对策的选择和评估</h4><p>　　对策和防护措施需要根据业务任务的上下文进行评估。</p>
+<h4 id="2-3-6-实施"><a href="#2-3-6-实施" class="headerlink" title="2.3.6 实施"></a>2.3.6 实施</h4><p>　　安全控制、对策和防护措施可以通过行政管理性、逻辑/技术性或物理性控制来实现。</p>
+<h4 id="2-3-7-控制的类型"><a href="#2-3-7-控制的类型" class="headerlink" title="2.3.7 控制的类型"></a>2.3.7 控制的类型</h4><ul>
+<li>1.威慑</li>
+<li>2.预防</li>
+<li>3.检测</li>
+<li>4.补偿</li>
+<li>5.纠正</li>
+<li>6.恢复</li>
+<li>7.指令</li>
+</ul>
+<h4 id="2-3-8-监控和测量"><a href="#2-3-8-监控和测量" class="headerlink" title="2.3.8 监控和测量"></a>2.3.8 监控和测量</h4><h4 id="2-3-9-资产评估"><a href="#2-3-9-资产评估" class="headerlink" title="2.3.9 资产评估"></a>2.3.9 资产评估</h4><p>对有形资产和无形资产的估值：</p>
+<ul>
+<li>购置成本</li>
+<li>开发成本</li>
+<li>经营或管理成本</li>
+<li>维护或保养成本</li>
+<li>获得资产的成本</li>
+<li>保护或维持资产的成本</li>
+<li>所有者和用户的价值</li>
+<li>竞争者的价值</li>
+<li>知识产权或资产的价值</li>
+<li>市场评估(可维持的价格)</li>
+<li>产品换代成本</li>
+<li>生产率提升或下降</li>
+<li>资产存在和损失的运营成本</li>
+<li>资产损失责任</li>
+<li>用处</li>
+</ul>
+<h4 id="2-3-10-持续改进"><a href="#2-3-10-持续改进" class="headerlink" title="2.3.10 持续改进"></a>2.3.10 持续改进</h4><p>　　安全性总是在不断变化。因此，随着时间的推移，任何己经实现的安全解决方案都需要更新和更改。如果不是由选定的对策提供连续的完善路径，那么应该将其替换为可以为安全性提供灵活改进的对策。</p>
+<h4 id="2-3-11-风险框架"><a href="#2-3-11-风险框架" class="headerlink" title="2.3.11 风险框架"></a>2.3.11 风险框架</h4><p>风险管理系统有以下特点：</p>
+<ul>
+<li>通过实施强劲且持续不断的监管过程促进实时风险管理概念和不间断的信息系统授权概念的提升。</li>
+<li>鼓励通过自动化操作，向高层领导者提供必要的信息以帮助他们在组织信息系统方面做出基于风险且划算的决定，以支持他们的核心任务和商业功能。</li>
+<li>将信息安全与公司系统结构以及系统开发生命周期相结合。</li>
+<li>强调选择、实施、评估、安全控制的监管以及信息系统的授权。</li>
+<li>通过风险管理(功能)将信息系统层面的风险管理过程与组织层面的风险管理过程相联系。</li>
+</ul>
+<p>为部署在组织信息系统中井使用这些系统的安全控制建立责任和问责一体化制度。风险管理系统的步骤包括：</p>
+<ul>
+<li>分类</li>
+<li>选择</li>
+<li>实施</li>
+<li>评估</li>
+<li>授权</li>
+<li>监控</li>
+</ul>
+<img src="/notes/cissp学习笔记（2）——人员安全和风险管理概念/风险管理框架的6个步骤.png" title="[风险管理框架的6个步骤]">
+<h3 id="2-4-建立和管理信息安全教育、培训和意识"><a href="#2-4-建立和管理信息安全教育、培训和意识" class="headerlink" title="2.4 建立和管理信息安全教育、培训和意识"></a>2.4 建立和管理信息安全教育、培训和意识</h3><p>　　安全培训的先决条件是意识。培养安全意识的目标是要将安全放到首位并让用户认识到这一点。意识在整个组织机构之间建立了通用的安全理解基线或基础。</p>
+<h3 id="2-5-管理安全功能"><a href="#2-5-管理安全功能" class="headerlink" title="2.5 管理安全功能"></a>2.5 管理安全功能</h3><ul>
+<li>安全必须符合成本效益原则</li>
+<li>安全必须可度量</li>
+<li>安全机制本身和安全治理过程都会消耗资源</li>
+<li>安全管理功能包括信息安全策略的开发和执行</li>
+</ul>
+<h3 id="2-6-考试要点"><a href="#2-6-考试要点" class="headerlink" title="2.6 考试要点"></a>2.6 考试要点</h3><ul>
+<li><strong>知道隐私如何被放入IT 安全领域</strong> 知道隐私的多重含主U定义，为什么保护它是非常重要的，以及围绕隐私尤其是在工作环境中的隐私的各种问题。</li>
+<li><strong>能够讨论安全的第三方治理</strong> 第三方治理的监督制度可以根据法律、法规、行业标准或许可要求进行强制执行。</li>
+<li><strong>能够定义整体的风险管理</strong> 风险管理的过程如下： 识别可能造成数据损坏或泄漏的因素、根据数据的价值与对策的成本来评估这些因素，以及实现能够减轻或降低风险的有成本效益的解决方案。通过执行风险管理，就能够为降低整体风险奠定基础。</li>
+<li><strong>理解风险分析及涉及的要素</strong> 执行风险分析能够为上层管理者提供详细、必要的依据，从而使其决定哪些风险应当被削弱、哪些风险应当被转移以及哪些风险应当被接受。为了全面评估风险和随后采取恰当的防范措施，就必须分析下列要素： 资产、资产估值、威胁、脆弱性、暴露、风险、己发生的风险、防护措施、对策、攻击和突破。</li>
+<li><strong>知道如何评估威胁</strong> 威胁可能有很多来源，包括町、人和自然界。以团队的形式评估风险以便提供范围最广的视角。通过从各个角度全面地评估风险，就可以减少系统的脆弱性。</li>
+<li><strong>理解定量的风险分析</strong> 定量的风险分析关注硬性指标和百分比。全部使用定量分析是不可能的，因为风险的某些方面是无形的。定量的风险分析过程涉及： 资产估值和威胁识别，接着确定威胁发生的潜在频率和损失，结果是防护措施的成本/效益分析。</li>
+<li><strong>能够解释暴露因子(EF)的概念</strong> 暴露因子是定量风险分析的一个元素，表示组织的某种特定资产被己发生的风险损坏后造成损失的百分比。通过计算暴露因子，能够较好地实现风险管理策略。</li>
+<li><strong>了解单一损失期望(SLE)井知道如何计算</strong> SLE是定量风险分析的一个元素，表示与针对特定资产的单个己发生风险相关联的成本。计算SLE时，可以使用公式： SLE=资产价值(AV) *暴露因子(EF)。</li>
+<li><strong>理解年发生比率(ARO)</strong> ARO是定量风险分析的一个元素，指的是特定威胁或风险在一年内将会发生(也就是成为现实)的预计频率。理解ARO能够进一步计算风险和采取适当的防范措施。</li>
+<li><strong>了解年度损失期望(ALE)井知道如何计算</strong> ALE是定量风险分析的一个元素，指的是针对某种特定的资产，所有己实施的威胁每年可能造成的损失成本。计算ALE 时可以使用公式： ALE=单一损失期望(SLE)*年发生比率(ARO)。</li>
+<li><strong>了解评估防护措施的公式</strong> 除了确定防护措施每年的成本外，还必须计算实现措施后资产的ALE。为此，可以使用下面这个公式： 实现防护措施前的ALE- 实现防护措施后的ALE-每年的防护措施成本=公司防护措施的价值，即(ALEl - ALE2) - ACS。</li>
+<li><strong>理解定性的风险分析</strong> 定性的风险分析更多是根据场景而不是根据计算。这种方式不是为可能发生的损失分配准确的货币价值，而是按程度将威胁分成等级，从而评估其风险、成本和影响。这些分析结果可以帮助那些负责制定风险管理策略的人。</li>
+<li><strong>理解Delphi技术</strong> Delphi技术只是一个简单的匿名反馈和响应过程，这个过程被用于达成一致意见。达成的一致意见为责任方提供了正确评估风险和实施解决方案的机会。</li>
+<li><strong>了解处理风险的选项</strong> 降低风险或风险缓解是防护措施和对策的实现。风险转让或转移风险是把风险带来的损失成本转移给另一个实体或组织。购买保险就是转让或转移风险的一种常见形式。接受风险是因为管理层对可能采用的防护措施进行了成本/效益分析上的评估，并且确定对策的戚本远远超过风险可能造成的损失的成本，还意味着管理层己经同意接受风险发生所造成的结果和损失。</li>
+<li><strong>能够解释总风险、剩余风险和控制间隙</strong> 总风险指的是在没有实现防护措施的情况下，组织将要面对的风险数量。计算总风险的公式是： 威胁<em>脆弱性</em>资产价值=总风险。剩余风险是管理层选择接受而不是缓解的风险。总风险和剩余风险之间的差值被称为控制间隙，控制间隙是指通过实现防护措施被减少的风险数量。计算剩余风险的公式是： 总风险控制间隙=剩余风险。</li>
+<li><strong>理解控制类型</strong> “访问控制”这一术语指的是一系列执行以下任务的控制=确保只有授权用户能够登录而未授权用户不能访问资源。控制类型包括预防、测探、校正、警报、恢复、指令和补偿控制。按执行方式控制可分为：行政管理性控制、逻辑性控制或物理性控制。</li>
+<li><strong>理解雇佣新员工的安全含义</strong> 为了制定合适的安全计划，必须具有工作描述、工作分类、工作任务、工作职责、阻止共谋、候选人筛选、背景调查、安全许可、雇佣协议和竞业禁止协议的标准。通过部署这些机制，确保新雇佣的人员意识到要求的安全标准，从而保护组织的资产。</li>
+<li><strong>能够解释职责分离</strong> 职责分离属于安全概念，指的是将关键的、重要的和敏感的工作任务分配给不同的人。通过分离责任这种方式，就可以确保任何人不可能危及系统安全。</li>
+<li><strong>理解最小特权原则</strong> 最小特权原则表明，在安全环境中，用户应该被授予完成要求的工作任务或工作职责所必需的最少访问权限。通过限制用户只能访问完成工作任务所要求的那些资源，就能限制敏感信息的脆弱性。</li>
+<li><strong>了解岗位轮换和强制性休假是必要的</strong> 岗位轮换有两个作用： 提供了一种知识元余类型： 人员流动可以减少伪造、数据更改、偷窃、阴谋破坏和信息滥用的风险。一到两个星期的强制性休假被用于审计和认证员工的工作任务和权限。这种做法往往比较容易发现滥用、欺诈或疏忽行为。</li>
+<li><strong>理解供应商控制、顾问控制和承包商控制</strong> 利用供应商控制、顾问控制以及承包商控制来确定这个主要组织外部的不同实体、个人或机构的绩效水平、期望值高低、薪酬水平以及影响程度。通常情况下，服务水平协议(SLA) 的文件或政策中会对这些控制进行明确规定。</li>
+<li><strong>能够解释适当的解雇策略</strong> 解雇策略定义了解雇员工的过程，应当包括： 始终有一位证人在场，禁止员工访问网络，进行离职面谈，护送员工离开办公室，交回安全标志和门卡，返还公司的财产。</li>
+<li><strong>了解如何实现安全意识培训</strong> 在真正的培训开始之前，必须让用户树立主人翁的安全意识。一旦树立了安全意识，培训或教育员工执行工作任务和遵守安全策略就可以开始了。所有的新员工都需要进行培训。这样他们才能够遵守安全策略中规定的所有标准、指导方针和步骤。教育是一项更细致的工作，学生/用户需要学习比他们完成工作任务实际所需知识多得多的知识。教育往往与用户参加认证考试或寻求职务晋升相关联。</li>
+<li><strong>理解如何管理安全功能</strong> 为了实现管理安全功能，组织必须采取恰当且充分的安全治理。执行风险评估以驱动安全政策的施行是最明显、最直接的安全功能管理例子。同时这也和预算、度量、资源以及信息安全策略以及评估安全系统的完整性及有效性息息相关。</li>
+<li><strong>了解风险管理框架的6个步骤</strong> 风险管理框架的6 个步骤分别是： 分类、选择、实施、评估、授权和监控。</li>
+</ul>
+<h3 id="2-7-复习题"><a href="#2-7-复习题" class="headerlink" title="2.7 复习题"></a>2.7 复习题</h3><ol>
+<li><p>以下哪一项是任何安全解决方案中最薄弱的元素?<br>A. 软件产品<br>B. 互联网连接<br>C. 安全策略<br>D. 人</p>
+</li>
+<li><p>当试图雇佣新员工时，首先要做什么?<br>A. 创建工作描述<br>B. 设置职位分类<br>C. 审查候选人<br>D. 要求简历</p>
+</li>
+<li><p>以下哪一项是离职面谈的主要目的?<br>A. 返还离职员工的个人物品。<br>B. 审查保密协议。<br>C. 评估离职员工的表现。<br>D. 取消离职员工的网络访问账户</p>
+</li>
+<li><p>当员工被解雇时，接下来应该做什么?<br>A. 在他们被正式解雇前几个小时通知员工。<br>B. 一旦他们被通知解雇，就禁用员工的网络访问权。<br>C. 发送一封广播的电子邮件通知大家，某个员工将被解雇。<br>D. 等到你和雇员是楼里唯一剩下的人时宣布解雇。</p>
+</li>
+<li><p>如果一个组织与外部实体签订合同，提供关键业务功能或服务，例如账户或技术支持。用于<br>确保这些实体能够提供充分的安全性的流程被称为什么?<br>A. 资产识别<br>B. 第三方管理<br>C. 离职审查<br>D. 定性分析</p>
+</li>
+<li><p>___的一部分是业务流程和组织策略的逻辑和实际调查。这个过lV策略审查确保定期的和执行的业务任务、系统和方法是可行、有效的，并且具有成本效益，但最重要的是(至少相对于安全治理)，他们通过减少脆弱性和避免、减少或缓解风险来支持安全性。<br>A. 混合评估<br>B. 风险规避过程<br>C. 对策选择<br>D. 文档审查</p>
+</li>
+<li><p>以下哪一项不是正确的?<br>A. IT安全只能针对逻辑性或技术性的攻击提供保护。<br>B. 实现风险管理目标的过程被称为风险分析。<br>C. 对于IT基础设施的风险是以所有计算机为基础的。<br>D. 资产是在业务流程或任务中使用的任何东西。</p>
+</li>
+<li><p>下列哪一项不是风险分析过程中的元素?<br>A. 为风险分析环境。<br>B. 为防护措施创建成本/收益报告并提交给上层管理者。<br>C. 选择适当的防护措施并实施它们。<br>D. 评估每个威胁事件，及其发生和造成损害的成本和可能性。</p>
+</li>
+<li><p>在风险分析中，下列哪一项一般不会被认为是资产?<br>A. 开发过程<br>B. IT基础设施<br>C. 专有的系统资源<br>D. 用户的个人文件</p>
+</li>
+<li><p>以下哪一项表示偶然的或有意的漏洞利用?<br>A. 威胁事件<br>B. 风险<br>C. 威胁代理<br>D. 破坏</p>
+</li>
+<li><p>当没有或缺乏防护措施和对策时，会存在什么?<br>A. 脆弱性<br>B. 暴露<br>C. 风险<br>D. 渗透</p>
+</li>
+<li><p>下列哪一项不是有效的风险定义?<br>A. 几率、可能性或机会的评估<br>B. 移除脆弱性或防止一个(或多个)特定攻击发生的任何事情<br>C. 风险=威胁*脆弱性<br>D. 每个暴露实例</p>
+</li>
+<li><p>当评估防护措施时，在大多数情况下应遵循什么规则?<br>A. 资产年度损失期望成本不应该超过年度的保护成本。<br>B. 防护措施的年度成本应该等于资产价值。<br>C. 防护措施的年度成本不应该超过资产的年度损失期望。<br>D. 防护措施的年度成本不应该超过安全预算的10%。</p>
+</li>
+<li><p>单一损失期望是怎样计算的?<br>A. 威胁+脆弱性<br>B. 资产价值<em>暴露因子<br>C. 年发生比率</em>脆弱性<br>D. 年发生比率<em>资产价值</em>暴露因子</p>
+</li>
+<li><p>一家公司的防护措施的价值怎样计算?<br>A. 使用防护措施前的ALE-使用防护措施后的ALE 防护措施的年度成本<br>B. 防护前ALE*防护措施的ARO<br>C. 执行防护后ALE+年度防护价值-控制间隙<br>D. 总风险一控制间隙</p>
+</li>
+<li><p>什么安全控制直接关注于防止共谋?<br>A. 最小特权原则<br>B. 工作描述<br>C. 职责分离<br>D. 定量的风险分析</p>
+</li>
+<li><p>什么样的流程或事件通常是由组织主持，针对具有相似工作职能的员工群体?<br>A. 教育<br>B. 意识<br>C. 培训<br>D. 解雇</p>
+</li>
+<li><p>以下哪一项没有具体或直接关系到组织的安全功能管理?<br>A. 员工工作满意度<br>B. 度量<br>C. 信息安全策略<br>D. 预算</p>
+</li>
+<li><p>由于缺少灭火器，你意识到一场火灾的威胁和脆弱性，然后开始执行风险分析。基于这些<br>信息，下列哪些是可能的风险?<br>A. 病毒感染<br>B. 设备损坏<br>C. 系统故障<br>D. 未授权地访问机密信息</p>
+</li>
+</ol>
+<p>20 通过特定的威胁/脆弱性/风险关系，己经执行了基本的定量风险分析。选择一个可能的对策。当再次计算时，下列哪个因素会变化?<br>A. 暴露因子<br>B. 单一损失期望<br>C. 资产价值<br>D. 年发生比率</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+	
+	<div>
+      
+	</div>
+	
+	<div>
+		
+			<div>
+    
+        <div style="text-align:center;color: #555;font-size:14px;">-------------End-------------</div>
+    
+</div>
+		
+	</div>
+	
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Thank you very much for your donation.</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt=" 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt=" 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+      <div id="bitcoin" style="display: inline-block">
+        <img id="bitcoin_qr" src="/images/bitcoin.png" alt=" 比特币"/>
+        <p>比特币</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/cissp/" rel="tag"><i class="fa fa-tag"></i> cissp</a>
+          
+            <a href="/tags/学习笔记/" rel="tag"><i class="fa fa-tag"></i> 学习笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/notes/cissp学习笔记（1）——通过原则和策略的安全治理/" rel="next" title="cissp学习笔记（1）——通过原则和策略的安全治理">
+                <i class="fa fa-chevron-left"></i> cissp学习笔记（1）——通过原则和策略的安全治理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/notes/cissp学习笔记（3）——业务连续性计划/" rel="prev" title="cissp学习笔记（3）——业务连续性计划">
+                cissp学习笔记（3）——业务连续性计划 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zODM5Mi8xNDkyMA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+
+    
+  
+ <div class="sidebar-inner">
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/diyz.jpg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+		
+		  
+		  
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a rel="external nofollow" href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=1321425651" target="_blank" title="QQ" rel="external nofollow"><i class="fa fa-fw fa-qq"></i>QQ</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a rel="external nofollow" href="mailto:1321425651@qq.com" target="_blank" title="E-Mail" rel="external nofollow"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a rel="external nofollow" href="https://github.com/doubiduo" target="_blank" title="GitHub" rel="external nofollow"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a rel="external nofollow" href="https://steamcommunity.com/id/doubiduo" target="_blank" title="Steam" rel="external nofollow"><i class="fa fa-fw fa-steam"></i>Steam</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a rel="external nofollow" href="https://www.diyz.bid/atom.xml" target="_blank" title="RSS" rel="external nofollow"><i class="fa fa-fw fa-rss"></i>RSS</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+			
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-促进人员安全策略"><span class="nav-text">2.1 促进人员安全策略</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-1-筛选候选人"><span class="nav-text">2.1.1 筛选候选人</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-2-雇佣协议和策略"><span class="nav-text">2.1.2 雇佣协议和策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-3-解雇员工的流程"><span class="nav-text">2.1.3 解雇员工的流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-4-供应商、顾问和承包商控制"><span class="nav-text">2.1.4 供应商、顾问和承包商控制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-5-合规性"><span class="nav-text">2.1.5 合规性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-6-隐私"><span class="nav-text">2.1.6 隐私</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-安全治理"><span class="nav-text">2.2 安全治理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-理解和应用风险管理概念"><span class="nav-text">2.3 理解和应用风险管理概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-1-风险术语"><span class="nav-text">2.3.1 风险术语</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-2-识别威胁和脆弱性"><span class="nav-text">2.3.2 识别威胁和脆弱性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-3-风险评估-分析"><span class="nav-text">2.3.3 风险评估/分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-4-风险分配-接受"><span class="nav-text">2.3.4 风险分配/接受</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-5-对策的选择和评估"><span class="nav-text">2.3.5 对策的选择和评估</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-6-实施"><span class="nav-text">2.3.6 实施</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-7-控制的类型"><span class="nav-text">2.3.7 控制的类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-8-监控和测量"><span class="nav-text">2.3.8 监控和测量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-9-资产评估"><span class="nav-text">2.3.9 资产评估</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-10-持续改进"><span class="nav-text">2.3.10 持续改进</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-11-风险框架"><span class="nav-text">2.3.11 风险框架</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-建立和管理信息安全教育、培训和意识"><span class="nav-text">2.4 建立和管理信息安全教育、培训和意识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-管理安全功能"><span class="nav-text">2.5 管理安全功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-6-考试要点"><span class="nav-text">2.6 考试要点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-7-复习题"><span class="nav-text">2.7 复习题</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+	  
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- taggg -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2020224399094607"
+     data-ad-slot="5456418301"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">doubiduo</span>
+
+  
+
+  
+</div>
+
+
+  
+
+
+
+  <div class="powered-by">由 <a rel="external nofollow" class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">全站共214.4k字</span>
+</div>
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
     // Popup Window;
     var isfetched = false;
     var isXml = true;
@@ -316,4 +1617,159 @@
         onPopupClose();
       }
     });
-  </script><script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script><script>AV.initialize("auf5TIy4OQOv6c52DIqTOgHd-gzGzoHsz","tBf3kX7KmYaId0Nh4PlLx3XQ")</script><script>function showTime(e){var t=new AV.Query(e),c=[],u=$(".leancloud_visitors");u.each(function(){c.push($(this).attr("id").trim())}),t.containedIn("url",c),t.find().done(function(e){var t=".leancloud-visitors-count";if(0!==e.length){for(var n=0;n<e.length;n++){var o=e[n],i=o.get("url"),s=o.get("time"),r=document.getElementById(i);$(r).find(t).text(s)}for(n=0;n<c.length;n++){i=c[n],r=document.getElementById(i);var l=$(r).find(t);""==l.text()&&l.text(0)}}else u.find(t).text(0)}).fail(function(e,t){console.log("Error: "+t.code+" "+t.message)})}function addCount(i){var e=$(".leancloud_visitors"),s=e.attr("id").trim(),r=e.attr("data-flag-title").trim(),t=new AV.Query(i);t.equalTo("url",s),t.find({success:function(e){if(0<e.length){var t=e[0];t.fetchWhenSave(!0),t.increment("time"),t.save(null,{success:function(e){$(document.getElementById(s)).find(".leancloud-visitors-count").text(e.get("time"))},error:function(e,t){console.log("Failed to save Visitor num, with error message: "+t.message)}})}else{var n=new i,o=new AV.ACL;o.setPublicReadAccess(!0),o.setPublicWriteAccess(!0),n.setACL(o),n.set("title",r),n.set("url",s),n.set("time",1),n.save(null,{success:function(e){$(document.getElementById(s)).find(".leancloud-visitors-count").text(e.get("time"))},error:function(e,t){console.log("Failed to create")}})}},error:function(e){console.log("Error:"+e.code+" "+e.message)}})}$(function(){var e=AV.Object.extend("Counter");1==$(".leancloud_visitors").length?addCount(e):1<$(".post-title-link").length&&showTime(e)})</script><script>!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script></body></html>
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("auf5TIy4OQOv6c52DIqTOgHd-gzGzoHsz", "tBf3kX7KmYaId0Nh4PlLx3XQ");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            
+            counter.save(null, {
+              success: function(counter) {
+                
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            
+              var newcounter = new Counter();
+              /* Set ACL */
+              var acl = new AV.ACL();
+              acl.setPublicReadAccess(true);
+              acl.setPublicWriteAccess(true);
+              newcounter.setACL(acl);
+              /* End Set ACL */
+              newcounter.set("title", title);
+              newcounter.set("url", url);
+              newcounter.set("time", 1);
+              newcounter.save(null, {
+                success: function(newcounter) {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+                },
+                error: function(newcounter, error) {
+                  console.log('Failed to create');
+                }
+              });
+            
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
